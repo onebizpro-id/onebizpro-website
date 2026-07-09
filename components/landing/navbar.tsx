@@ -8,7 +8,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <Link href="/" className="flex items-center">
-          <Image src="/logo.png" alt="OneBizPro" width={134} height={32} priority />
+          <Image src="/logo.png" alt="OneBizPro" width={167} height={32} priority />
         </Link>
         <a
           href={waLink("Halo, saya ingin coba OneBizPro.")}

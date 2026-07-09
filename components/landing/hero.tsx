@@ -1,0 +1,32 @@
+import { buttonVariants } from "@/components/ui/button";
+import { waLink } from "@/lib/whatsapp";
+
+export function Hero() {
+  return (
+    <section className="mx-auto max-w-5xl px-6 pt-20 pb-16 text-center sm:pt-28 sm:pb-24">
+      <h1 className="text-balance text-4xl font-semibold tracking-tight text-primary sm:text-5xl lg:text-6xl">
+        Mudah Digunakan, Efisien, Berdampak Besar
+      </h1>
+      <p className="mx-auto mt-6 max-w-2xl text-balance text-lg text-muted-foreground sm:text-xl">
+        Semakin mudah dipakai, semakin efisien kerja sehari-hari — dan itu yang
+        akhirnya membuat dampaknya terasa besar untuk bisnis kamu.
+      </p>
+      <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href={waLink("Halo, saya ingin coba OneBizPro.")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={buttonVariants({ size: "lg" })}
+        >
+          Coba Gratis
+        </a>
+        <a href="#cara-kerja" className={buttonVariants({ variant: "outline", size: "lg" })}>
+          Lihat Cara Kerjanya
+        </a>
+      </div>
+      <p className="mt-4 text-sm text-muted-foreground">
+        Simple untuk dipakai, pintar di belakang layar.
+      </p>
+    </section>
+  );
+}

@@ -1,5 +1,6 @@
 import { buttonVariants } from "@/components/ui/button";
 import { waLink } from "@/lib/whatsapp";
+import { BOOKING_APP_URL } from "@/lib/bookingApp";
 
 export function Hero() {
   return (
@@ -20,7 +21,7 @@ export function Hero() {
         >
           Coba Gratis
         </a>
-        <a href="#cara-kerja" className={buttonVariants({ variant: "outline", size: "lg" })}>
+        <a href={BOOKING_APP_URL} className={buttonVariants({ variant: "outline", size: "lg" })}>
           Lihat Cara Kerjanya
         </a>
       </div>

@@ -1,15 +1,10 @@
 import { CheckCircle2, ArrowDown, ArrowUpRight, AlertTriangle, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const heroSlots = [
-  { time: "08:00", state: "outline" },
-  { time: "09:00", state: "orange" },
-  { time: "10:00", state: "outline" },
-  { time: "11:00", state: "orange" },
-  { time: "12:00", state: "green" },
-  { time: "13:00", state: "outline" },
-  { time: "14:00", state: "outline" },
-  { time: "15:00", state: "orange" },
+const heroStats = [
+  { label: "Booking", value: "12", badge: "▲ 18%", tone: "up" },
+  { label: "Pengeluaran", value: "Rp12,4jt", badge: "Terkendali", tone: "neutral" },
+  { label: "Tim Hadir", value: "5/5", badge: "Tepat waktu", tone: "up" },
 ] as const;
 
 export function HeroIllustration() {
@@ -17,26 +12,28 @@ export function HeroIllustration() {
     <div className="space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-semibold text-foreground">Court A · Indoor</p>
-          <p className="text-xs text-muted-foreground">Lapangan Padel · Rp150.000/60 menit</p>
+          <p className="text-sm font-semibold text-foreground">Ringkasan Bisnis</p>
+          <p className="text-xs text-muted-foreground">Semua modul, satu tempat</p>
         </div>
         <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
           Hari ini
         </span>
       </div>
 
-      <div className="grid grid-cols-4 gap-2">
-        {heroSlots.map((slot) => (
-          <div
-            key={slot.time}
-            className={cn(
-              "rounded-md border py-2 text-center text-xs font-medium",
-              slot.state === "orange" && "border-accent bg-accent/10 text-accent",
-              slot.state === "green" && "border-emerald-500 bg-emerald-500/10 text-emerald-600",
-              slot.state === "outline" && "border-border text-muted-foreground"
-            )}
-          >
-            {slot.time}
+      <div className="grid grid-cols-3 gap-3">
+        {heroStats.map((stat) => (
+          <div key={stat.label} className="rounded-lg border border-border px-3 py-3">
+            <p className="text-xs text-muted-foreground">{stat.label}</p>
+            <p className="mt-1 text-base font-semibold text-foreground">{stat.value}</p>
+            <span
+              className={cn(
+                "mt-1.5 inline-block rounded-full px-2 py-0.5 text-[10px] font-medium",
+                stat.tone === "up" && "bg-emerald-500/10 text-emerald-600",
+                stat.tone === "neutral" && "bg-muted text-muted-foreground"
+              )}
+            >
+              {stat.badge}
+            </span>
           </div>
         ))}
       </div>
@@ -44,8 +41,8 @@ export function HeroIllustration() {
       <div className="flex items-center gap-2 rounded-lg bg-primary px-4 py-3 text-primary-foreground">
         <CheckCircle2 className="h-4 w-4 shrink-0 text-accent" />
         <p className="text-xs leading-snug">
-          Jadwal <span className="font-semibold">12:00</span> otomatis terbuka
-          kembali setelah pembatalan.
+          Booking, keuangan, dan tim — semua otomatis terhubung, tanpa kerja
+          dobel.
         </p>
       </div>
     </div>
@@ -222,7 +219,8 @@ export function AutomationIllustration() {
         <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-600" />
       </div>
       <div className="rounded-md bg-muted px-3 py-2 text-[11px] leading-snug text-muted-foreground">
-        Tidak perlu dipantau manual — sistem yang jalan sendiri.
+        Berlaku untuk jadwal booking, tagihan, sampai pengingat tim — semua
+        jalan otomatis di belakang layar.
       </div>
     </div>
   );

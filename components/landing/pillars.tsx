@@ -1,8 +1,15 @@
 import { LineChart, NotebookText, RefreshCw } from "lucide-react";
+import { BrowserFrame } from "@/components/landing/browser-frame";
+import {
+  InsightIllustration,
+  ReportIllustration,
+  AutomationIllustration,
+} from "@/components/landing/illustrations";
 
 const pillars = [
   {
     icon: LineChart,
+    Illustration: InsightIllustration,
     title: "Asisten yang Kasih Tahu Apa yang Penting",
     paragraphs: [
       "Bukan cuma angka, tapi artinya. Booking naik minggu ini, atau pengeluaran maintenance lebih besar dari biasanya — kamu tahu duluan, tanpa buka laporan satu per satu.",
@@ -12,6 +19,7 @@ const pillars = [
   },
   {
     icon: NotebookText,
+    Illustration: ReportIllustration,
     title: "Laporan yang Sudah Jadi, Bukan Data Mentah",
     paragraphs: [
       "Tiap minggu, asisten kamu rangkum semua yang terjadi di bisnis — pemasukan, booking, aktivitas tim — jadi beberapa kalimat yang gampang dibaca, bukan spreadsheet yang perlu ditafsirkan sendiri.",
@@ -21,6 +29,7 @@ const pillars = [
   },
   {
     icon: RefreshCw,
+    Illustration: AutomationIllustration,
     title: "Kerjaan Berulang, Biar Jalan Sendiri",
     paragraphs: [
       "Jadwal yang batal otomatis kembali tersedia. Kerjaan kecil yang sering luput, sekarang berjalan sendiri di belakang layar — supaya tidak ada pendapatan yang bocor dari hal yang seharusnya sederhana.",
@@ -43,21 +52,26 @@ export function Pillars() {
       </div>
 
       <div className="mt-14 grid gap-6 sm:grid-cols-3">
-        {pillars.map(({ icon: Icon, title, paragraphs, closing }) => (
+        {pillars.map(({ icon: Icon, Illustration, title, paragraphs, closing }) => (
           <div
             key={title}
-            className="flex flex-col rounded-lg border border-border bg-card p-8 shadow-sm"
+            className="flex flex-col overflow-hidden rounded-lg border border-border bg-card shadow-sm"
           >
-            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <Icon className="h-5 w-5" />
+            <BrowserFrame className="rounded-none border-0 shadow-none">
+              <Illustration />
+            </BrowserFrame>
+            <div className="p-8 pt-6">
+              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Icon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-foreground">{title}</h3>
+              <div className="mt-3 space-y-3 text-sm leading-relaxed text-muted-foreground">
+                {paragraphs.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
+              </div>
+              <p className="mt-4 text-sm italic text-primary">{closing}</p>
             </div>
-            <h3 className="mt-5 text-lg font-semibold text-foreground">{title}</h3>
-            <div className="mt-3 space-y-3 text-sm leading-relaxed text-muted-foreground">
-              {paragraphs.map((p) => (
-                <p key={p}>{p}</p>
-              ))}
-            </div>
-            <p className="mt-4 text-sm italic text-primary">{closing}</p>
           </div>
         ))}
       </div>

@@ -60,17 +60,19 @@ export function Pillars() {
             <BrowserFrame className="rounded-none border-0 shadow-none">
               <Illustration />
             </BrowserFrame>
-            <div className="p-8 pt-6">
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <Icon className="h-5 w-5" />
+            <div className="p-8">
+              <div className="flex items-center gap-2">
+                <Icon className="h-4 w-4 shrink-0 text-primary" />
+                <h3 className="text-lg font-semibold text-foreground">{title}</h3>
               </div>
-              <h3 className="mt-5 text-lg font-semibold text-foreground">{title}</h3>
               <div className="mt-3 space-y-3 text-sm leading-relaxed text-muted-foreground">
                 {paragraphs.map((p) => (
                   <p key={p}>{p}</p>
                 ))}
               </div>
-              <p className="mt-4 text-sm italic text-primary">{closing}</p>
+              <p className="mt-4 border-t border-border pt-4 text-sm font-medium text-primary">
+                {closing}
+              </p>
             </div>
           </div>
         ))}

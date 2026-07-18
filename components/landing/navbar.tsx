@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { waLink } from "@/lib/whatsapp";
+import { BOOKING_APP_URL } from "@/lib/bookingApp";
 
 export function Navbar() {
   return (
@@ -10,14 +11,22 @@ export function Navbar() {
         <Link href="/" className="flex items-center">
           <Image src="/logo.png" alt="OneBizPro" width={167} height={32} priority />
         </Link>
-        <a
-          href={waLink("Halo, saya ingin coba OneBizPro.")}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={buttonVariants({ size: "sm" })}
-        >
-          Coba Gratis
-        </a>
+        <div className="flex items-center gap-4">
+          <a
+            href={`${BOOKING_APP_URL}/login`}
+            className="text-sm font-medium text-muted-foreground hover:text-foreground"
+          >
+            Masuk
+          </a>
+          <a
+            href={waLink("Halo, saya ingin coba OneBizPro.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={buttonVariants({ size: "sm" })}
+          >
+            Coba Gratis
+          </a>
+        </div>
       </div>
     </header>
   );

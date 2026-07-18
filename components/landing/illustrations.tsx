@@ -48,8 +48,8 @@ export function HeroIllustration() {
       <div className="flex items-center gap-2 rounded-lg bg-primary px-4 py-3 text-primary-foreground">
         <CheckCircle2 className="h-4 w-4 shrink-0 text-accent" />
         <p className="text-xs leading-snug">
-          Booking, keuangan, dan tim — semua otomatis terhubung, tanpa kerja
-          dobel.
+          Semua modul otomatis terhubung →{" "}
+          <span className="font-semibold">kerja makin ringan, keputusan makin tajam</span>.
         </p>
       </div>
     </div>
@@ -79,8 +79,9 @@ export function InsightIllustration() {
         </span>
       </div>
       <div className="rounded-md bg-muted px-3 py-2 text-[11px] leading-snug text-muted-foreground">
-        Asisten baca angkanya duluan, kamu tinggal ambil keputusan — dari
-        booking, keuangan, sampai pelanggan.
+        Asisten baca angkanya duluan →{" "}
+        <span className="font-semibold text-foreground">keputusan kamu makin tajam</span>,
+        tanpa buka laporan satu-satu.
       </div>
     </div>
   );
@@ -89,11 +90,16 @@ export function InsightIllustration() {
 export function ReportIllustration() {
   return (
     <div className="space-y-3">
-      <div className="flex items-center gap-2 text-xs text-muted-foreground">
-        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-semibold text-primary-foreground">
-          A
+      <div className="flex items-center justify-between text-xs text-muted-foreground">
+        <div className="flex items-center gap-2">
+          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-semibold text-primary-foreground">
+            A
+          </span>
+          <span>Ringkasan Minggu Ini</span>
+        </div>
+        <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
+          Tanpa diminta
         </span>
-        <span>Ringkasan Minggu Ini</span>
       </div>
       <div className="rounded-lg rounded-tl-none bg-muted px-3 py-2.5 text-xs leading-relaxed text-foreground">
         Booking naik, pengeluaran masih terkendali, dan semua staf hadir tepat
@@ -124,8 +130,9 @@ export function AutomationIllustration() {
         <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-600" />
       </div>
       <div className="rounded-md bg-muted px-3 py-2 text-[11px] leading-snug text-muted-foreground">
-        Berlaku untuk jadwal booking, tagihan, stok inventory, sampai
-        pengingat tim — semua jalan otomatis di belakang layar.
+        Sekali atur →{" "}
+        <span className="font-semibold text-foreground">jalan otomatis selamanya</span>,
+        dari booking sampai stok.
       </div>
     </div>
   );

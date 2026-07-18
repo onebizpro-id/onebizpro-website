@@ -1,6 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
 import { waLink } from "@/lib/whatsapp";
-import { BOOKING_APP_URL } from "@/lib/bookingApp";
 import { BrowserFrame } from "@/components/landing/browser-frame";
 import { HeroIllustration } from "@/components/landing/illustrations";
 
@@ -10,13 +9,14 @@ export function Hero() {
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="text-center lg:text-left">
           <h1 className="text-balance text-4xl font-semibold tracking-tight text-primary sm:text-5xl lg:text-6xl">
-            Mudah Digunakan, Efisien, Berdampak Besar
+            Kerja Makin Ringan, Keputusan Makin Tajam
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-balance text-lg text-muted-foreground sm:text-xl lg:mx-0">
-            Semakin mudah dipakai, semakin efisien kerja sehari-hari — dan itu
-            yang akhirnya membuat dampaknya terasa besar untuk bisnis kamu.
+            Asisten OneBizPro baca data bisnis kamu duluan — supaya kerja
+            harian makin ringan, dan tiap keputusan diambil dengan lebih
+            tajam.
           </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
+          <div className="mt-10 flex justify-center lg:justify-start">
             <a
               href={waLink("Halo, saya ingin coba OneBizPro.")}
               target="_blank"
@@ -24,9 +24,6 @@ export function Hero() {
               className={buttonVariants({ size: "lg" })}
             >
               Coba Gratis
-            </a>
-            <a href={BOOKING_APP_URL} className={buttonVariants({ variant: "outline", size: "lg" })}>
-              Lihat Cara Kerjanya
             </a>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">

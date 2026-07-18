@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OneBizPro — Mudah Digunakan, Efisien, Berdampak Besar",
+  title: "OneBizPro — Kerja Makin Ringan, Keputusan Makin Tajam",
   description:
-    "OneBizPro adalah asisten bisnis yang mudah dipakai, membuat kerja sehari-hari lebih efisien, dan dampaknya terasa besar untuk bisnis kamu.",
+    "OneBizPro adalah asisten bisnis yang membaca data kamu duluan — booking, keuangan, tim, sampai stok — supaya kerja harian makin ringan dan keputusan makin tajam.",
 };
 
 export default function RootLayout({

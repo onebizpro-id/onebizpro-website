@@ -10,6 +10,17 @@ import {
   StrategicInsightModuleIllustration,
 } from "@/components/landing/module-illustrations";
 
+export const MODULE_NAMES = [
+  "Booking",
+  "CRM",
+  "Akunting",
+  "HR",
+  "Tanya Asisten",
+  "Inventory",
+  "POS",
+  "Insight Strategis",
+] as const;
+
 const modules = [
   { name: "Booking", Illustration: BookingModuleIllustration },
   { name: "CRM", Illustration: CrmModuleIllustration },
@@ -23,7 +34,7 @@ const modules = [
 
 export function Modules() {
   return (
-    <section>
+    <section id="modul" className="scroll-mt-20">
       <div className="mx-auto max-w-6xl px-6 py-20 sm:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
@@ -31,7 +42,8 @@ export function Modules() {
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Tidak perlu tools terpisah-pisah. Booking, pelanggan, keuangan,
-            tim, sampai stok — semua terhubung dalam satu sistem.
+            tim, sampai stok — semua terhubung dalam satu sistem, supaya kerja
+            makin ringan dan keputusan makin tajam.
           </p>
         </div>
 

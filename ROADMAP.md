@@ -1,8 +1,10 @@
 # OneBizPro Roadmap
 
-This tracks planned modules for the OneBizPro platform. OneBizPro is positioned
-as an all-in-one ERP for Indonesian UMKM (SMEs) — low effort, high impact —
-not as a single-purpose booking app. Booking is one module among several.
+This tracks planned modules for the OneBizPro platform. Per Core positioning
+(`Control/Core/positioning.md`), OneBizPro is **not an ERP** — it is positioned
+as an Intelligent Business Operating Platform for Indonesian UMKM (SMEs):
+low effort, high impact, not as a single-purpose booking app. Booking is one
+module among several.
 
 ## Current modules
 

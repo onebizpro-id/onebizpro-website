@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { runCheckup, type CheckupAnswers } from "@/lib/business-checkup/scoring";
-import { buildNarrative, buildPriorities } from "@/lib/business-checkup/narrative";
+import { buildDiagnosis, buildRecommendationReason, buildPriorities } from "@/lib/business-checkup/narrative";
 import {
   EMPLOYEE_COUNT_OPTIONS,
   CHALLENGE_OPTIONS,
@@ -43,7 +43,8 @@ export async function POST(request: NextRequest) {
   }
 
   const result = runCheckup(answers);
-  const narrative = buildNarrative(answers, result);
+  const diagnosis = buildDiagnosis(answers);
+  const recommendationReason = buildRecommendationReason(answers, result);
   const priorities = buildPriorities(answers);
 
   const b = body as Record<string, unknown>;
@@ -84,7 +85,7 @@ export async function POST(request: NextRequest) {
     }
   } else if (hasContact) {
     fallbackWaLink = waLink(
-      `Halo, saya ${name} dari ${businessName}. Saya baru selesai Business Checkup, hasilnya paket ${result.recommendedPackage} (skor ${result.businessHealthScore}/100). Saya ingin konsultasi lebih lanjut.`
+      `Halo, saya ${name} dari ${businessName}. Saya baru selesai Business Checkup, hasilnya paket ${result.recommendedPackage}. Saya ingin konsultasi lebih lanjut.`
     );
   }
 
@@ -92,6 +93,6 @@ export async function POST(request: NextRequest) {
     ok: true,
     leadSaved,
     fallbackWaLink,
-    result: { ...result, narrative, priorities },
+    result: { ...result, diagnosis, recommendationReason, priorities },
   });
 }

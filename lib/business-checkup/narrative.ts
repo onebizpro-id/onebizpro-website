@@ -5,14 +5,16 @@ import { labelFor, CHALLENGE_OPTIONS, SOFTWARE_OPTIONS, type Challenge } from "@
 // Narasi v1: template deterministik (bukan LLM) -- supaya setiap kalimat yang
 // mungkin muncul bisa direview di awal, tidak ada risiko klaim yang tidak
 // didukung skor. Upgrade ke LLM nanti tinggal ganti isi fungsi ini, logika skor
-// di scoring.ts tidak perlu berubah.
+// di scoring.ts tidak perlu berubah. Diagnosis dan alasan rekomendasi sengaja
+// TIDAK menyebut angka skor/tahap bisnis -- terkesan menilai/menge-judge,
+// walau skor tetap dihitung & disimpan di lead untuk referensi internal Sales.
 
 const CHALLENGE_REASON: Record<Challenge, string> = {
-  keuangan: "kamu butuh gambaran keuangan yang jelas dan bisa diandalkan sejak awal",
-  pelanggan: "kamu butuh cara yang lebih rapi untuk mengelola dan follow-up pelanggan",
-  booking: "kamu butuh sistem reservasi yang tidak lagi manual dan rawan bentrok",
-  operasional: "operasional kamu sudah cukup kompleks untuk butuh kontrol stok dan pembelian yang lebih ketat",
-  tim: "tim kamu sudah butuh cara yang lebih rapi untuk dipantau",
+  keuangan: "Anda butuh gambaran keuangan yang jelas dan bisa diandalkan sejak awal",
+  pelanggan: "Anda butuh cara yang lebih rapi untuk mengelola dan follow-up pelanggan",
+  booking: "Anda butuh sistem reservasi yang tidak lagi manual dan rawan bentrok",
+  operasional: "operasional Anda sudah cukup kompleks untuk butuh kontrol stok dan pembelian yang lebih ketat",
+  tim: "tim Anda sudah butuh cara yang lebih rapi untuk dipantau",
 };
 
 const PACKAGE_BLURB: Record<RecommendedPackage, string> = {
@@ -78,15 +80,18 @@ export function buildPriorities(answers: CheckupAnswers): string[] {
   return priorities.slice(0, 5);
 }
 
-export function buildNarrative(answers: CheckupAnswers, result: CheckupResult): string {
+export function buildDiagnosis(answers: CheckupAnswers): string {
   const challengeLabels = answers.biggestChallenges.map((c) => labelFor(CHALLENGE_OPTIONS, c).toLowerCase());
   const softwareLabel = labelFor(SOFTWARE_OPTIONS, answers.currentSoftware);
+
+  return `Dari jawaban Anda, tantangan terbesar saat ini adalah ${joinLabels(challengeLabels)}, dengan kondisi software sekarang: ${softwareLabel.toLowerCase()}.`;
+}
+
+export function buildRecommendationReason(answers: CheckupAnswers, result: CheckupResult): string {
   const primaryChallenge = mostUrgentChallenge(answers.biggestChallenges);
 
   return [
-    `Dari jawaban kamu, tantangan terbesar saat ini adalah ${joinLabels(challengeLabels)}, dengan kondisi software sekarang: ${softwareLabel.toLowerCase()}.`,
-    `Skor kondisi bisnis kamu ${result.businessHealthScore}/100, di tahap ${result.businessStage}.`,
-    `Karena itu, ${CHALLENGE_REASON[primaryChallenge]}, kami merekomendasikan paket ${result.recommendedPackage}.`,
+    `Karena ${CHALLENGE_REASON[primaryChallenge]}, kami merekomendasikan paket ${result.recommendedPackage}.`,
     PACKAGE_BLURB[result.recommendedPackage],
   ].join(" ");
 }

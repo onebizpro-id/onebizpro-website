@@ -14,7 +14,7 @@ export function BusinessProblems() {
       <div className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
-            Kedengaran Familiar?
+            Apakah Ini Terdengar Seperti Bisnis Anda?
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Kebanyakan pemilik bisnis yang kami temui mengalami setidaknya satu dari ini.

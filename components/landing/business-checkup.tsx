@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import { PackageCard } from "@/components/landing/package-card";
+import { getPackage } from "@/lib/packages";
 import {
   EMPLOYEE_COUNT_OPTIONS,
   CHALLENGE_OPTIONS,
@@ -17,10 +20,9 @@ import {
 type Step = "employeeCount" | "challenge" | "software" | "result" | "contact" | "done";
 
 type CheckupResult = {
-  businessHealthScore: number;
-  businessStage: string;
   recommendedPackage: string;
-  narrative: string;
+  diagnosis: string;
+  recommendationReason: string;
   priorities: string[];
 };
 
@@ -168,7 +170,7 @@ export function BusinessCheckup() {
           Kenali Kondisi Bisnis Anda Dulu
         </h2>
         <p className="mt-4 text-lg text-muted-foreground">
-          3 pertanyaan singkat, langsung dapat skor kondisi bisnis dan rekomendasi paket
+          3 pertanyaan singkat, langsung dapat diagnosis bisnis dan rekomendasi paket
           yang paling pas — tanpa perlu isi data dulu.
         </p>
       </div>
@@ -268,18 +270,13 @@ export function BusinessCheckup() {
         {step === "result" && result && (
           <div>
             <BackButton onClick={goBack} />
-            <div className="grid grid-cols-2 gap-4 text-center">
-              <div className="rounded-lg bg-muted p-4">
-                <p className="text-2xl font-semibold text-primary">{result.businessHealthScore}</p>
-                <p className="text-xs text-muted-foreground">Skor Kondisi Bisnis</p>
-              </div>
-              <div className="rounded-lg bg-muted p-4">
-                <p className="text-2xl font-semibold text-primary">{result.businessStage}</p>
-                <p className="text-xs text-muted-foreground">Tahap Bisnis</p>
-              </div>
-            </div>
 
-            <p className="mt-6 text-sm leading-relaxed text-foreground">{result.narrative}</p>
+            <div>
+              <p className="text-sm font-semibold text-foreground">Diagnosis Bisnis</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                {result.diagnosis}
+              </p>
+            </div>
 
             <div className="mt-6">
               <p className="text-sm font-semibold text-foreground">Prioritas Perbaikan</p>
@@ -293,18 +290,34 @@ export function BusinessCheckup() {
               </ul>
             </div>
 
-            <div className="mt-6 rounded-lg border border-primary/30 bg-primary/5 p-4 text-center">
-              <p className="text-sm text-muted-foreground">Rekomendasi paket untuk Anda</p>
-              <p className="text-xl font-semibold text-primary">{result.recommendedPackage}</p>
-            </div>
+            {getPackage(result.recommendedPackage) && (
+              <div className="mt-8">
+                <p className="text-sm font-semibold text-foreground">Paket yang Direkomendasikan</p>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  {result.recommendationReason}
+                </p>
+                <div className="mt-4">
+                  <PackageCard
+                    pkg={getPackage(result.recommendedPackage)!}
+                    cta={
+                      <button
+                        type="button"
+                        onClick={() => setStep("contact")}
+                        className={`${buttonVariants({ size: "lg" })} mt-6 w-full`}
+                      >
+                        Konsultasikan Bisnis Anda
+                      </button>
+                    }
+                  />
+                </div>
+              </div>
+            )}
 
-            <button
-              type="button"
-              onClick={() => setStep("contact")}
-              className={`${buttonVariants({ size: "lg" })} mt-8 w-full`}
-            >
-              Konsultasikan Bisnis Anda
-            </button>
+            <p className="mt-4 text-center">
+              <Link href="/harga" className="text-sm text-muted-foreground underline hover:text-primary">
+                Lihat paket lain sebagai pembanding
+              </Link>
+            </p>
           </div>
         )}
 

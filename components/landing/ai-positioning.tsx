@@ -10,27 +10,27 @@ const capabilities = [
   {
     icon: LineChart,
     Illustration: InsightIllustration,
-    title: "Lihat Insight",
+    title: "AI Beritahu Anda Duluan",
     paragraphs: [
-      "Bukan cuma angka, tapi artinya. Piutang menumpuk, atau pengeluaran kategori tertentu tiba-tiba naik — kamu tahu duluan, tanpa buka laporan satu per satu.",
-      "Seperti punya analis bisnis berpengalaman di tim — yang selalu baca angka sebelum kamu sempat tanya.",
+      "Bukan cuma angka, tapi artinya. Piutang menumpuk, atau pengeluaran kategori tertentu tiba-tiba naik — Anda tahu duluan, tanpa buka laporan satu per satu.",
+      "Seperti punya analis bisnis berpengalaman di tim — yang selalu baca angka sebelum Anda sempat tanya.",
     ],
-    closing: "Mudah dilihat, mudah dipahami — dampaknya langsung terasa saat kamu ambil keputusan.",
+    closing: "Mudah dilihat, mudah dipahami — dampaknya langsung terasa saat Anda ambil keputusan.",
   },
   {
     icon: NotebookText,
     Illustration: ReportIllustration,
-    title: "Terima Ringkasan Bisnis",
+    title: "Ringkasan Bisnis Langsung ke WhatsApp",
     paragraphs: [
-      "Tiap minggu, asisten kamu rangkum semua yang terjadi di bisnis — pemasukan, pengeluaran, kas — jadi beberapa kalimat yang gampang dibaca, bukan spreadsheet yang perlu ditafsirkan sendiri.",
-      "Bukan sekadar rekap, tapi ringkasan dengan cara pandang seorang analis — supaya kamu langsung paham apa yang perlu dilakukan berikutnya.",
+      "Tiap minggu, asisten Anda rangkum semua yang terjadi di bisnis — pemasukan, pengeluaran, kas — jadi beberapa kalimat yang gampang dibaca, bukan spreadsheet yang perlu ditafsirkan sendiri.",
+      "Bukan sekadar rekap, tapi ringkasan dengan cara pandang seorang analis — supaya Anda langsung paham apa yang perlu dilakukan berikutnya.",
     ],
     closing: "Mudah dibaca, efisien dipahami — keputusan jadi lebih cepat diambil.",
   },
   {
     icon: RefreshCw,
     Illustration: AutomationIllustration,
-    title: "Tanyakan Kondisi Bisnis",
+    title: "Kerjaan Berulang, Jalan Sendiri",
     paragraphs: [
       "Reimbursement, faktur berulang, dan rekonsiliasi — kerjaan kecil yang sering luput, sekarang berjalan sendiri di belakang layar, supaya tidak ada catatan yang bocor dari hal yang seharusnya sederhana.",
     ],

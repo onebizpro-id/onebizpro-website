@@ -4,25 +4,33 @@ const SOLUTIONS = [
   {
     icon: Wallet,
     problem: "Tidak tahu kondisi keuangan",
-    headline: "Pantau kondisi bisnis secara real-time",
+    headline: "Tidak Lagi Buta Arah soal Keuangan",
+    description:
+      "Anda selalu tahu kondisi kas, piutang, dan pengeluaran — tanpa harus buka laporan manual.",
     support: "Keuangan otomatis tercatat, Monitoring Kas, Asisten AI",
   },
   {
     icon: Users,
     problem: "Pelanggan sering hilang",
-    headline: "Kelola seluruh pelanggan dalam satu tempat",
+    headline: "Tidak Ada Lagi Pelanggan yang Terlewat",
+    description:
+      "Semua riwayat dan pengingat follow-up ada di satu tempat, jadi tidak ada peluang yang hilang begitu saja.",
     support: "Riwayat Pelanggan, pengingat follow-up",
   },
   {
     icon: CalendarCheck,
     problem: "Booking masih manual",
-    headline: "Terima reservasi lebih mudah, tanpa bentrok",
+    headline: "Reservasi Masuk Tanpa Bikin Pusing",
+    description:
+      "Pelanggan bisa booking sendiri, tanpa risiko jadwal bentrok atau tercatat dobel.",
     support: "Booking Online",
   },
   {
     icon: Boxes,
     problem: "Operasional semakin kompleks",
-    headline: "Satukan seluruh operasional bisnis",
+    headline: "Operasional Berjalan Lebih Rapi",
+    description:
+      "Kasir, stok, dan tim tersambung dalam satu sistem — tidak ada lagi pencatatan ganda.",
     support: "Kasir, Stok, Pegawai",
   },
 ] as const;
@@ -41,7 +49,7 @@ export function BusinessSolutions() {
       </div>
 
       <div className="mt-14 grid gap-6 sm:grid-cols-2">
-        {SOLUTIONS.map(({ icon: Icon, problem, headline, support }) => (
+        {SOLUTIONS.map(({ icon: Icon, problem, headline, description, support }) => (
           <div key={problem} className="rounded-lg border border-border bg-card p-6">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               {problem}
@@ -52,7 +60,8 @@ export function BusinessSolutions() {
               </span>
               <h3 className="text-lg font-semibold text-foreground">{headline}</h3>
             </div>
-            <p className="mt-3 text-sm text-muted-foreground">Didukung: {support}</p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p>
+            <p className="mt-3 text-xs text-muted-foreground">Didukung: {support}</p>
           </div>
         ))}
       </div>

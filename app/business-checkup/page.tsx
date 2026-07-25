@@ -6,7 +6,7 @@ import { BusinessCheckup } from "@/components/landing/business-checkup";
 export const metadata: Metadata = {
   title: "Business Checkup — OneBizPro",
   description:
-    "3 pertanyaan singkat, langsung dapat skor kondisi bisnis dan rekomendasi paket yang paling pas untuk bisnis Anda.",
+    "3 pertanyaan singkat, langsung dapat diagnosis bisnis dan rekomendasi paket yang paling pas untuk bisnis Anda.",
 };
 
 export default function BusinessCheckupPage() {

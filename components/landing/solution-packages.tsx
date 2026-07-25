@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Users } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { PackageCard } from "@/components/landing/package-card";
 import { PACKAGES } from "@/lib/packages";
@@ -15,8 +16,11 @@ export function SolutionPackages() {
             Paket yang Cocok untuk Kondisi Bisnis Anda
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Tiap paket kumulatif — paket lebih tinggi mencakup semua di paket sebelumnya. User
-            tanpa batas di semua paket, tidak ada biaya per kepala.
+            Tiap paket kumulatif — paket lebih tinggi mencakup semua di paket sebelumnya.
+          </p>
+          <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-2 text-sm font-semibold text-accent">
+            <Users className="h-4 w-4 shrink-0" />
+            User tanpa batas di semua paket — tidak ada biaya per kepala
           </p>
         </div>
 

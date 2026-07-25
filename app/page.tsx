@@ -4,6 +4,7 @@ import { BusinessProblems } from "@/components/landing/business-problems";
 import { BusinessSolutions } from "@/components/landing/business-solutions";
 import { SocialProof } from "@/components/landing/social-proof";
 import { AiPositioning } from "@/components/landing/ai-positioning";
+import { ClosingCta } from "@/components/landing/closing-cta";
 import { Footer } from "@/components/landing/footer";
 
 // Business Checkup dan Solution Packages (Harga) sengaja TIDAK di-embed di homepage --
@@ -24,6 +25,7 @@ export default function Home() {
         <BusinessSolutions />
         <SocialProof />
         <AiPositioning />
+        <ClosingCta />
       </main>
       <Footer />
     </>

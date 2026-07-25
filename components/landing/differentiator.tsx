@@ -12,10 +12,10 @@ export function Differentiator() {
           lebih besar dari manfaatnya.
         </p>
         <p>
-          OneBizPro dibangun dari arah sebaliknya: dimulai dari yang paling
-          mudah dipakai, baru bertumbuh seiring bisnis kamu berkembang. Mulai
-          dari satu kebutuhan — booking, catatan keuangan, atau tim — tanpa
-          harus mempelajari sistem penuh sejak hari pertama.
+          OneBizPro dibangun dari arah sebaliknya: mulai dari Akunting yang
+          rapi dan terpercaya sejak hari pertama, baru bertumbuh — tambahkan
+          CRM, Booking, HR, atau POS begitu bisnis kamu butuh, tanpa harus
+          pindah sistem atau belajar dari nol.
         </p>
       </div>
     </section>

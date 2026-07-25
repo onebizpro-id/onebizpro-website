@@ -12,7 +12,7 @@ const pillars = [
     Illustration: InsightIllustration,
     title: "Asisten yang Kasih Tahu Apa yang Penting",
     paragraphs: [
-      "Bukan cuma angka, tapi artinya. Booking naik minggu ini, atau pengeluaran maintenance lebih besar dari biasanya — kamu tahu duluan, tanpa buka laporan satu per satu.",
+      "Bukan cuma angka, tapi artinya. Piutang menumpuk, atau pengeluaran kategori tertentu tiba-tiba naik — kamu tahu duluan, tanpa buka laporan satu per satu.",
       "Seperti punya analis bisnis berpengalaman di tim — yang selalu baca angka sebelum kamu sempat tanya.",
     ],
     closing: "Mudah dilihat, mudah dipahami — dampaknya langsung terasa saat kamu ambil keputusan.",
@@ -22,7 +22,7 @@ const pillars = [
     Illustration: ReportIllustration,
     title: "Laporan yang Sudah Jadi, Bukan Data Mentah",
     paragraphs: [
-      "Tiap minggu, asisten kamu rangkum semua yang terjadi di bisnis — pemasukan, booking, aktivitas tim — jadi beberapa kalimat yang gampang dibaca, bukan spreadsheet yang perlu ditafsirkan sendiri.",
+      "Tiap minggu, asisten kamu rangkum semua yang terjadi di bisnis — pemasukan, pengeluaran, kas — jadi beberapa kalimat yang gampang dibaca, bukan spreadsheet yang perlu ditafsirkan sendiri.",
       "Bukan sekadar rekap, tapi ringkasan dengan cara pandang seorang analis — supaya kamu langsung paham apa yang perlu dilakukan berikutnya.",
     ],
     closing: "Mudah dibaca, efisien dipahami — keputusan jadi lebih cepat diambil.",
@@ -32,7 +32,7 @@ const pillars = [
     Illustration: AutomationIllustration,
     title: "Kerjaan Berulang, Biar Jalan Sendiri",
     paragraphs: [
-      "Jadwal yang batal otomatis kembali tersedia. Kerjaan kecil yang sering luput, sekarang berjalan sendiri di belakang layar — supaya tidak ada pendapatan yang bocor dari hal yang seharusnya sederhana.",
+      "Reimbursement, faktur berulang, dan rekonsiliasi — kerjaan kecil yang sering luput, sekarang berjalan sendiri di belakang layar, supaya tidak ada catatan yang bocor dari hal yang seharusnya sederhana.",
     ],
     closing: "Mudah diatur sekali, efisien berjalan seterusnya.",
   },

@@ -9,9 +9,9 @@ import {
 import { cn } from "@/lib/utils";
 
 const heroStats = [
-  { label: "Booking", value: "12", badge: "▲ 18%", tone: "up" },
-  { label: "Pengeluaran", value: "Rp12,4jt", badge: "Terkendali", tone: "neutral" },
-  { label: "Tim Hadir", value: "5/5", badge: "Tepat waktu", tone: "up" },
+  { label: "Kas Masuk", value: "Rp42,6jt", badge: "▲ 18%", tone: "up" },
+  { label: "Piutang", value: "Rp3,1jt", badge: "Terkendali", tone: "neutral" },
+  { label: "Pelanggan Baru", value: "5", badge: "Minggu ini", tone: "up" },
 ] as const;
 
 export function HeroIllustration() {
@@ -62,14 +62,14 @@ export function InsightIllustration() {
       <div className="flex items-start gap-2 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-2.5">
         <ArrowUpRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" />
         <span className="text-xs leading-snug text-emerald-700">
-          Booking naik <span className="font-semibold">18%</span> dari minggu
-          lalu
+          Kas masuk naik <span className="font-semibold">18%</span> dari
+          minggu lalu
         </span>
       </div>
       <div className="flex items-start gap-2 rounded-md border border-accent/30 bg-accent/10 px-3 py-2.5">
         <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" />
         <span className="text-xs leading-snug text-foreground">
-          Pengeluaran Maintenance lebih besar dari biasanya
+          Pengeluaran kategori Operasional lebih besar dari biasanya
         </span>
       </div>
       <div className="flex items-start gap-2 rounded-md border border-primary/30 bg-primary/10 px-3 py-2.5">
@@ -102,14 +102,14 @@ export function ReportIllustration() {
         </span>
       </div>
       <div className="rounded-lg rounded-tl-none bg-muted px-3 py-2.5 text-xs leading-relaxed text-foreground">
-        Booking naik, pengeluaran masih terkendali, dan semua staf hadir tepat
-        waktu minggu ini.
+        Kas masuk stabil, pengeluaran masih terkendali, dan tidak ada piutang
+        jatuh tempo minggu ini.
       </div>
       <div className="rounded-lg rounded-tl-none bg-muted px-3 py-2.5 text-xs leading-relaxed text-foreground">
-        Kategori pengeluaran terbesar: Maintenance Lapangan.
+        Kategori pengeluaran terbesar: Operasional.
       </div>
       <div className="rounded-lg rounded-tl-none bg-muted px-3 py-2.5 text-xs leading-relaxed text-foreground">
-        Penjualan POS naik, stok inventory masih aman.
+        Semua transaksi bulan ini tercatat rapi, siap untuk laporan pajak.
       </div>
     </div>
   );
@@ -119,20 +119,20 @@ export function AutomationIllustration() {
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between rounded-md border border-border px-3 py-2.5">
-        <span className="text-xs text-muted-foreground">Jadwal dibatalkan pelanggan</span>
+        <span className="text-xs text-muted-foreground">Reimbursement karyawan diajukan</span>
         <RefreshCw className="h-3.5 w-3.5 shrink-0 text-accent" />
       </div>
       <div className="flex justify-center">
         <ArrowDown className="h-4 w-4 text-accent" />
       </div>
       <div className="flex items-center justify-between rounded-md border border-emerald-500 bg-emerald-500/10 px-3 py-2.5">
-        <span className="text-xs font-medium text-emerald-700">Otomatis tersedia lagi</span>
+        <span className="text-xs font-medium text-emerald-700">Otomatis masuk approval</span>
         <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-600" />
       </div>
       <div className="rounded-md bg-muted px-3 py-2 text-[11px] leading-snug text-muted-foreground">
         Sekali atur →{" "}
         <span className="font-semibold text-foreground">jalan otomatis selamanya</span>,
-        dari booking sampai stok.
+        dari reimbursement sampai rekonsiliasi bank.
       </div>
     </div>
   );

@@ -11,9 +11,9 @@ import {
 } from "@/components/landing/module-illustrations";
 
 export const MODULE_NAMES = [
-  "Booking",
-  "CRM",
   "Akunting",
+  "CRM",
+  "Booking",
   "HR",
   "Tanya Asisten",
   "Inventory",
@@ -22,9 +22,9 @@ export const MODULE_NAMES = [
 ] as const;
 
 const modules = [
-  { name: "Booking", Illustration: BookingModuleIllustration },
-  { name: "CRM", Illustration: CrmModuleIllustration },
   { name: "Akunting", Illustration: AccountingModuleIllustration },
+  { name: "CRM", Illustration: CrmModuleIllustration },
+  { name: "Booking", Illustration: BookingModuleIllustration },
   { name: "HR", Illustration: HrModuleIllustration },
   { name: "Tanya Asisten", Illustration: AssistantModuleIllustration },
   { name: "Inventory", Illustration: InventoryModuleIllustration },
@@ -41,9 +41,9 @@ export function Modules() {
             Satu Platform, Semua Modul Bisnis Kamu
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Tidak perlu tools terpisah-pisah. Booking, pelanggan, keuangan,
-            tim, sampai stok — semua terhubung dalam satu sistem, supaya kerja
-            makin ringan dan keputusan makin tajam.
+            Akunting lengkap ada di semua paket sejak awal. CRM, Booking, HR,
+            dan POS tinggal dinyalakan begitu bisnis kamu butuh — bayar sesuai
+            yang dipakai.
           </p>
         </div>
 

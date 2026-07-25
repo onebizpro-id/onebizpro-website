@@ -28,7 +28,7 @@ export default function TerimaKasihPage() {
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
             Sambil menunggu, kamu bisa lihat kembali apa saja yang bisa dikerjakan
-            OneBizPro untuk venue kamu.
+            OneBizPro untuk bisnis kamu.
           </p>
           <Link href="/" className={`${buttonVariants({ size: "lg" })} mt-8`}>
             Kembali ke Beranda

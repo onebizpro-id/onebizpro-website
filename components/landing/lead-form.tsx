@@ -6,14 +6,13 @@ import { buttonVariants } from "@/components/ui/button";
 import { waLink } from "@/lib/whatsapp";
 
 const VENUE_TYPES = [
-  "Lapangan Padel",
-  "Lapangan Bulu Tangkis",
-  "Lapangan Futsal",
-  "Lapangan Mini Soccer",
-  "Coworking Space",
-  "Ruang Meeting",
-  "Studio",
-  "Venue Lainnya",
+  "Yayasan",
+  "Retail & Fashion",
+  "Jasa",
+  "Dagang",
+  "Penerbit",
+  "Desain Interior & Kreatif",
+  "Lainnya",
 ];
 
 const LEAD_API_BASE = process.env.NEXT_PUBLIC_LEAD_API_URL ?? "";
@@ -79,7 +78,7 @@ export function LeadForm() {
     <section id="coba-gratis" className="mx-auto max-w-2xl scroll-mt-24 px-6 py-20 sm:py-24">
       <div className="text-center">
         <h2 className="text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
-          Coba Gratis untuk Venue Kamu
+          Coba Gratis untuk Bisnis Kamu
         </h2>
         <p className="mt-4 text-lg text-muted-foreground">
           Isi form singkat ini — kami hubungi via WhatsApp dalam 1×24 jam dan tunjukkan
@@ -123,14 +122,14 @@ export function LeadForm() {
             type="text"
             required
             maxLength={150}
-            placeholder="cth. Arena Padel Kemang"
+            placeholder="cth. Toko Kemang Jaya"
             className="w-full rounded-lg border border-input bg-white px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </div>
 
         <div>
           <label htmlFor="venueType" className="mb-1.5 block text-sm font-medium text-primary">
-            Jenis venue
+            Jenis usaha/organisasi
           </label>
           <select
             id="venueType"
@@ -140,7 +139,7 @@ export function LeadForm() {
             className="w-full rounded-lg border border-input bg-white px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
           >
             <option value="" disabled>
-              Pilih jenis venue kamu
+              Pilih jenis usaha/organisasi kamu
             </option>
             {VENUE_TYPES.map((t) => (
               <option key={t} value={t}>

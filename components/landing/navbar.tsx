@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { waLink } from "@/lib/whatsapp";
 import { BOOKING_APP_URL } from "@/lib/bookingApp";
 
 export function Navbar() {
@@ -18,14 +17,9 @@ export function Navbar() {
           >
             Masuk
           </a>
-          <a
-            href={waLink("Halo, saya ingin coba OneBizPro.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={buttonVariants({ size: "sm" })}
-          >
+          <Link href="/#coba-gratis" className={buttonVariants({ size: "sm" })}>
             Coba Gratis
-          </a>
+          </Link>
         </div>
       </div>
     </header>

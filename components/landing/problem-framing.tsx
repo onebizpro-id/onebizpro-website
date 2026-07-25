@@ -7,9 +7,10 @@ export function ProblemFraming() {
         </span>
         <div className="mt-6 space-y-5 text-lg leading-relaxed text-foreground">
           <p>
-            Bukan soal kurang rajin. Kerjaan manual itu selalu ada harganya —
-            waktu admin yang habis, jadwal yang kosong tanpa disadari, laporan
-            yang baru dibuat saat sudah kepepet.
+            Bukan soal kurang rajin. Pembukuan manual itu selalu ada harganya —
+            transaksi yang lupa dicatat, piutang yang menumpuk tanpa
+            disadari, laporan yang baru dibuat saat sudah kepepet (biasanya
+            pas mau lapor pajak atau diaudit).
           </p>
           <p>
             OneBizPro dibangun dengan satu prinsip sederhana: kalau sistemnya

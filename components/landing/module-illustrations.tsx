@@ -103,7 +103,7 @@ export function CrmModuleIllustration() {
 }
 
 const accountingBars = [
-  { label: "Maintenance Lapangan", value: 100, tone: "accent" },
+  { label: "Operasional", value: 100, tone: "accent" },
   { label: "Gaji Karyawan", value: 68, tone: "primary" },
 ] as const;
 
@@ -181,11 +181,11 @@ export function InventoryModuleIllustration() {
     <div className="space-y-2.5">
       <ModuleHeader icon={Boxes} name="Inventory" badge="Aman" tone="amber" />
       <div className="flex items-center justify-between rounded-md bg-muted px-2.5 py-1.5">
-        <span className="text-[11px] text-foreground">Bola Padel</span>
+        <span className="text-[11px] text-foreground">Produk A</span>
         <span className="text-[10px] font-medium text-emerald-600">Aman</span>
       </div>
       <div className="flex items-center justify-between rounded-md bg-muted px-2.5 py-1.5">
-        <span className="text-[11px] text-foreground">Grip Raket</span>
+        <span className="text-[11px] text-foreground">Produk B</span>
         <span className="text-[10px] font-medium text-accent">Stok Menipis</span>
       </div>
       <p className="text-[11px] leading-snug text-muted-foreground">
@@ -201,11 +201,11 @@ export function PosModuleIllustration() {
     <div className="space-y-2.5">
       <ModuleHeader icon={CreditCard} name="POS" badge="Real-time" tone="cyan" />
       <div className="flex items-center justify-between rounded-md bg-muted px-2.5 py-1.5">
-        <span className="text-[11px] text-foreground">Sewa Lapangan A</span>
+        <span className="text-[11px] text-foreground">Transaksi #204</span>
         <span className="text-[11px] font-medium text-foreground">Rp150rb</span>
       </div>
       <div className="flex items-center justify-between rounded-md bg-muted px-2.5 py-1.5">
-        <span className="text-[11px] text-foreground">Sewa Raket</span>
+        <span className="text-[11px] text-foreground">Transaksi #205</span>
         <span className="text-[11px] font-medium text-foreground">Rp25rb</span>
       </div>
       <p className="text-[11px] leading-snug text-muted-foreground">
@@ -228,7 +228,7 @@ export function StrategicInsightModuleIllustration() {
       </div>
       <div className="rounded-md bg-muted px-2.5 py-1.5">
         <span className="text-[11px] leading-snug text-foreground">
-          Rekomendasi: tambah jadwal Sabtu sore — permintaan tinggi
+          Rekomendasi: tinjau pengeluaran kategori Operasional — naik dari biasanya
         </span>
       </div>
       <p className="text-[11px] leading-snug text-muted-foreground">

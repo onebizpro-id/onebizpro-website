@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "OneBizPro — Kerja Makin Ringan, Keputusan Makin Tajam",
   description:
-    "OneBizPro adalah Intelligent Business Operating Platform untuk UMKM Indonesia — membaca data bisnismu duluan (booking, keuangan, tim, sampai stok) supaya kerja harian makin ringan dan keputusan makin tajam.",
+    "OneBizPro adalah Intelligent Business Operating Platform untuk bisnis Anda — membaca data bisnismu duluan (booking, keuangan, tim, sampai stok) supaya kerja harian makin ringan dan keputusan makin tajam.",
 };
 
 export default function RootLayout({

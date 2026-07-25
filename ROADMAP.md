@@ -2,9 +2,9 @@
 
 This tracks planned modules for the OneBizPro platform. Per Core positioning
 (`Control/Core/positioning.md`), OneBizPro is **not an ERP** — it is positioned
-as an Intelligent Business Operating Platform for Indonesian UMKM (SMEs):
-low effort, high impact, not as a single-purpose booking app. Booking is one
-module among several.
+as an Intelligent Business Operating Platform for Indonesian businesses of any
+scale (not limited to the "UMKM" category): low effort, high impact, not as a
+single-purpose booking app. Booking is one module among several.
 
 ## Current modules
 
@@ -31,7 +31,7 @@ OneBizPro's "one app for all your business needs" positioning.
 **Shape of the feature** (not a full drag-drop CMS — kept deliberately lean):
 
 - **Curated templates, not an open canvas.** A small set of polished template
-  styles (e.g. "Elegan", "Ceria UMKM", "Korporat") to choose from, instead of
+  styles (e.g. "Elegan", "Ceria", "Korporat") to choose from, instead of
   a Wix/WordPress-style free-form editor. Keeps engineering scope small.
 - **Copy generated from a short onboarding interview** (business name,
   category, key selling points) rather than written by the customer.

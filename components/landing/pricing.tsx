@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Check } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 
@@ -75,8 +76,8 @@ export function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="#coba-gratis"
+              <Link
+                href="/coba-gratis"
                 className={buttonVariants({
                   size: "lg",
                   variant: tier.highlight ? "default" : "outline",
@@ -84,7 +85,7 @@ export function Pricing() {
                 })}
               >
                 Coba Gratis
-              </a>
+              </Link>
             </div>
           ))}
         </div>

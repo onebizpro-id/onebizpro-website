@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { BrowserFrame } from "@/components/landing/browser-frame";
 import { HeroIllustration } from "@/components/landing/illustrations";
@@ -20,12 +21,15 @@ export function Hero() {
             penerbit · desain interior · UMKM lintas industri
           </p>
           <div className="mt-8 flex justify-center lg:justify-start">
-            <a href="#coba-gratis" className={buttonVariants({ size: "lg" })}>
+            <Link href="/coba-gratis" className={buttonVariants({ size: "lg" })}>
               Coba Gratis
-            </a>
+            </Link>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
-            Mulai dari Rp349rb/bulan. User tanpa batas.
+            Mulai dari Rp349rb/bulan. User tanpa batas.{" "}
+            <Link href="/harga" className="font-medium text-primary underline underline-offset-2">
+              Lihat harga lengkap
+            </Link>
           </p>
         </div>
 

@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
+
 export function Differentiator() {
   return (
     <section className="mx-auto max-w-3xl px-6 py-20 text-center sm:py-24">
@@ -17,6 +20,17 @@ export function Differentiator() {
           CRM, Booking, HR, atau POS begitu bisnis kamu butuh, tanpa harus
           pindah sistem atau belajar dari nol.
         </p>
+      </div>
+      <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <Link href="/coba-gratis" className={buttonVariants({ size: "lg" })}>
+          Coba Gratis
+        </Link>
+        <Link
+          href="/harga"
+          className={buttonVariants({ size: "lg", variant: "outline" })}
+        >
+          Lihat Harga
+        </Link>
       </div>
     </section>
   );

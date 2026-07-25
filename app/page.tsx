@@ -4,8 +4,6 @@ import { ProblemFraming } from "@/components/landing/problem-framing";
 import { Modules } from "@/components/landing/modules";
 import { Pillars } from "@/components/landing/pillars";
 import { Differentiator } from "@/components/landing/differentiator";
-import { Pricing } from "@/components/landing/pricing";
-import { LeadForm } from "@/components/landing/lead-form";
 import { Footer } from "@/components/landing/footer";
 
 export default function Home() {
@@ -18,8 +16,6 @@ export default function Home() {
         <Modules />
         <Pillars />
         <Differentiator />
-        <Pricing />
-        <LeadForm />
       </main>
       <Footer />
     </>

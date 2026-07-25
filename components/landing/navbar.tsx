@@ -11,13 +11,19 @@ export function Navbar() {
           <Image src="/logo.png" alt="OneBizPro" width={167} height={32} priority />
         </Link>
         <div className="flex items-center gap-4">
+          <Link
+            href="/harga"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground"
+          >
+            Harga
+          </Link>
           <a
             href={`${BOOKING_APP_URL}/login`}
             className="text-sm font-medium text-muted-foreground hover:text-foreground"
           >
             Masuk
           </a>
-          <Link href="/#coba-gratis" className={buttonVariants({ size: "sm" })}>
+          <Link href="/coba-gratis" className={buttonVariants({ size: "sm" })}>
             Coba Gratis
           </Link>
         </div>

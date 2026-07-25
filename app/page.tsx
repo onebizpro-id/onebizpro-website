@@ -3,12 +3,14 @@ import { Hero } from "@/components/landing/hero";
 import { BusinessProblems } from "@/components/landing/business-problems";
 import { BusinessSolutions } from "@/components/landing/business-solutions";
 import { SocialProof } from "@/components/landing/social-proof";
-import { BusinessCheckup } from "@/components/landing/business-checkup";
-import { SolutionPackages } from "@/components/landing/solution-packages";
 import { AiPositioning } from "@/components/landing/ai-positioning";
 import { RoadmapTeaser } from "@/components/landing/roadmap-teaser";
 import { Footer } from "@/components/landing/footer";
 
+// Business Checkup dan Solution Packages (Harga) sengaja TIDAK di-embed di homepage --
+// masing-masing sudah punya halaman sendiri (/business-checkup, /harga), sesuai pola
+// yang sudah pernah diputuskan sebelumnya (form dan harga dipisah dari homepage jadi
+// halaman tersendiri). CTA di bawah cukup mengarahkan ke halaman itu.
 export default function Home() {
   return (
     <>
@@ -18,8 +20,6 @@ export default function Home() {
         <BusinessProblems />
         <BusinessSolutions />
         <SocialProof />
-        <BusinessCheckup />
-        <SolutionPackages />
         <AiPositioning />
         <RoadmapTeaser />
       </main>

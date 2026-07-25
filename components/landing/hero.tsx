@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { BrowserFrame } from "@/components/landing/browser-frame";
 import { HeroIllustration } from "@/components/landing/illustrations";
@@ -15,9 +16,9 @@ export function Hero() {
             kerja lebih tenang, keputusan lebih terkontrol, dan bisnis makin efisien.
           </p>
           <div className="mt-8 flex justify-center lg:justify-start">
-            <a href="#business-checkup" className={buttonVariants({ size: "lg" })}>
+            <Link href="/business-checkup" className={buttonVariants({ size: "lg" })}>
               Mulai Business Checkup
-            </a>
+            </Link>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
             Gratis, hasil langsung terlihat — tanpa perlu isi data dulu.

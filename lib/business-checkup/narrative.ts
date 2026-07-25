@@ -1,12 +1,13 @@
 import type { CheckupAnswers, CheckupResult, RecommendedPackage } from "@/lib/business-checkup/scoring";
-import { labelFor, CHALLENGE_OPTIONS, SOFTWARE_OPTIONS } from "@/lib/business-checkup/questions";
+import { CHALLENGE_PENALTY } from "@/lib/business-checkup/scoring";
+import { labelFor, CHALLENGE_OPTIONS, SOFTWARE_OPTIONS, type Challenge } from "@/lib/business-checkup/questions";
 
 // Narasi v1: template deterministik (bukan LLM) -- supaya setiap kalimat yang
 // mungkin muncul bisa direview di awal, tidak ada risiko klaim yang tidak
 // didukung skor. Upgrade ke LLM nanti tinggal ganti isi fungsi ini, logika skor
 // di scoring.ts tidak perlu berubah.
 
-const CHALLENGE_REASON: Record<CheckupAnswers["biggestChallenge"], string> = {
+const CHALLENGE_REASON: Record<Challenge, string> = {
   keuangan: "kamu butuh gambaran keuangan yang jelas dan bisa diandalkan sejak awal",
   pelanggan: "kamu butuh cara yang lebih rapi untuk mengelola dan follow-up pelanggan",
   booking: "kamu butuh sistem reservasi yang tidak lagi manual dan rawan bentrok",
@@ -22,7 +23,7 @@ const PACKAGE_BLURB: Record<RecommendedPackage, string> = {
     "Paket SCALE mencakup semua itu, ditambah alat untuk kasir, stok, dan tim — untuk operasional yang lebih kompleks.",
 };
 
-const CHALLENGE_PRIORITIES: Record<CheckupAnswers["biggestChallenge"], string[]> = {
+const CHALLENGE_PRIORITIES: Record<Challenge, string[]> = {
   keuangan: [
     "Rapikan pencatatan keuangan (kas masuk, kas keluar, kategori pengeluaran)",
     "Pantau kondisi bisnis secara real-time, bukan cuma saat tutup buku",
@@ -45,22 +46,47 @@ const CHALLENGE_PRIORITIES: Record<CheckupAnswers["biggestChallenge"], string[]>
   ],
 };
 
+// Tantangan yang penalty-nya paling besar dianggap paling mendesak -- dipakai untuk
+// kalimat "kenapa direkomendasikan" supaya tetap fokus satu alasan utama, bukan
+// daftar panjang, walau usernya boleh centang lebih dari satu tantangan.
+function mostUrgentChallenge(challenges: Challenge[]): Challenge {
+  return challenges.reduce((worst, c) =>
+    CHALLENGE_PENALTY[c] > CHALLENGE_PENALTY[worst] ? c : worst
+  );
+}
+
+function joinLabels(labels: string[]): string {
+  if (labels.length <= 1) return labels[0] ?? "";
+  if (labels.length === 2) return `${labels[0]} dan ${labels[1]}`;
+  return `${labels.slice(0, -1).join(", ")}, dan ${labels[labels.length - 1]}`;
+}
+
 export function buildPriorities(answers: CheckupAnswers): string[] {
-  const priorities = [...CHALLENGE_PRIORITIES[answers.biggestChallenge]];
+  const seen = new Set<string>();
+  const priorities: string[] = [];
+  for (const challenge of answers.biggestChallenges) {
+    for (const p of CHALLENGE_PRIORITIES[challenge]) {
+      if (!seen.has(p)) {
+        seen.add(p);
+        priorities.push(p);
+      }
+    }
+  }
   if (answers.currentSoftware === "none") {
     priorities.unshift("Mulai dari satu sistem terpusat, bukan campuran Excel/catatan manual");
   }
-  return priorities;
+  return priorities.slice(0, 5);
 }
 
 export function buildNarrative(answers: CheckupAnswers, result: CheckupResult): string {
-  const challengeLabel = labelFor(CHALLENGE_OPTIONS, answers.biggestChallenge);
+  const challengeLabels = answers.biggestChallenges.map((c) => labelFor(CHALLENGE_OPTIONS, c).toLowerCase());
   const softwareLabel = labelFor(SOFTWARE_OPTIONS, answers.currentSoftware);
+  const primaryChallenge = mostUrgentChallenge(answers.biggestChallenges);
 
   return [
-    `Dari jawaban kamu, tantangan terbesar saat ini adalah "${challengeLabel.toLowerCase()}", dengan kondisi software sekarang: ${softwareLabel.toLowerCase()}.`,
+    `Dari jawaban kamu, tantangan terbesar saat ini adalah ${joinLabels(challengeLabels)}, dengan kondisi software sekarang: ${softwareLabel.toLowerCase()}.`,
     `Skor kondisi bisnis kamu ${result.businessHealthScore}/100, di tahap ${result.businessStage}.`,
-    `Karena itu, ${CHALLENGE_REASON[answers.biggestChallenge]}, kami merekomendasikan paket ${result.recommendedPackage}.`,
+    `Karena itu, ${CHALLENGE_REASON[primaryChallenge]}, kami merekomendasikan paket ${result.recommendedPackage}.`,
     PACKAGE_BLURB[result.recommendedPackage],
   ].join(" ");
 }

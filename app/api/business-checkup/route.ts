@@ -19,17 +19,18 @@ function parseAnswers(body: unknown): CheckupAnswers | null {
   const b = body as Record<string, unknown>;
   if (
     typeof b.employeeCount !== "string" ||
-    typeof b.biggestChallenge !== "string" ||
+    !Array.isArray(b.biggestChallenges) ||
+    b.biggestChallenges.length === 0 ||
+    !b.biggestChallenges.every((c) => typeof c === "string" && CHALLENGE_VALUES.includes(c)) ||
     typeof b.currentSoftware !== "string" ||
     !EMPLOYEE_VALUES.includes(b.employeeCount) ||
-    !CHALLENGE_VALUES.includes(b.biggestChallenge) ||
     !SOFTWARE_VALUES.includes(b.currentSoftware)
   ) {
     return null;
   }
   return {
     employeeCount: b.employeeCount as CheckupAnswers["employeeCount"],
-    biggestChallenge: b.biggestChallenge as CheckupAnswers["biggestChallenge"],
+    biggestChallenges: b.biggestChallenges as CheckupAnswers["biggestChallenges"],
     currentSoftware: b.currentSoftware as CheckupAnswers["currentSoftware"],
   };
 }
@@ -68,7 +69,9 @@ export async function POST(request: NextRequest) {
           utmCampaign: typeof b.utmCampaign === "string" ? b.utmCampaign : undefined,
           utmContent: typeof b.utmContent === "string" ? b.utmContent : undefined,
           employeeCount: answers.employeeCount,
-          biggestChallenge: answers.biggestChallenge,
+          // Platform's MarketingLead.biggestChallenge tetap satu kolom string -- gabung
+          // pakai ", " daripada migrasi Platform ke array, cukup untuk kebutuhan Sales baca.
+          biggestChallenge: answers.biggestChallenges.join(", "),
           currentSoftware: answers.currentSoftware,
           businessHealthScore: result.businessHealthScore,
           businessStage: result.businessStage,

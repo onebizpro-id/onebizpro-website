@@ -15,7 +15,7 @@ export function Navbar() {
             href="/harga"
             className="text-sm font-medium text-muted-foreground hover:text-foreground"
           >
-            Harga
+            Paket
           </Link>
           <a
             href={`${BOOKING_APP_URL}/login`}
@@ -23,8 +23,8 @@ export function Navbar() {
           >
             Masuk
           </a>
-          <Link href="/coba-gratis" className={buttonVariants({ size: "sm" })}>
-            Coba Gratis
+          <Link href="/business-checkup" className={buttonVariants({ size: "sm" })}>
+            Mulai Business Checkup
           </Link>
         </div>
       </div>

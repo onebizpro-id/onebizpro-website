@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/landing/navbar";
 import { Footer } from "@/components/landing/footer";
-import { SolutionPackages } from "@/components/landing/solution-packages";
+import { BusinessCheckup } from "@/components/landing/business-checkup";
 
 export const metadata: Metadata = {
-  title: "Paket Solusi — OneBizPro",
+  title: "Business Checkup — OneBizPro",
   description:
-    "Paket START, GROWTH, dan SCALE yang cocok untuk kondisi bisnis Anda — kumulatif, user tanpa batas di semua paket.",
+    "3 pertanyaan singkat, langsung dapat skor kondisi bisnis dan rekomendasi paket yang paling pas untuk bisnis Anda.",
 };
 
-export default function HargaPage() {
+export default function BusinessCheckupPage() {
   return (
     <>
       <Navbar />
       <main className="flex-1">
-        <SolutionPackages />
+        <BusinessCheckup />
       </main>
       <Footer />
     </>

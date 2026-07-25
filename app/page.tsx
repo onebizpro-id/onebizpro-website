@@ -1,10 +1,12 @@
 import { Navbar } from "@/components/landing/navbar";
 import { Hero } from "@/components/landing/hero";
+import { BusinessProblems } from "@/components/landing/business-problems";
+import { BusinessSolutions } from "@/components/landing/business-solutions";
 import { SocialProof } from "@/components/landing/social-proof";
-import { ProblemFraming } from "@/components/landing/problem-framing";
-import { Modules } from "@/components/landing/modules";
-import { Pillars } from "@/components/landing/pillars";
-import { Differentiator } from "@/components/landing/differentiator";
+import { BusinessCheckup } from "@/components/landing/business-checkup";
+import { SolutionPackages } from "@/components/landing/solution-packages";
+import { AiPositioning } from "@/components/landing/ai-positioning";
+import { RoadmapTeaser } from "@/components/landing/roadmap-teaser";
 import { Footer } from "@/components/landing/footer";
 
 export default function Home() {
@@ -13,11 +15,13 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <BusinessProblems />
+        <BusinessSolutions />
         <SocialProof />
-        <ProblemFraming />
-        <Modules />
-        <Pillars />
-        <Differentiator />
+        <BusinessCheckup />
+        <SolutionPackages />
+        <AiPositioning />
+        <RoadmapTeaser />
       </main>
       <Footer />
     </>

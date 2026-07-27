@@ -5,13 +5,18 @@ import {
   AlertTriangle,
   RefreshCw,
   Users,
+  Clock,
+  Boxes,
+  Sparkles,
+  MessageCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const heroStats = [
-  { label: "Kas Masuk", value: "Rp42,6jt", badge: "▲ 18%", tone: "up" },
-  { label: "Piutang", value: "Rp3,1jt", badge: "Terkendali", tone: "neutral" },
-  { label: "Pelanggan Baru", value: "5", badge: "Minggu ini", tone: "up" },
+const heroInsights = [
+  { icon: ArrowUpRight, text: "Omzet hari ini naik 12%", tone: "up" },
+  { icon: Clock, text: "Ada 4 invoice yang akan jatuh tempo", tone: "warn" },
+  { icon: Users, text: "7 pelanggan belum ditindaklanjuti", tone: "warn" },
+  { icon: Boxes, text: "Stok kopi hampir habis", tone: "warn" },
 ] as const;
 
 export function HeroIllustration() {
@@ -19,37 +24,40 @@ export function HeroIllustration() {
     <div className="space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-semibold text-foreground">Ringkasan Bisnis</p>
-          <p className="text-xs text-muted-foreground">Semua modul, satu tempat</p>
+          <p className="text-sm font-semibold text-foreground">Asisten AI</p>
+          <p className="text-xs text-muted-foreground">Insight bisnis hari ini</p>
         </div>
         <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-          Hari ini
+          Live
         </span>
       </div>
 
-      <div className="grid grid-cols-3 gap-3">
-        {heroStats.map((stat) => (
-          <div key={stat.label} className="rounded-lg border border-border px-3 py-3">
-            <p className="text-xs text-muted-foreground">{stat.label}</p>
-            <p className="mt-1 text-base font-semibold text-foreground">{stat.value}</p>
-            <span
+      <div className="space-y-2">
+        {heroInsights.map(({ icon: Icon, text, tone }) => (
+          <div
+            key={text}
+            className={cn(
+              "flex items-center gap-2.5 rounded-lg border px-3 py-2.5",
+              tone === "up" && "border-emerald-500/30 bg-emerald-500/10",
+              tone === "warn" && "border-accent/30 bg-accent/10"
+            )}
+          >
+            <Icon
               className={cn(
-                "mt-1.5 inline-block rounded-full px-2 py-0.5 text-[10px] font-medium",
-                stat.tone === "up" && "bg-emerald-500/10 text-emerald-600",
-                stat.tone === "neutral" && "bg-muted text-muted-foreground"
+                "h-3.5 w-3.5 shrink-0",
+                tone === "up" && "text-emerald-600",
+                tone === "warn" && "text-accent"
               )}
-            >
-              {stat.badge}
-            </span>
+            />
+            <p className="text-xs leading-snug text-foreground">{text}</p>
           </div>
         ))}
       </div>
 
       <div className="flex items-center gap-2 rounded-lg bg-primary px-4 py-3 text-primary-foreground">
-        <CheckCircle2 className="h-4 w-4 shrink-0 text-accent" />
+        <Sparkles className="h-4 w-4 shrink-0 text-accent" />
         <p className="text-xs leading-snug">
-          Semua modul otomatis terhubung →{" "}
-          <span className="font-semibold">kerja makin ringan, keputusan makin tajam</span>.
+          Saya sarankan <span className="font-semibold">menghubungi pelanggan A hari ini</span>.
         </p>
       </div>
     </div>
@@ -80,7 +88,7 @@ export function InsightIllustration() {
       </div>
       <div className="rounded-md bg-muted px-3 py-2 text-[11px] leading-snug text-muted-foreground">
         Asisten baca angkanya duluan →{" "}
-        <span className="font-semibold text-foreground">keputusan kamu makin tajam</span>,
+        <span className="font-semibold text-foreground">keputusan Anda makin tajam</span>,
         tanpa buka laporan satu-satu.
       </div>
     </div>
@@ -89,27 +97,27 @@ export function InsightIllustration() {
 
 export function ReportIllustration() {
   return (
-    <div className="space-y-3">
-      <div className="flex items-center justify-between text-xs text-muted-foreground">
-        <div className="flex items-center gap-2">
-          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-semibold text-primary-foreground">
-            A
-          </span>
-          <span>Ringkasan Minggu Ini</span>
-        </div>
-        <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
-          Tanpa diminta
+    <div className="-m-6 overflow-hidden rounded-lg sm:-m-8">
+      <div className="flex items-center gap-2.5 bg-emerald-600 px-3 py-2.5">
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/20">
+          <MessageCircle className="h-4 w-4 text-white" />
         </span>
+        <div>
+          <p className="text-xs font-semibold text-white">OneBizPro</p>
+          <p className="text-[10px] text-emerald-50">Ringkasan Mingguan</p>
+        </div>
       </div>
-      <div className="rounded-lg rounded-tl-none bg-muted px-3 py-2.5 text-xs leading-relaxed text-foreground">
-        Kas masuk stabil, pengeluaran masih terkendali, dan tidak ada piutang
-        jatuh tempo minggu ini.
-      </div>
-      <div className="rounded-lg rounded-tl-none bg-muted px-3 py-2.5 text-xs leading-relaxed text-foreground">
-        Kategori pengeluaran terbesar: Operasional.
-      </div>
-      <div className="rounded-lg rounded-tl-none bg-muted px-3 py-2.5 text-xs leading-relaxed text-foreground">
-        Semua transaksi bulan ini tercatat rapi, siap untuk laporan pajak.
+      <div className="space-y-2 bg-emerald-50/60 px-3 py-3">
+        <div className="rounded-lg rounded-tl-none bg-white px-3 py-2.5 text-xs leading-relaxed text-foreground shadow-sm">
+          Kas masuk stabil, pengeluaran masih terkendali, dan tidak ada piutang
+          jatuh tempo minggu ini.
+        </div>
+        <div className="rounded-lg rounded-tl-none bg-white px-3 py-2.5 text-xs leading-relaxed text-foreground shadow-sm">
+          Kategori pengeluaran terbesar: Operasional.
+        </div>
+        <div className="rounded-lg rounded-tl-none bg-white px-3 py-2.5 text-xs leading-relaxed text-foreground shadow-sm">
+          Semua transaksi bulan ini tercatat rapi, siap untuk laporan pajak.
+        </div>
       </div>
     </div>
   );

@@ -11,14 +11,14 @@ import {
 } from "@/components/landing/module-illustrations";
 
 export const MODULE_NAMES = [
-  "Akunting",
-  "CRM",
-  "Booking",
-  "HR",
-  "Tanya Asisten",
-  "Inventory",
-  "POS",
-  "Insight Strategis",
+  "Keuangan",
+  "Pelanggan",
+  "Booking Online",
+  "Pegawai",
+  "Asisten",
+  "Stok & Produk",
+  "Kasir",
+  "Monitoring Bisnis",
 ] as const;
 
 const modules = [

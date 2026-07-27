@@ -56,3 +56,37 @@ the core platform, not be merged into either existing repo.
 above, keep in mind fields that would eventually feed a public website
 (service photos, CRM testimonials/reviews, resource descriptions) so no large
 migration is needed later.
+
+## Marketing site roadmap (website conversion improvements)
+
+Findings from benchmarking Xero, Mekari Jurnal, and Majoo (2026-07-25): none
+of the current landing pages (`/`, `/harga`, `/coba-gratis`) have social proof,
+an FAQ, a data-trust message, or a product demo — all of which appear on every
+comparable competitor site. Sequenced roughly by impact vs. effort:
+
+- **Portfolio/klien section (in progress).** Logo + name grid of real clients
+  on the homepage, grouped/tagged by industry to reinforce the cross-industry
+  Akunting positioning. Blocked on: client list with logos and confirmed
+  consent to display publicly (sensitive since clients hand over financial
+  data — needs explicit opt-in, not assumed). Testimonial quotes deferred to
+  a later pass once collected; logos can ship first as a lighter-weight proof
+  point.
+- **Dedicated marketing/CS WhatsApp number.** Current WA number is used for
+  the daily digest send and shouldn't double as the sales line. Once a
+  separate number exists, surface it directly in the Navbar/header (not just
+  behind the `/coba-gratis` form) so ready-to-buy visitors can skip the form.
+- **FAQ section.** Answer likely objections before they block conversion:
+  data security in the cloud, migrating from manual/Excel bookkeeping,
+  minimum contract length, onboarding/training support. Place on the
+  homepage or just above the form on `/coba-gratis`.
+- **Data trust/security messaging.** Doesn't need a full dedicated page like
+  Xero's — a short, specific blurb (encryption, backup, access control) near
+  Pricing/LeadForm is enough at this stage. Matters most for institutional
+  buyers (yayasan) who are more cautious with financial data.
+- **Product demo (video or interactive walkthrough).** Static mockups
+  currently stand in for this. A 60-90s demo video would let prospects see
+  the real product before committing to a WhatsApp conversation.
+- **Industry-specific solution pages** (e.g. `/solusi/yayasan`,
+  `/solusi/retail`). Lower priority — larger scope, longer-term SEO/content
+  play. Homepage stays cross-industry per the ICP pivot; these would be
+  supplementary deep pages, not a homepage narrowing.

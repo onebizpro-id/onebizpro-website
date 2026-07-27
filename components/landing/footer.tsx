@@ -1,6 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import { waLink } from "@/lib/whatsapp";
-import { MODULE_NAMES } from "@/components/landing/modules";
+
+const SOLUTIONS = [
+  "Kelola Keuangan",
+  "Kelola Pelanggan",
+  "Terima Reservasi",
+  "Rapikan Operasional",
+];
 
 export function Footer() {
   return (
@@ -15,16 +22,16 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-foreground">Modul</p>
+            <p className="text-sm font-semibold text-foreground">Solusi</p>
             <ul className="mt-4 space-y-2.5">
-              {MODULE_NAMES.map((name) => (
+              {SOLUTIONS.map((name) => (
                 <li key={name}>
-                  <a
-                    href="#modul"
+                  <Link
+                    href="/business-checkup"
                     className="text-sm text-muted-foreground hover:text-foreground"
                   >
                     {name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -48,7 +55,7 @@ export function Footer() {
         </div>
 
         <p className="mt-12 text-xs text-muted-foreground/70">
-          © {new Date().getFullYear()} OneBizPro. All rights reserved.
+          © {new Date().getFullYear()} PT OneBizPro Inovasi Indonesia. All rights reserved.
         </p>
       </div>
     </footer>

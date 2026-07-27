@@ -20,11 +20,17 @@ const CLIENTS = [
 
 export function SocialProof() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
-      <p className="text-center text-sm font-medium text-muted-foreground">
-        Dipercaya 10+ bisnis lintas industri
-      </p>
-      <div className="mt-8 grid grid-cols-2 gap-3.5 sm:grid-cols-4">
+    <section className="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+      <div className="mx-auto max-w-2xl text-center">
+        <h2 className="text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
+          Dipercaya 10+ Bisnis Lintas Industri
+        </h2>
+        <p className="mt-4 text-lg text-muted-foreground">
+          Dari yayasan, retail, sampai bisnis kreatif — OneBizPro dipakai lintas industri,
+          bukan cuma satu jenis usaha.
+        </p>
+      </div>
+      <div className="mt-14 grid grid-cols-2 gap-3.5 sm:grid-cols-4">
         {CLIENTS.map(({ name, industry, icon: Icon }) => (
           <div
             key={name}

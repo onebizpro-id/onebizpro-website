@@ -1,55 +1,48 @@
-import { cn } from "@/lib/utils";
-
-const toneClasses = {
-  primary: "border-t-primary text-primary bg-primary/10",
-  accent: "border-t-accent text-accent bg-accent/10",
-  rose: "border-t-rose-500 text-rose-600 bg-rose-500/10",
-  emerald: "border-t-emerald-500 text-emerald-600 bg-emerald-500/10",
-  blue: "border-t-blue-500 text-blue-600 bg-blue-500/10",
-  amber: "border-t-amber-500 text-amber-600 bg-amber-500/10",
-  violet: "border-t-violet-500 text-violet-600 bg-violet-500/10",
-} as const;
+import {
+  Palette,
+  Megaphone,
+  Coffee,
+  Cpu,
+  BookOpen,
+  ShoppingBag,
+  GraduationCap,
+} from "lucide-react";
 
 const CLIENTS = [
-  { name: "Rumah Louie Project", industry: "Desain Interior", tone: "primary" },
-  { name: "Konde.co", industry: "Media & Komunitas", tone: "accent" },
-  { name: "Lungi", industry: "Kafe & Resto", tone: "rose" },
-  { name: "SKN", industry: "Teknologi & IT", tone: "blue" },
-  { name: "Bassam Publishing", industry: "Penerbitan", tone: "violet" },
-  { name: "Safaraya", industry: "Retail & Fashion", tone: "amber" },
-  { name: "Syameela", industry: "Yayasan & Pendidikan", tone: "emerald" },
-] as const satisfies { name: string; industry: string; tone: keyof typeof toneClasses }[];
+  { name: "Rumah Louie Project", industry: "Desain Interior", icon: Palette },
+  { name: "Konde.co", industry: "Media & Komunitas", icon: Megaphone },
+  { name: "Lungi", industry: "Kafe & Resto", icon: Coffee },
+  { name: "SKN", industry: "Teknologi & IT", icon: Cpu },
+  { name: "Bassam Publishing", industry: "Penerbitan", icon: BookOpen },
+  { name: "Safaraya", industry: "Retail & Fashion", icon: ShoppingBag },
+  { name: "Syameela", industry: "Yayasan & Pendidikan", icon: GraduationCap },
+] as const;
 
 export function SocialProof() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
-      <p className="text-center text-sm font-medium text-muted-foreground">
-        Dipercaya 10+ bisnis lintas industri
-      </p>
-      <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-        {CLIENTS.map((c) => {
-          const [borderTone, textTone, bgTone] = toneClasses[c.tone].split(" ");
-          return (
-            <div
-              key={c.name}
-              className={cn(
-                "flex flex-col items-center justify-center rounded-lg border border-t-4 border-border bg-card px-4 py-6 text-center",
-                borderTone
-              )}
-            >
-              <p className="text-lg font-bold tracking-tight text-foreground">{c.name}</p>
-              <span
-                className={cn(
-                  "mt-2 rounded-full px-2.5 py-0.5 text-xs font-medium",
-                  textTone,
-                  bgTone
-                )}
-              >
-                {c.industry}
-              </span>
-            </div>
-          );
-        })}
+    <section className="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+      <div className="mx-auto max-w-2xl text-center">
+        <h2 className="text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
+          Dipercaya 10+ Bisnis Lintas Industri
+        </h2>
+        <p className="mt-4 text-lg text-muted-foreground">
+          Dari yayasan, retail, sampai bisnis kreatif — OneBizPro dipakai lintas industri,
+          bukan cuma satu jenis usaha.
+        </p>
+      </div>
+      <div className="mt-14 grid grid-cols-2 gap-3.5 sm:grid-cols-4">
+        {CLIENTS.map(({ name, industry, icon: Icon }) => (
+          <div
+            key={name}
+            className="flex flex-col items-center rounded-lg border border-border bg-card px-3.5 py-4.5 text-center"
+          >
+            <span className="mb-3 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <Icon className="h-4.5 w-4.5" />
+            </span>
+            <p className="text-sm font-bold leading-snug text-foreground">{name}</p>
+            <p className="mt-1 text-xs text-muted-foreground">{industry}</p>
+          </div>
+        ))}
       </div>
       <p className="mt-6 text-center text-sm text-muted-foreground">
         &amp; beberapa bisnis lainnya di berbagai industri.

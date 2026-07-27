@@ -1,34 +1,22 @@
-import { cn } from "@/lib/utils";
+import {
+  Palette,
+  Megaphone,
+  Coffee,
+  Cpu,
+  BookOpen,
+  ShoppingBag,
+  GraduationCap,
+} from "lucide-react";
 
-const toneClasses = {
-  violet: "text-violet-600 bg-violet-500/10",
-  rose: "text-rose-600 bg-rose-500/10",
-  blue: "text-blue-600 bg-blue-500/10",
-  emerald: "text-emerald-600 bg-emerald-500/10",
-} as const;
-
-const GROUPS = [
-  {
-    label: "Kreatif & Desain",
-    tone: "violet",
-    clients: ["Rumah Louie Project", "Konde.co"],
-  },
-  {
-    label: "Ritel & Lifestyle",
-    tone: "rose",
-    clients: ["Lungi", "Safaraya"],
-  },
-  {
-    label: "Teknologi & Penerbitan",
-    tone: "blue",
-    clients: ["SKN", "Bassam Publishing"],
-  },
-  {
-    label: "Yayasan & Pendidikan",
-    tone: "emerald",
-    clients: ["Syameela"],
-  },
-] as const satisfies { label: string; tone: keyof typeof toneClasses; clients: string[] }[];
+const CLIENTS = [
+  { name: "Rumah Louie Project", industry: "Desain Interior", icon: Palette },
+  { name: "Konde.co", industry: "Media & Komunitas", icon: Megaphone },
+  { name: "Lungi", industry: "Kafe & Resto", icon: Coffee },
+  { name: "SKN", industry: "Teknologi & IT", icon: Cpu },
+  { name: "Bassam Publishing", industry: "Penerbitan", icon: BookOpen },
+  { name: "Safaraya", industry: "Retail & Fashion", icon: ShoppingBag },
+  { name: "Syameela", industry: "Yayasan & Pendidikan", icon: GraduationCap },
+] as const;
 
 export function SocialProof() {
   return (
@@ -36,24 +24,17 @@ export function SocialProof() {
       <p className="text-center text-sm font-medium text-muted-foreground">
         Dipercaya 10+ bisnis lintas industri
       </p>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {GROUPS.map((g) => (
-          <div key={g.label} className="rounded-lg border border-border bg-card px-5 py-5">
-            <span
-              className={cn(
-                "inline-block rounded-full px-2.5 py-1 text-xs font-semibold uppercase tracking-wide",
-                toneClasses[g.tone]
-              )}
-            >
-              {g.label}
+      <div className="mt-8 grid grid-cols-2 gap-3.5 sm:grid-cols-4">
+        {CLIENTS.map(({ name, industry, icon: Icon }) => (
+          <div
+            key={name}
+            className="flex flex-col items-center rounded-lg border border-border bg-card px-3.5 py-4.5 text-center"
+          >
+            <span className="mb-3 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <Icon className="h-4.5 w-4.5" />
             </span>
-            <div className="mt-3.5 space-y-1.5">
-              {g.clients.map((name) => (
-                <p key={name} className="text-base font-bold tracking-tight text-foreground">
-                  {name}
-                </p>
-              ))}
-            </div>
+            <p className="text-sm font-bold leading-snug text-foreground">{name}</p>
+            <p className="mt-1 text-xs text-muted-foreground">{industry}</p>
           </div>
         ))}
       </div>

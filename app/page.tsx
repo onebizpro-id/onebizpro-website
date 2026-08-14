@@ -2,6 +2,7 @@ import { Navbar } from "@/components/landing/navbar";
 import { Hero } from "@/components/landing/hero";
 import { BusinessProblems } from "@/components/landing/business-problems";
 import { BusinessSolutions } from "@/components/landing/business-solutions";
+import { Modules } from "@/components/landing/modules";
 import { SocialProof } from "@/components/landing/social-proof";
 import { AiPositioning } from "@/components/landing/ai-positioning";
 import { ClosingCta } from "@/components/landing/closing-cta";
@@ -15,6 +16,10 @@ import { Footer } from "@/components/landing/footer";
 // RoadmapTeaser sengaja tidak dipasang dulu -- arah AI roadmap (AI Forecast, AI Alert,
 // dst.) dianggap Founder terlalu terbuka untuk dilihat kompetitor. Halaman /roadmap
 // sendiri masih ada di kode (tidak dihapus), cuma tidak ditautkan dari mana pun.
+//
+// Modules dipasang lagi 2026-08 (sempat jadi dead code sejak pivot ICP sebelumnya) --
+// grid-nya baru diperbarui supaya mencakup modul Pemasaran/Prospek/Manajemen Proyek
+// yang belum pernah tercermin di homepage, bagian dari dorongan product branding B2B.
 export default function Home() {
   return (
     <>
@@ -23,6 +28,7 @@ export default function Home() {
         <Hero />
         <BusinessProblems />
         <BusinessSolutions />
+        <Modules />
         <SocialProof />
         <AiPositioning />
         <ClosingCta />

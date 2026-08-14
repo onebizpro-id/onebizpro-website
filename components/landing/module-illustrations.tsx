@@ -9,6 +9,9 @@ import {
   CheckCircle2,
   Compass,
   TrendingUp,
+  Megaphone,
+  Target,
+  FolderKanban,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +24,8 @@ const toneClasses = {
   amber: "bg-amber-500/10 text-amber-600",
   cyan: "bg-cyan-500/10 text-cyan-600",
   violet: "bg-violet-500/10 text-violet-600",
+  indigo: "bg-indigo-500/10 text-indigo-600",
+  teal: "bg-teal-500/10 text-teal-600",
 } as const;
 
 function ModuleHeader({
@@ -234,6 +239,65 @@ export function StrategicInsightModuleIllustration() {
       <p className="text-[11px] leading-snug text-muted-foreground">
         Tanpa diminta →{" "}
         <span className="font-semibold text-foreground">rekomendasi siap pakai, bukan cuma laporan</span>.
+      </p>
+    </div>
+  );
+}
+
+export function MarketingModuleIllustration() {
+  return (
+    <div className="space-y-2.5">
+      <ModuleHeader icon={Megaphone} name="Pemasaran" badge="+12 lead" tone="teal" />
+      <div className="rounded-md bg-muted px-2.5 py-1.5">
+        <span className="text-[11px] text-foreground">Form custom → Estimasi Rp8,4jt otomatis</span>
+      </div>
+      <div className="flex items-center justify-between rounded-md border border-teal-500/30 bg-teal-500/10 px-2.5 py-1.5">
+        <span className="text-[11px] font-medium text-teal-700">Lead langsung masuk ke Prospek</span>
+      </div>
+      <p className="text-[11px] leading-snug text-muted-foreground">
+        Tanpa tempel-tempel spreadsheet →{" "}
+        <span className="font-semibold text-foreground">satu form, langsung ke pipeline penjualan</span>.
+      </p>
+    </div>
+  );
+}
+
+export function SalesModuleIllustration() {
+  return (
+    <div className="space-y-2.5">
+      <ModuleHeader icon={Target} name="Prospek" badge="4 menang" tone="indigo" />
+      <div className="flex items-center justify-between rounded-md bg-muted px-2.5 py-1.5">
+        <span className="text-[11px] text-foreground">Survei Terjadwal</span>
+        <span className="text-[10px] font-medium text-muted-foreground">2 lead</span>
+      </div>
+      <div className="flex items-center justify-between rounded-md border border-accent/40 bg-accent/10 px-2.5 py-1.5">
+        <span className="text-[11px] font-medium text-accent">Penawaran Terkirim</span>
+        <span className="text-[10px] font-medium text-accent">3 lead</span>
+      </div>
+      <p className="text-[11px] leading-snug text-muted-foreground">
+        Tahapan & follow-up terpantau otomatis →{" "}
+        <span className="font-semibold text-foreground">tidak ada prospek yang kelewat</span>.
+      </p>
+    </div>
+  );
+}
+
+export function ProjectModuleIllustration() {
+  return (
+    <div className="space-y-2.5">
+      <ModuleHeader icon={FolderKanban} name="Manajemen Proyek" badge="On-track" tone="amber" />
+      <div className="space-y-1">
+        <span className="text-[11px] text-muted-foreground">Realisasi Anggaran</span>
+        <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
+          <div className="h-full rounded-full bg-accent" style={{ width: "62%" }} />
+        </div>
+      </div>
+      <div className="flex items-center justify-between rounded-md bg-muted px-2.5 py-1.5">
+        <span className="text-[11px] text-foreground">Termin 2 — Menunggu Approval</span>
+      </div>
+      <p className="text-[11px] leading-snug text-muted-foreground">
+        RAB, termin, dan progres di satu tempat →{" "}
+        <span className="font-semibold text-foreground">tahu duluan kalau mulai meleset</span>.
       </p>
     </div>
   );

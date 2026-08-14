@@ -13,9 +13,9 @@ import { Footer } from "@/components/landing/footer";
 // yang sudah pernah diputuskan sebelumnya (form dan harga dipisah dari homepage jadi
 // halaman tersendiri). CTA di bawah cukup mengarahkan ke halaman itu.
 //
-// RoadmapTeaser sengaja tidak dipasang dulu -- arah AI roadmap (AI Forecast, AI Alert,
-// dst.) dianggap Founder terlalu terbuka untuk dilihat kompetitor. Halaman /roadmap
-// sendiri masih ada di kode (tidak dihapus), cuma tidak ditautkan dari mana pun.
+// Halaman /roadmap dihapus sepenuhnya (bukan cuma di-unlink) -- arah AI roadmap (AI
+// Forecast, AI Alert, dst.) dianggap Founder terlalu terbuka untuk dilihat kompetitor,
+// dan URL yang tidak ditautkan pun tetap bisa diakses langsung/ke-index mesin pencari.
 //
 // Modules dipasang lagi 2026-08 (sempat jadi dead code sejak pivot ICP sebelumnya) --
 // grid-nya baru diperbarui supaya mencakup modul Pemasaran/Prospek/Manajemen Proyek

@@ -1,9 +1,9 @@
-import { LineChart, NotebookText, RefreshCw } from "lucide-react";
+import { LineChart, NotebookText, MessageCircle } from "lucide-react";
 import { BrowserFrame } from "@/components/landing/browser-frame";
 import {
   InsightIllustration,
   ReportIllustration,
-  AutomationIllustration,
+  AskAssistantIllustration,
 } from "@/components/landing/illustrations";
 
 const capabilities = [
@@ -28,13 +28,14 @@ const capabilities = [
     closing: "Mudah dibaca, efisien dipahami — keputusan jadi lebih cepat diambil.",
   },
   {
-    icon: RefreshCw,
-    Illustration: AutomationIllustration,
-    title: "Kerjaan Berulang, Jalan Sendiri",
+    icon: MessageCircle,
+    Illustration: AskAssistantIllustration,
+    title: "Tinggal Tanya, Asisten yang Jawab",
     paragraphs: [
-      "Reimbursement, faktur berulang, dan rekonsiliasi — kerjaan kecil yang sering luput, sekarang berjalan sendiri di belakang layar, supaya tidak ada catatan yang bocor dari hal yang seharusnya sederhana.",
+      "Soal keuangan, pelanggan, booking, sampai proyek — ketik pertanyaan sederhana, dan asisten langsung jawab dari data asli bisnis Anda, bukan tebakan.",
+      "Tidak perlu buka laporan dulu untuk sekadar tahu kondisi bisnis hari ini.",
     ],
-    closing: "Mudah diatur sekali, efisien berjalan seterusnya.",
+    closing: "Mudah ditanya, jawaban langsung dari data — kapan saja Anda butuh.",
   },
 ];
 

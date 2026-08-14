@@ -1,9 +1,6 @@
 import {
-  CheckCircle2,
-  ArrowDown,
   ArrowUpRight,
   AlertTriangle,
-  RefreshCw,
   Users,
   Clock,
   Boxes,
@@ -123,24 +120,30 @@ export function ReportIllustration() {
   );
 }
 
-export function AutomationIllustration() {
+export function AskAssistantIllustration() {
   return (
     <div className="space-y-3">
-      <div className="flex items-center justify-between rounded-md border border-border px-3 py-2.5">
-        <span className="text-xs text-muted-foreground">Reimbursement karyawan diajukan</span>
-        <RefreshCw className="h-3.5 w-3.5 shrink-0 text-accent" />
+      <div className="flex items-center gap-1.5 text-[11px] font-medium text-muted-foreground">
+        <MessageCircle className="h-3.5 w-3.5 shrink-0" />
+        Tanya Asisten
       </div>
-      <div className="flex justify-center">
-        <ArrowDown className="h-4 w-4 text-accent" />
+      <div className="flex justify-end">
+        <div className="max-w-[85%] rounded-lg rounded-br-none bg-primary px-3 py-2 text-xs text-primary-foreground">
+          &ldquo;Ada yang perlu saya perhatikan hari ini?&rdquo;
+        </div>
       </div>
-      <div className="flex items-center justify-between rounded-md border border-emerald-500 bg-emerald-500/10 px-3 py-2.5">
-        <span className="text-xs font-medium text-emerald-700">Otomatis masuk approval</span>
-        <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-600" />
+      <div className="flex justify-start">
+        <div className="max-w-[85%] rounded-lg rounded-bl-none bg-muted px-3 py-2 text-xs leading-relaxed text-foreground">
+          Aman — tidak ada piutang jatuh tempo, stok menipis, atau booking yang bentrok hari
+          ini.
+        </div>
       </div>
       <div className="rounded-md bg-muted px-3 py-2 text-[11px] leading-snug text-muted-foreground">
-        Sekali atur →{" "}
-        <span className="font-semibold text-foreground">jalan otomatis selamanya</span>,
-        dari reimbursement sampai rekonsiliasi bank.
+        Tinggal ketik →{" "}
+        <span className="font-semibold text-foreground">
+          jawaban langsung dari data asli bisnis Anda
+        </span>
+        .
       </div>
     </div>
   );

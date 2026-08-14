@@ -42,11 +42,10 @@ export function PackageCard({ pkg, cta }: { pkg: PackageInfo; cta: React.ReactNo
       </ul>
 
       <div className="mt-6">
-        <p className="text-xs text-muted-foreground">Investasi mulai dari</p>
-        <p>
-          <span className="text-3xl font-semibold text-primary">Rp{pkg.price}</span>
-          <span className="text-sm text-muted-foreground">/bulan</span>
+        <p className="text-sm font-medium text-foreground">
+          Investasi disesuaikan dengan kebutuhan bisnis Anda
         </p>
+        <p className="mt-1 text-xs text-muted-foreground">Diskusikan langsung dengan tim kami</p>
       </div>
 
       {cta}

@@ -8,12 +8,18 @@ import {
   InventoryModuleIllustration,
   PosModuleIllustration,
   StrategicInsightModuleIllustration,
+  MarketingModuleIllustration,
+  SalesModuleIllustration,
+  ProjectModuleIllustration,
 } from "@/components/landing/module-illustrations";
 
 export const MODULE_NAMES = [
-  "Keuangan",
+  "Pemasaran",
+  "Prospek",
   "Pelanggan",
   "Booking Online",
+  "Manajemen Proyek",
+  "Keuangan",
   "Pegawai",
   "Asisten",
   "Stok & Produk",
@@ -22,9 +28,12 @@ export const MODULE_NAMES = [
 ] as const;
 
 const modules = [
-  { name: "Akunting", Illustration: AccountingModuleIllustration },
+  { name: "Pemasaran", Illustration: MarketingModuleIllustration },
+  { name: "Prospek", Illustration: SalesModuleIllustration },
   { name: "CRM", Illustration: CrmModuleIllustration },
   { name: "Booking", Illustration: BookingModuleIllustration },
+  { name: "Manajemen Proyek", Illustration: ProjectModuleIllustration },
+  { name: "Akunting", Illustration: AccountingModuleIllustration },
   { name: "HR", Illustration: HrModuleIllustration },
   { name: "Tanya Asisten", Illustration: AssistantModuleIllustration },
   { name: "Inventory", Illustration: InventoryModuleIllustration },
@@ -41,9 +50,10 @@ export function Modules() {
             Satu Platform, Semua Modul Bisnis Kamu
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Akunting lengkap ada di semua paket sejak awal. CRM, Booking, HR,
-            dan POS tinggal dinyalakan begitu bisnis kamu butuh — bayar sesuai
-            yang dipakai.
+            Dari lead pertama masuk sampai proyek selesai dan buku besar rapi —
+            Pemasaran, Prospek, Booking, Manajemen Proyek, HR, dan POS tinggal
+            dinyalakan begitu bisnis kamu butuh. Akunting lengkap ada di semua
+            paket sejak awal.
           </p>
         </div>
 

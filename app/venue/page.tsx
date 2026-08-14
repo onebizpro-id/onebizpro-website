@@ -53,7 +53,7 @@ export default function VenueLandingPage() {
                 </a>
               </div>
               <p className="mt-4 text-sm text-muted-foreground">
-                Mulai dari Rp500rb/bulan. Tanpa komitmen di awal.
+                Investasi disesuaikan dengan kebutuhan venue kamu. Tanpa komitmen di awal.
               </p>
             </div>
             <BrowserFrame>

@@ -12,6 +12,7 @@ import {
   Megaphone,
   Target,
   FolderKanban,
+  DoorOpen,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -298,6 +299,26 @@ export function ProjectModuleIllustration() {
       <p className="text-[11px] leading-snug text-muted-foreground">
         RAB, termin, dan progres di satu tempat →{" "}
         <span className="font-semibold text-foreground">tahu duluan kalau mulai meleset</span>.
+      </p>
+    </div>
+  );
+}
+
+export function CustomerPortalModuleIllustration() {
+  return (
+    <div className="space-y-2.5">
+      <ModuleHeader icon={DoorOpen} name="Portal Pelanggan" badge="Live" tone="rose" />
+      <div className="flex items-center justify-between rounded-md border border-amber-500/30 bg-amber-500/10 px-2.5 py-1.5">
+        <span className="text-[11px] font-medium text-amber-700">Penawaran PNW-004</span>
+        <span className="text-[10px] font-medium text-amber-700">Menunggu approval</span>
+      </div>
+      <div className="flex items-center justify-between rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1.5">
+        <span className="text-[11px] font-medium text-emerald-700">Tagihan INV-012</span>
+        <span className="text-[10px] font-medium text-emerald-700">Lunas</span>
+      </div>
+      <p className="text-[11px] leading-snug text-muted-foreground">
+        Pelanggan approve & bayar sendiri lewat link →{" "}
+        <span className="font-semibold text-foreground">tidak perlu bolak-balik WA</span>.
       </p>
     </div>
   );

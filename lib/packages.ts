@@ -28,7 +28,6 @@ export const PACKAGES: PackageInfo[] = [
       { benefit: "Keuangan tercatat otomatis", system: "Accounting" },
       { benefit: "Pantau kondisi bisnis real-time", system: "Dashboard" },
       { benefit: "Asisten AI siap membantu", system: "Asisten AI" },
-      { benefit: "Ringkasan harian ke WhatsApp", system: "Digest WA" },
     ],
     highlight: false,
   },

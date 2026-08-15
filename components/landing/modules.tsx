@@ -11,11 +11,13 @@ import {
   MarketingModuleIllustration,
   SalesModuleIllustration,
   ProjectModuleIllustration,
+  CustomerPortalModuleIllustration,
 } from "@/components/landing/module-illustrations";
 
 export const MODULE_NAMES = [
   "Pemasaran",
   "Prospek",
+  "Portal Pelanggan",
   "Pelanggan",
   "Booking Online",
   "Manajemen Proyek",
@@ -30,6 +32,7 @@ export const MODULE_NAMES = [
 const modules = [
   { name: "Pemasaran", Illustration: MarketingModuleIllustration },
   { name: "Prospek", Illustration: SalesModuleIllustration },
+  { name: "Portal Pelanggan", Illustration: CustomerPortalModuleIllustration },
   { name: "CRM", Illustration: CrmModuleIllustration },
   { name: "Booking", Illustration: BookingModuleIllustration },
   { name: "Manajemen Proyek", Illustration: ProjectModuleIllustration },
@@ -51,9 +54,9 @@ export function Modules() {
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Dari lead pertama masuk sampai proyek selesai dan buku besar rapi —
-            Pemasaran, Prospek, Booking, Manajemen Proyek, HR, dan POS tinggal
-            dinyalakan begitu bisnis kamu butuh. Akunting lengkap ada di semua
-            paket sejak awal.
+            Pemasaran, Prospek, Portal Pelanggan, Booking, Manajemen Proyek, HR,
+            dan POS tinggal dinyalakan begitu bisnis kamu butuh. Akunting lengkap
+            ada di semua paket sejak awal.
           </p>
         </div>
 

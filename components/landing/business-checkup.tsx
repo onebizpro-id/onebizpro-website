@@ -13,6 +13,7 @@ import {
   type Challenge,
   type CurrentSoftware,
 } from "@/lib/business-checkup/questions";
+import { isEligibleForGrowthProgram } from "@/lib/business-checkup/growthProgram";
 
 // "result" (diagnosis) dan "contact" (form kontak) sengaja dipisah jadi dua step
 // berbeda -- sebelumnya digabung satu layar dan itu keliru, sama seperti pelajaran
@@ -68,6 +69,7 @@ export function BusinessCheckup() {
   const [currentSoftware, setCurrentSoftware] = useState<CurrentSoftware | null>(null);
   const [result, setResult] = useState<CheckupResult | null>(null);
   const [loadingResult, setLoadingResult] = useState(false);
+  const [isGrowthProgram, setIsGrowthProgram] = useState(false);
 
   const [name, setName] = useState("");
   const [businessName, setBusinessName] = useState("");
@@ -107,6 +109,9 @@ export function BusinessCheckup() {
       if (!res.ok) throw new Error("Gagal menghitung hasil. Coba lagi.");
       const data = await res.json();
       setResult(data.result);
+      if (employeeCount) {
+        setIsGrowthProgram(isEligibleForGrowthProgram(employeeCount, software));
+      }
       setStep("result");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Gagal menghitung hasil. Coba lagi.");
@@ -290,42 +295,108 @@ export function BusinessCheckup() {
               </ul>
             </div>
 
-            {getPackage(result.recommendedPackage) && (
+            {isGrowthProgram ? (
               <div className="mt-8">
-                <p className="text-sm font-semibold text-foreground">Paket yang Direkomendasikan</p>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                  {result.recommendationReason}
-                </p>
-                <div className="mt-4">
-                  <PackageCard
-                    pkg={getPackage(result.recommendedPackage)!}
-                    cta={
-                      <button
-                        type="button"
-                        onClick={() => setStep("contact")}
-                        className={`${buttonVariants({ size: "lg" })} mt-6 w-full`}
-                      >
-                        Konsultasikan Bisnis Anda
-                      </button>
-                    }
-                  />
+                <div className="rounded-lg border border-accent bg-accent/5 p-6">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-accent">
+                    Program Pertumbuhan Gratis
+                  </span>
+                  <p className="mt-2 text-lg font-semibold text-foreground">
+                    Organisasi Anda tampaknya memenuhi syarat.
+                  </p>
+                  <ul className="mt-4 space-y-2.5">
+                    {[
+                      "Keuangan tercatat otomatis — termasuk mode Dana Yayasan bila relevan",
+                      "Pantau kondisi organisasi real-time lewat Dashboard",
+                      "Asisten AI siap membantu — tanpa perlu staf keuangan sendiri",
+                    ].map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2 text-sm text-foreground">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    type="button"
+                    onClick={() => setStep("contact")}
+                    className={`${buttonVariants({ size: "lg" })} mt-6 w-full`}
+                  >
+                    Ajukan Program Pertumbuhan Gratis
+                  </button>
                 </div>
+                <p className="mt-4 text-center">
+                  <button
+                    type="button"
+                    onClick={() => setIsGrowthProgram(false)}
+                    className="text-sm text-muted-foreground underline hover:text-primary"
+                  >
+                    Lebih suka opsi berbayar? Lihat paket kami
+                  </button>
+                </p>
               </div>
-            )}
+            ) : (
+              <>
+                {getPackage(result.recommendedPackage) && (
+                  <div className="mt-8">
+                    <p className="text-sm font-semibold text-foreground">Paket yang Direkomendasikan</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                      {result.recommendationReason}
+                    </p>
+                    <div className="mt-4">
+                      <PackageCard
+                        pkg={getPackage(result.recommendedPackage)!}
+                        cta={
+                          <button
+                            type="button"
+                            onClick={() => setStep("contact")}
+                            className={`${buttonVariants({ size: "lg" })} mt-6 w-full`}
+                          >
+                            Konsultasikan Bisnis Anda
+                          </button>
+                        }
+                      />
+                    </div>
+                  </div>
+                )}
 
-            <p className="mt-4 text-center">
-              <Link href="/harga" className="text-sm text-muted-foreground underline hover:text-primary">
-                Lihat paket lain sebagai pembanding
-              </Link>
-            </p>
+                <p className="mt-4 text-center">
+                  <Link
+                    href="/harga"
+                    className="text-sm text-muted-foreground underline hover:text-primary"
+                  >
+                    Lihat paket lain sebagai pembanding
+                  </Link>
+                </p>
+                <p className="mt-2 text-center">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsGrowthProgram(true);
+                      setStep("contact");
+                    }}
+                    className="text-sm text-muted-foreground underline hover:text-primary"
+                  >
+                    Organisasi Anda baru bertumbuh &amp; belum banyak sumber daya? Cek Program
+                    Pertumbuhan Gratis kami
+                  </button>
+                </p>
+              </>
+            )}
           </div>
         )}
 
         {step === "contact" && (
           <div>
             <BackButton onClick={goBack} />
+            {isGrowthProgram && (
+              <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-wide text-accent">
+                Program Pertumbuhan Gratis
+              </span>
+            )}
             <p className="text-sm font-medium text-foreground">
-              Mau konsultasikan hasil ini lebih lanjut? Tinggalkan kontak Anda.
+              {isGrowthProgram
+                ? "Tinggal satu langkah lagi..."
+                : "Mau konsultasikan hasil ini lebih lanjut? Tinggalkan kontak Anda."}
             </p>
 
             <form onSubmit={handleContactSubmit} className="mt-4 space-y-4">
@@ -375,7 +446,11 @@ export function BusinessCheckup() {
                 disabled={submitting}
                 className={`${buttonVariants({ size: "lg" })} w-full disabled:opacity-60`}
               >
-                {submitting ? "Mengirim..." : "Konsultasikan Bisnis Anda"}
+                {submitting
+                  ? "Mengirim..."
+                  : isGrowthProgram
+                    ? "Ajukan Sekarang"
+                    : "Konsultasikan Bisnis Anda"}
               </button>
             </form>
           </div>

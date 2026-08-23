@@ -5,6 +5,7 @@ import { BusinessSolutions } from "@/components/landing/business-solutions";
 import { Modules } from "@/components/landing/modules";
 import { SocialProof } from "@/components/landing/social-proof";
 import { AiPositioning } from "@/components/landing/ai-positioning";
+import { WhyWeExistTeaser } from "@/components/landing/why-we-exist-teaser";
 import { ClosingCta } from "@/components/landing/closing-cta";
 import { Footer } from "@/components/landing/footer";
 
@@ -20,6 +21,10 @@ import { Footer } from "@/components/landing/footer";
 // Modules dipasang lagi 2026-08 (sempat jadi dead code sejak pivot ICP sebelumnya) --
 // grid-nya baru diperbarui supaya mencakup modul Pemasaran/Prospek/Manajemen Proyek
 // yang belum pernah tercermin di homepage, bagian dari dorongan product branding B2B.
+//
+// WhyWeExistTeaser (sprint "Mengapa OneBizPro Ada" + Program Pertumbuhan Gratis,
+// Control/plan.md item #16) sengaja diposisikan tepat sebelum ClosingCta, bukan di
+// tempat lain -- keduanya sama-sama full-bleed navy tapi beda shade (lihat komponen).
 export default function Home() {
   return (
     <>
@@ -31,6 +36,7 @@ export default function Home() {
         <Modules />
         <SocialProof />
         <AiPositioning />
+        <WhyWeExistTeaser />
         <ClosingCta />
       </main>
       <Footer />

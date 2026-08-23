@@ -13,7 +13,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-10 sm:grid-cols-3">
+        <div className="grid gap-10 sm:grid-cols-4">
           <div>
             <Image src="/logo.png" alt="OneBizPro" width={167} height={32} />
             <p className="mt-4 text-sm text-muted-foreground">
@@ -34,6 +34,20 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold text-foreground">Perusahaan</p>
+            <ul className="mt-4 space-y-2.5">
+              <li>
+                <Link
+                  href="/mengapa-onebizpro-ada"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
+                  Mengapa OneBizPro Ada
+                </Link>
+              </li>
             </ul>
           </div>
 

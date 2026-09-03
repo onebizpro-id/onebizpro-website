@@ -5,7 +5,6 @@ import { BusinessSolutions } from "@/components/landing/business-solutions";
 import { Modules } from "@/components/landing/modules";
 import { SocialProof } from "@/components/landing/social-proof";
 import { AiPositioning } from "@/components/landing/ai-positioning";
-import { WhyWeExistTeaser } from "@/components/landing/why-we-exist-teaser";
 import { ClosingCta } from "@/components/landing/closing-cta";
 import { Footer } from "@/components/landing/footer";
 
@@ -22,9 +21,10 @@ import { Footer } from "@/components/landing/footer";
 // grid-nya baru diperbarui supaya mencakup modul Pemasaran/Prospek/Manajemen Proyek
 // yang belum pernah tercermin di homepage, bagian dari dorongan product branding B2B.
 //
-// WhyWeExistTeaser (sprint "Mengapa OneBizPro Ada" + Program Pertumbuhan Gratis,
-// Control/plan.md item #16) sengaja diposisikan tepat sebelum ClosingCta, bukan di
-// tempat lain -- keduanya sama-sama full-bleed navy tapi beda shade (lihat komponen).
+// WhyWeExistTeaser (section "Mengapa OneBizPro Ada", sprint Control/plan.md item #16)
+// ditarik dulu dari homepage atas permintaan Founder 2026-08-23 -- komponennya &
+// halaman /mengapa-onebizpro-ada TIDAK dihapus (beda dari /roadmap yang dihapus
+// permanen), tinggal pasang lagi <WhyWeExistTeaser /> di sini kalau mau diaktifkan.
 export default function Home() {
   return (
     <>
@@ -36,7 +36,6 @@ export default function Home() {
         <Modules />
         <SocialProof />
         <AiPositioning />
-        <WhyWeExistTeaser />
         <ClosingCta />
       </main>
       <Footer />

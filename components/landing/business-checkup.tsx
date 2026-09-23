@@ -14,6 +14,7 @@ import {
   type CurrentSoftware,
 } from "@/lib/business-checkup/questions";
 import { isEligibleForGrowthProgram } from "@/lib/business-checkup/growthProgram";
+import { trackLead } from "@/lib/meta-pixel";
 
 // "result" (diagnosis) dan "contact" (form kontak) sengaja dipisah jadi dua step
 // berbeda -- sebelumnya digabung satu layar dan itu keliru, sama seperti pelajaran
@@ -157,6 +158,7 @@ export function BusinessCheckup() {
         window.open(data.fallbackWaLink, "_blank");
         setFallbackWaLink(data.fallbackWaLink);
       }
+      trackLead(); // konversi sebenarnya: kontak (nama/bisnis/WA) berhasil terkirim jadi lead
       setStep("done");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Gagal mengirim. Coba lagi.");

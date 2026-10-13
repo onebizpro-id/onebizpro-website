@@ -54,9 +54,21 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="mt-12 text-xs text-muted-foreground/70">
-          © {new Date().getFullYear()} PT OneBizPro Inovasi Indonesia. All rights reserved.
-        </p>
+        <div className="mt-12 flex flex-col gap-3 text-xs text-muted-foreground/70 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} PT OneBizPro Inovasi Indonesia. All rights reserved.</p>
+          <ul className="flex gap-4">
+            <li>
+              <Link href="/terms" className="hover:text-foreground">
+                Terms of Service
+              </Link>
+            </li>
+            <li>
+              <Link href="/privacy" className="hover:text-foreground">
+                Privacy Policy
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </footer>
   );

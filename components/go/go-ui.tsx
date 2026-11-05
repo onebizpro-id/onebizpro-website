@@ -1,14 +1,9 @@
 import Image from "next/image";
 import { GoCta } from "./go-cta";
 
-/** Logo asli OneBizPro (tidak digambar ulang) ditambah penanda GO. */
+/** Logo resmi OneBizPro Go (file dari pemilik, latar putih dibuat transparan). */
 export function LogoGo() {
-  return (
-    <span className="inline-flex items-center gap-2">
-      <Image src="/logo.png" alt="OneBizPro" width={167} height={32} priority />
-      <span className="rounded-md border-2 border-[#172d48] bg-[#ffe45e] px-1.5 py-0.5 text-[11px] font-extrabold tracking-widest text-[#172d48]">GO</span>
-    </span>
-  );
+  return <Image src="/go/logo-go.png" alt="OneBizPro Go" width={640} height={104} priority className="h-9 w-auto" />;
 }
 
 /** Bingkai HP untuk tangkapan layar aplikasi yang sebenarnya. */

@@ -44,10 +44,10 @@ export function GoHero() {
             OneBizPro Go adalah AI Assistant untuk one-person business. Asisten pertamanya, <b className="text-[#172d48]">Go Content</b>, membantu kamu bikin konten jualan dari HP.
           </p>
           <div className="mt-7 flex flex-wrap gap-4">
-            <PrimaryButton href={buyHref} location="hero-primary">Coba Go Content</PrimaryButton>
-            <GhostButton href="#demo" location="hero-secondary">Lihat hasilnya</GhostButton>
+            <PrimaryButton href={buyHref} location="hero-primary" className="!h-14 !px-8 !text-lg">Coba Go Content</PrimaryButton>
+            <GhostButton href="#demo" location="hero-secondary" className="!h-14 !text-lg">Lihat hasilnya</GhostButton>
           </div>
-          <p className="mt-4 text-sm text-[#4f607a]">Bisa dipakai dari HP.</p>
+          <p className="mt-4 text-[15px] text-[#4f607a]">Dipakai langsung dari browser HP. Kode aktivasi dikirim setelah pembayaran diverifikasi.</p>
         </div>
 
         <div className="relative mx-auto h-[440px] w-full max-w-[420px] sm:h-[500px]">
@@ -63,10 +63,10 @@ export function GoHero() {
 }
 
 const TOPI = [
-  { t: "Bikin konten", c: "#fff1a8", r: -2, tag: "Dibantu Go Content", ada: true },
-  { t: "Balas chat pelanggan", c: "#d6e4ff", r: 1.5, tag: "Belum ada", ada: false },
-  { t: "Catat keuangan", c: "#cfeee0", r: -1, tag: "Belum ada", ada: false },
-  { t: "Follow-up calon pembeli", c: "#ffd9d2", r: 2, tag: "Belum ada", ada: false },
+  { t: "Bikin konten", c: "#fff1a8", r: -2, tag: "Tersedia sekarang", ada: true },
+  { t: "Balas chat pelanggan", c: "#d6e4ff", r: 1.5, tag: "Coming Soon", ada: false },
+  { t: "Catat keuangan", c: "#cfeee0", r: -1, tag: "Coming Soon", ada: false },
+  { t: "Follow-up calon pembeli", c: "#ffd9d2", r: 2, tag: "Coming Soon", ada: false },
 ] as const;
 
 export function GoTopi() {
@@ -85,9 +85,15 @@ export function GoTopi() {
           </li>
         ))}
       </ul>
-      <p className="mx-auto mt-8 max-w-xl text-center text-[#4f607a]">
-        Jujur saja: sekarang baru ada satu asisten, Go Content. Pekerjaan lain masih kamu pegang sendiri, dan kami kabari di Instagram kalau ada yang baru.
+      <p className="mx-auto mt-8 max-w-xl text-center text-base text-[#4f607a]">
+        <b className="text-[#172d48]">Go Content adalah asisten pertama OneBizPro Go.</b> Kemampuan lainnya direncanakan dan akan hadir bertahap. Kami kabari lewat Instagram {GO.instagramHandle}.
       </p>
+      <div className="go-card mx-auto mt-8 max-w-2xl bg-[#fff1a8] p-6">
+        <p className="go-hand text-2xl text-[#2563eb]">Langkah pertama menuju Personal AI Business Assistant</p>
+        <p className="mt-2 text-base">
+          Tujuan kami: asisten AI pribadi yang membantu satu orang menjalankan bisnisnya. Hari ini, Go Content membantu menyusun naskah dan membuat konten saat kamu memintanya. Kamu yang menentukan dan memposting. Belum ada AI Agent atau otomatisasi yang jalan sendiri.
+        </p>
+      </div>
     </section>
   );
 }
@@ -103,14 +109,44 @@ export function GoDemo() {
               <video className="block h-auto w-full" src="/go/reels-demo.mp4" poster="/go/reels-poster.jpg" controls playsInline preload="none" aria-label="Demo Reels buatan Go Content" />
             </div>
           </div>
-          <p className="go-hand mt-2 text-center text-xl">Reels MP4, tekan putar</p>
+          <p className="go-hand mt-2 text-center text-2xl">Reels (MP4)</p>
         </div>
-        <Photo src="/go/carousel-3.jpg" w={1080} h={1350} alt="Carousel slide 3" rotate={3} className="w-[46%] max-w-[205px]" />
-        <Photo src="/go/story-2.jpg" w={1080} h={1920} alt="Story" rotate={-3} className="w-[46%] max-w-[170px]" />
-        <Photo src="/go/tpl-scrapbook-mint.jpg" w={720} h={900} alt="Template Scrapbook mint" rotate={2} className="w-[46%] max-w-[195px]" />
-        <Photo src="/go/tpl-editorial-gelap.jpg" w={720} h={900} alt="Template Editorial gelap" rotate={-2} className="w-[46%] max-w-[195px]" />
+        <div className="w-[46%] max-w-[205px]">
+          <Photo src="/go/post-1.jpg" w={1080} h={1350} alt="Contoh Instagram Post buatan Go Content" rotate={2} />
+          <p className="go-hand mt-3 text-center text-2xl">Post</p>
+        </div>
+        <div className="w-[46%] max-w-[205px]">
+          <Photo src="/go/carousel-3.jpg" w={1080} h={1350} alt="Contoh slide Carousel buatan Go Content" rotate={-3} />
+          <p className="go-hand mt-3 text-center text-2xl">Carousel</p>
+        </div>
+        <div className="w-[46%] max-w-[170px]">
+          <Photo src="/go/story-2.jpg" w={1080} h={1920} alt="Contoh Story buatan Go Content" rotate={3} />
+          <p className="go-hand mt-3 text-center text-2xl">Story</p>
+        </div>
+        <div className="w-[46%] max-w-[205px]">
+          <Photo src="/go/carousel-1.jpg" w={1080} h={1350} alt="Contoh slide pembuka Carousel buatan Go Content" rotate={-2} />
+          <p className="go-hand mt-3 text-center text-2xl">Slide pembuka</p>
+        </div>
       </div>
-      <p className="mt-10 text-center text-[#4f607a]">Plus AI naskah, belasan template, dan pengaturan gaya akun supaya semua kontenmu seragam.</p>
+
+      <h3 className="go-hand mt-16 text-center text-3xl text-[#2563eb]">Begini tampilan di dalam aplikasinya</h3>
+      <div className="mx-auto mt-8 grid max-w-3xl grid-cols-3 gap-4 sm:gap-8">
+        {[
+          ["/go/ui-isi.jpg", "Isi topik", "Layar mengisi topik konten"],
+          ["/go/ui-tampil.jpg", "Pilih tampilan", "Layar memilih template dan pratinjau"],
+          ["/go/ui-selesai.jpg", "Unduh atau kirim", "Layar selesai dengan tombol unduh dan kirim"],
+        ].map(([src, label, alt]) => (
+          <div key={src}>
+            <Phone src={src} w={720} h={1548} alt={alt} />
+            <p className="go-hand mt-3 text-center text-xl leading-tight sm:text-2xl">{label}</p>
+          </div>
+        ))}
+      </div>
+      <p className="mt-10 text-center text-base text-[#4f607a]">Plus AI naskah, belasan template, dan pengaturan gaya akun supaya semua kontenmu seragam.</p>
+      <div className="mt-8 flex flex-wrap justify-center gap-4">
+        <PrimaryButton href={buyHref} location="after-demo" className="!h-14 !px-8 !text-lg">Coba Go Content</PrimaryButton>
+        <GhostButton href={GO.instagramUrl} location="after-demo-ig" className="!h-14 !text-lg">Lihat contoh di Instagram</GhostButton>
+      </div>
     </section>
   );
 }
@@ -143,21 +179,30 @@ export function GoPricing() {
       <SectionHead hand="mau coba?" title="Yang kamu dapat di Go Content." />
       <div className="go-card mx-auto mt-10 max-w-md bg-white p-7">
         <p className="go-hand text-2xl text-[#2563eb]">Go Content</p>
-        <ul className="mt-5 space-y-2.5 text-[15px]">
+        {GO.price && (
+          <p className="mt-1 flex items-end gap-1">
+            <span className="go-display text-5xl font-extrabold">{GO.price}</span>
+            <span className="pb-1.5 text-[#4f607a]">{GO.period}</span>
+          </p>
+        )}
+        <ul className="mt-5 space-y-3 text-base">
           {PRICING_FEATURES.map((f) => (
-            <li key={f} className="flex gap-2.5"><span className="mt-0.5 font-extrabold text-[#2563eb]">âœ“</span>{f}</li>
+            <li key={f} className="flex gap-2.5"><span className="font-extrabold text-[#2563eb]">&#10003;</span>{f}</li>
           ))}
           <li className="flex gap-2.5">
-            <span className="mt-0.5 font-extrabold text-[#2563eb]">âœ“</span>
+            <span className="font-extrabold text-[#2563eb]">&#10003;</span>
             {GO.credits ? `${GO.credits} kredit AI per bulan` : "Kredit AI bulanan untuk naskah. Jumlahnya diinformasikan saat berlangganan."}
           </li>
         </ul>
+        <p className="mt-4 text-[15px] text-[#4f607a]">
+          {GO.price ? "Akses berlaku satu bulan sejak pembelian diverifikasi. Perpanjangan dengan membeli lagi." : "Harga dan tanggal pembukaan akan diumumkan di Instagram dan di halaman ini."}
+        </p>
         {GO.lynkUrl ? (
-          <PrimaryButton href={GO.lynkUrl} location="pricing" className="mt-6 w-full">Langganan Go Content</PrimaryButton>
+          <PrimaryButton href={GO.lynkUrl} location="pricing" className="mt-6 w-full !h-14 !text-lg">Langganan Go Content</PrimaryButton>
         ) : (
           <div className="mt-6 space-y-4">
-            <span className="flex h-12 w-full items-center justify-center rounded-xl border-2 border-dashed border-[#172d48] bg-[#fff1a8] font-bold">Segera hadir di Lynk.id</span>
-            <GhostButton href={GO.instagramUrl} location="pricing-ig" className="w-full">Tanya lewat DM Instagram</GhostButton>
+            <span className="flex h-12 w-full items-center justify-center rounded-xl border-2 border-dashed border-[#172d48] bg-[#fff1a8] text-base font-bold">Segera hadir di Lynk.id</span>
+            <PrimaryButton href={GO.instagramUrl} location="pricing-ig" className="w-full !h-14 !text-lg">Tanya lewat DM Instagram</PrimaryButton>
           </div>
         )}
       </div>

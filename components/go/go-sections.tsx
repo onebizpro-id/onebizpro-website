@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { FAQ, GO, PRICING_FEATURES, STEPS } from "@/lib/go";
 import { GoCta } from "./go-cta";
 import { GhostButton, LogoGo, Phone, Photo, PrimaryButton, SectionHead } from "./go-ui";
@@ -145,10 +145,10 @@ export function GoPricing() {
         <p className="go-hand text-2xl text-[#2563eb]">Go Content</p>
         <ul className="mt-5 space-y-2.5 text-[15px]">
           {PRICING_FEATURES.map((f) => (
-            <li key={f} className="flex gap-2.5"><span className="mt-0.5 font-extrabold text-[#2563eb]">âœ“</span>{f}</li>
+            <li key={f} className="flex gap-2.5"><span className="mt-0.5 font-extrabold text-[#2563eb]">&#10003;</span>{f}</li>
           ))}
           <li className="flex gap-2.5">
-            <span className="mt-0.5 font-extrabold text-[#2563eb]">âœ“</span>
+            <span className="mt-0.5 font-extrabold text-[#2563eb]">&#10003;</span>
             {GO.credits ? `${GO.credits} kredit AI per bulan` : "Kredit AI bulanan untuk naskah. Jumlahnya diinformasikan saat berlangganan."}
           </li>
         </ul>

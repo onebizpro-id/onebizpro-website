@@ -3,8 +3,8 @@ import { FAQ, GO, PRICING_FEATURES, STEPS } from "@/lib/go";
 import { GoCta } from "./go-cta";
 import { GhostButton, LogoGo, Phone, Photo, PrimaryButton, SectionHead } from "./go-ui";
 
-/** Tujuan tombol beli: Lynk.id bila URL sudah diisi, selain itu menuju bagian harga. */
-const buyHref = GO.lynkUrl || "#harga";
+/** Tujuan tombol beli: Lynk.id bila URL sudah diisi, selain itu menuju bagian akses. Harga sengaja tidak ditampilkan dulu. */
+const buyHref = GO.lynkUrl || "#akses";
 
 export function GoNav() {
   return (
@@ -16,7 +16,7 @@ export function GoNav() {
         <nav className="hidden items-center gap-6 text-sm font-semibold text-[#4f607a] md:flex" aria-label="Menu Go">
           <a href="#topi" className="hover:text-[#172d48]">Satu orang</a>
           <a href="#demo" className="hover:text-[#172d48]">Hasilnya</a>
-          <a href="#harga" className="hover:text-[#172d48]">Harga</a>
+          <a href="#akses" className="hover:text-[#172d48]">Akses</a>
           <a href="#faq" className="hover:text-[#172d48]">FAQ</a>
         </nav>
         <GoCta href={buyHref} location="nav" className="go-btn go-btn-sm shrink-0 whitespace-nowrap">
@@ -47,7 +47,7 @@ export function GoHero() {
             <PrimaryButton href={buyHref} location="hero-primary">Coba Go Content</PrimaryButton>
             <GhostButton href="#demo" location="hero-secondary">Lihat hasilnya</GhostButton>
           </div>
-          <p className="mt-4 text-sm text-[#4f607a]">{GO.price}{GO.period}. Bisa dipakai dari HP.</p>
+          <p className="mt-4 text-sm text-[#4f607a]">Bisa dipakai dari HP.</p>
         </div>
 
         <div className="relative mx-auto h-[440px] w-full max-w-[420px] sm:h-[500px]">
@@ -139,14 +139,10 @@ export function GoSteps() {
 
 export function GoPricing() {
   return (
-    <section id="harga" className="go-section mx-auto max-w-6xl px-5 py-14">
-      <SectionHead hand="harga" title="Satu paket, jelas dari awal." />
+    <section id="akses" className="go-section mx-auto max-w-6xl px-5 py-14">
+      <SectionHead hand="mau coba?" title="Yang kamu dapat di Go Content." />
       <div className="go-card mx-auto mt-10 max-w-md bg-white p-7">
         <p className="go-hand text-2xl text-[#2563eb]">Go Content</p>
-        <p className="mt-1 flex items-end gap-1">
-          <span className="go-display text-5xl font-extrabold">{GO.price}</span>
-          <span className="pb-1.5 text-[#4f607a]">{GO.period}</span>
-        </p>
         <ul className="mt-5 space-y-2.5 text-[15px]">
           {PRICING_FEATURES.map((f) => (
             <li key={f} className="flex gap-2.5"><span className="mt-0.5 font-extrabold text-[#2563eb]">âœ“</span>{f}</li>
@@ -156,7 +152,6 @@ export function GoPricing() {
             {GO.credits ? `${GO.credits} kredit AI per bulan` : "Kredit AI bulanan untuk naskah. Jumlahnya diinformasikan saat berlangganan."}
           </li>
         </ul>
-        <p className="mt-4 text-sm text-[#4f607a]">Akses berlaku satu bulan. Perpanjangan dengan membeli lagi.</p>
         {GO.lynkUrl ? (
           <PrimaryButton href={GO.lynkUrl} location="pricing" className="mt-6 w-full">Langganan Go Content</PrimaryButton>
         ) : (

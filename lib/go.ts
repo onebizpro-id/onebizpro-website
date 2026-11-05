@@ -1,4 +1,4 @@
-// OneBizPro Go: satu sumber untuk semua angka, tautan, dan teks yang bisa berubah.
+﻿// OneBizPro Go: satu sumber untuk semua angka, tautan, dan teks yang bisa berubah.
 // Tautan Lynk.id, aplikasi, Instagram, dan jumlah kredit diisi lewat environment variable (lihat docs/onebizpro-go-landingpage.md).
 // Jangan menulis tautan atau angka karangan di sini: kalau belum diisi, halaman menampilkan keadaan "segera hadir", bukan tautan rusak.
 
@@ -7,8 +7,6 @@ export const GO = {
   product: "Go Content",
   tagline: "Bisnis Sendiri, Nggak Harus Ribet Sendiri.",
   siteUrl: "https://onebizpro.id/go",
-  price: "Rp69.000",
-  period: "/bulan",
   lynkUrl: process.env.NEXT_PUBLIC_LYNK_GO_CONTENT_URL ?? "",
   appUrl: process.env.NEXT_PUBLIC_GO_APP_URL ?? "",
   instagramUrl: process.env.NEXT_PUBLIC_GO_INSTAGRAM_URL ?? "https://www.instagram.com/onebizpro.go/",

@@ -1,13 +1,16 @@
-/* OneBizPro Go: warna dan tipografi khusus halaman /go. Tidak memengaruhi halaman lain. */
+/* OneBizPro Go: warna dan tipografi khusus halaman /go. Tidak memengaruhi halaman lain.
+   Tema: meja kerja satu orang (kertas, catatan tempel, foto bertape). Tanpa gradien. */
 .go-root {
   --go-blue: #2563eb;
-  --go-violet: #8b5cf6;
-  --go-cyan: #06b6d4;
-  --go-surface: #f1f5ff;
-  --go-navy: #172d48;
-  --go-muted: #54667f;
-  color: var(--go-navy);
-  background: #fff;
+  --go-ink: #172d48;
+  --go-muted: #4f607a;
+  --go-paper: #fbf6ea;
+  --go-line: #e7dcc3;
+  --go-hl: #ffe45e;
+  color: var(--go-ink);
+  background-color: var(--go-paper);
+  background-image: radial-gradient(var(--go-line) 1px, transparent 1px);
+  background-size: 22px 22px;
   font-family: var(--font-go-body), system-ui, sans-serif;
   scroll-behavior: smooth;
 }
@@ -19,33 +22,56 @@
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
-.go-grad {
-  background-image: linear-gradient(135deg, var(--go-blue) 0%, var(--go-violet) 62%, var(--go-cyan) 100%);
-}
-.go-grad-text {
-  background-image: linear-gradient(120deg, var(--go-blue), var(--go-violet) 70%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+.go-hand { font-family: var(--font-go-hand), cursive; font-weight: 700; }
 .go-section { scroll-margin-top: 5rem; }
-.go-card {
-  background: #fff;
-  border: 1px solid #dfe6f5;
-  border-radius: 1.25rem;
-  box-shadow: 0 1px 2px rgba(23, 45, 72, 0.04);
+
+/* penanda stabilo */
+.go-mark { background: linear-gradient(transparent 60%, var(--go-hl) 60%); padding: 0 0.1em; }
+
+/* tombol datar dengan bayangan keras */
+.go-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 3rem; padding: 0 1.6rem; border-radius: 0.8rem;
+  border: 2px solid var(--go-ink); font-weight: 700; font-size: 1rem;
+  background: var(--go-blue); color: #fff; box-shadow: 4px 4px 0 var(--go-ink);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.go-btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--go-ink); }
+.go-btn-ghost { background: #fff; color: var(--go-ink); }
+.go-btn-sm { height: 2.4rem; padding: 0 1rem; font-size: 0.9rem; box-shadow: 3px 3px 0 var(--go-ink); }
+
+/* catatan tempel */
+.go-note {
+  position: relative; padding: 1.1rem 1rem 1rem; border-radius: 2px;
+  box-shadow: 2px 4px 0 rgba(23, 45, 72, 0.14);
+}
+.go-note-text { font-family: var(--font-go-hand), cursive; font-weight: 700; font-size: 1.55rem; line-height: 1.1; }
+.go-stamp {
+  display: inline-block; margin-top: 0.7rem; padding: 0.15rem 0.55rem; border: 2px solid currentColor;
+  border-radius: 0.4rem; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  transform: rotate(-3deg);
+}
+
+/* foto bertape */
+.go-photo {
+  position: relative; background: #fff; padding: 8px; border-radius: 2px;
+  box-shadow: 0 12px 26px -14px rgba(23, 45, 72, 0.55);
+}
+.go-photo::before {
+  content: ""; position: absolute; top: -11px; left: 50%; width: 70px; height: 22px;
+  background: rgba(255, 228, 94, 0.8); transform: translateX(-50%) rotate(-3deg);
 }
 .go-phone {
-  border-radius: 2.1rem;
-  background: var(--go-navy);
-  padding: 0.4rem;
-  box-shadow: 0 24px 50px -18px rgba(23, 45, 72, 0.45);
+  border-radius: 2.1rem; background: var(--go-ink); padding: 0.4rem;
+  box-shadow: 0 24px 50px -18px rgba(23, 45, 72, 0.5);
 }
 .go-phone > div { border-radius: 1.75rem; overflow: hidden; background: #fff; }
-.go-faq details { border-bottom: 1px solid #dfe6f5; }
-.go-faq summary { cursor: pointer; list-style: none; padding: 1rem 0; font-weight: 600; display: flex; justify-content: space-between; gap: 1rem; }
+
+.go-card { background: #fff; border: 2px solid var(--go-ink); border-radius: 1rem; box-shadow: 5px 5px 0 var(--go-ink); }
+.go-faq details { border-bottom: 2px dashed var(--go-line); }
+.go-faq summary { cursor: pointer; list-style: none; padding: 1rem 0; font-weight: 700; display: flex; justify-content: space-between; gap: 1rem; }
 .go-faq summary::-webkit-details-marker { display: none; }
-.go-faq summary::after { content: "+"; color: var(--go-blue); font-size: 1.4rem; line-height: 1; }
+.go-faq summary::after { content: "+"; color: var(--go-blue); font-size: 1.5rem; line-height: 1; }
 .go-faq details[open] summary::after { content: "–"; }
 .go-faq details p { padding: 0 0 1.1rem; color: var(--go-muted); max-width: 60ch; }
-@media (prefers-reduced-motion: reduce) { .go-root { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) { .go-root { scroll-behavior: auto; } .go-btn { transition: none; } }

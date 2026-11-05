@@ -17,38 +17,10 @@ export const GO = {
   credits: process.env.NEXT_PUBLIC_GO_CREDITS ?? "",
 } as const;
 
-export const FEATURES = [
-  { key: "post", title: "Instagram Post", desc: "Satu gambar bertulisan yang rapi, ukuran 4:5 atau 1:1, siap diunggah.", img: "/go/post-1.jpg", w: 1080, h: 1350 },
-  { key: "carousel", title: "Carousel", desc: "Geser-geser 4 sampai 6 slide dari satu topik. Hook di slide pertama, ajakan di slide terakhir.", img: "/go/carousel-1.jpg", w: 1080, h: 1350 },
-  { key: "story", title: "Story", desc: "Frame layar penuh 9:16 dengan teks pendek yang mudah dibaca.", img: "/go/story-1.jpg", w: 1080, h: 1920 },
-  { key: "reels", title: "Reels (MP4)", desc: "Video teks bergerak dari adegan yang kamu atur, diunduh sebagai MP4.", img: "/go/reels-poster.jpg", w: 1080, h: 1920 },
-  { key: "highlight", title: "Highlight Cover", desc: "Sampul ikon bulat yang seragam dengan gaya akunmu.", img: "/go/highlight-1.jpg", w: 1080, h: 1080 },
-  { key: "ai", title: "AI Script", desc: "Naskah dan caption dari AI sesuai gaya akunmu. Memakai kredit bulanan; contoh siap pakai tetap gratis.", img: "/go/ui-tampil.jpg", w: 720, h: 1548 },
-  { key: "template", title: "Template konten", desc: "Belasan template, dari Scrapbook sampai Editorial. Tinggal pilih, tampilannya langsung berganti.", img: "/go/tpl-scrapbook-mint.jpg", w: 720, h: 900 },
-  { key: "gaya", title: "Pengaturan gaya akun", desc: "Isi sekali: nama, warna, font, dan nada bicara. Semua konten baru otomatis mengikuti.", img: "/go/ui-gaya.jpg", w: 720, h: 1548 },
-] as const;
-
 export const STEPS = [
-  { n: 1, title: "Pilih jenis konten", desc: "Post, Carousel, Story, Reels, atau Highlight Cover.", img: "/go/ui-beranda.jpg" },
-  { n: 2, title: "Isi kebutuhanmu", desc: "Tulis topik atau produk. Mau lebih tajam? Tambah masalah pembaca dan kata kunci DM.", img: "/go/ui-isi.jpg" },
-  { n: 3, title: "Pakai AI dan template", desc: "AI menyusun naskah, kamu memilih tampilan. Hasilnya langsung terlihat.", img: "/go/ui-tampil.jpg" },
-  { n: 4, title: "Periksa hasilnya", desc: "Ubah teks, foto, atau urutan. Ada pengecekan kata janji yang berisiko.", img: "/go/ui-tampil.jpg" },
-  { n: 5, title: "Unduh atau kirim", desc: "Unduh PNG, ZIP, atau MP4, atau kirim ke Instagram lewat lembar bagikan HP. Kamu yang menekan unggah.", img: "/go/ui-selesai.jpg" },
-] as const;
-
-export const SEGMENTS = [
-  { title: "Online Seller", example: "Bikin carousel \"isi paket\" dan Story promo akhir pekan tanpa buka aplikasi desain." },
-  { title: "Creatorpreneur", example: "Ubah satu ide jadi Post, Carousel, dan Reels dengan gaya akun yang sama." },
-  { title: "Freelancer", example: "Tampilkan jasa dan cara kerja lewat konten edukasi yang rapi dan konsisten." },
-  { title: "Small Business Owner", example: "Siapkan konten promosi sendiri di sela kerja, dari HP, tanpa harus mulai dari nol." },
-] as const;
-
-export const PROBLEMS = [
-  "Bingung mau posting apa hari ini.",
-  "Tidak punya waktu membuat desain.",
-  "Susah menulis caption dan naskah.",
-  "Harus jadi admin sekaligus marketing.",
-  "Konten bisnis sering berhenti karena kehabisan ide.",
+  { n: 1, title: "Tulis topik atau produkmu", desc: "Pilih Post, Carousel, Story, Reels, atau Highlight Cover. Mau lebih tajam? Tambah masalah pembaca dan kata kunci DM." },
+  { n: 2, title: "AI menyusun, kamu yang menentukan", desc: "Naskah dan caption dibuat sesuai gaya akunmu. Pilih template, ubah teks, foto, atau urutan." },
+  { n: 3, title: "Unduh, lalu kamu yang posting", desc: "Unduh PNG, ZIP, atau MP4, atau kirim lewat lembar bagikan HP. Kamu yang menekan unggah di Instagram." },
 ] as const;
 
 export const PRICING_FEATURES = [

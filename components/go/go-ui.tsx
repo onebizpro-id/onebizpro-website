@@ -6,7 +6,7 @@ export function LogoGo() {
   return (
     <span className="inline-flex items-center gap-2">
       <Image src="/logo.png" alt="OneBizPro" width={167} height={32} priority />
-      <span className="go-grad rounded-md px-2 py-0.5 text-[11px] font-extrabold tracking-widest text-white">GO</span>
+      <span className="rounded-md border-2 border-[#172d48] bg-[#ffe45e] px-1.5 py-0.5 text-[11px] font-extrabold tracking-widest text-[#172d48]">GO</span>
     </span>
   );
 }
@@ -22,10 +22,10 @@ export function Phone({ src, w, h, alt, className = "" }: { src: string; w: numb
   );
 }
 
-/** Hasil konten (gambar yang benar-benar diekspor aplikasi) dalam kartu sederhana. */
-export function Result({ src, w, h, alt, className = "" }: { src: string; w: number; h: number; alt: string; className?: string }) {
+/** Hasil konten asli dari aplikasi, ditempel seperti foto bertape. */
+export function Photo({ src, w, h, alt, rotate = 0, className = "" }: { src: string; w: number; h: number; alt: string; rotate?: number; className?: string }) {
   return (
-    <div className={`overflow-hidden rounded-2xl border border-[#dfe6f5] bg-white shadow-[0_18px_40px_-20px_rgba(23,45,72,0.45)] ${className}`}>
+    <div className={`go-photo ${className}`} style={{ transform: `rotate(${rotate}deg)` }}>
       <Image src={src} alt={alt} width={w} height={h} className="block h-auto w-full" />
     </div>
   );
@@ -33,11 +33,7 @@ export function Result({ src, w, h, alt, className = "" }: { src: string; w: num
 
 export function PrimaryButton({ href, location, children, className = "" }: { href: string; location: string; children: React.ReactNode; className?: string }) {
   return (
-    <GoCta
-      href={href}
-      location={location}
-      className={`go-grad inline-flex h-12 items-center justify-center rounded-xl px-7 text-base font-semibold text-white shadow-[0_12px_28px_-10px_rgba(37,99,235,0.65)] transition hover:opacity-95 ${className}`}
-    >
+    <GoCta href={href} location={location} className={`go-btn ${className}`}>
       {children}
     </GoCta>
   );
@@ -45,22 +41,18 @@ export function PrimaryButton({ href, location, children, className = "" }: { hr
 
 export function GhostButton({ href, location, children, className = "" }: { href: string; location: string; children: React.ReactNode; className?: string }) {
   return (
-    <GoCta
-      href={href}
-      location={location}
-      className={`inline-flex h-12 items-center justify-center rounded-xl border border-[#c9d6f0] bg-white px-7 text-base font-semibold text-[#172d48] transition hover:bg-[#f1f5ff] ${className}`}
-    >
+    <GoCta href={href} location={location} className={`go-btn go-btn-ghost ${className}`}>
       {children}
     </GoCta>
   );
 }
 
-export function SectionHead({ eyebrow, title, sub }: { eyebrow?: string; title: string; sub?: string }) {
+export function SectionHead({ title, sub, hand }: { title: React.ReactNode; sub?: string; hand?: string }) {
   return (
     <div className="mx-auto max-w-2xl text-center">
-      {eyebrow && <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#2563eb]">{eyebrow}</p>}
-      <h2 className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">{title}</h2>
-      {sub && <p className="mt-3 text-base text-[#54667f]">{sub}</p>}
+      {hand && <p className="go-hand text-2xl text-[#2563eb]">{hand}</p>}
+      <h2 className="mt-1 text-3xl font-extrabold leading-tight sm:text-4xl">{title}</h2>
+      {sub && <p className="mt-3 text-base text-[#4f607a]">{sub}</p>}
     </div>
   );
 }

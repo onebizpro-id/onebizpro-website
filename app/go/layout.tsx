@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Caveat, Inter, Poppins } from "next/font/google";
 import "./go.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-go-body" });
 const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700", "800"], variable: "--font-go-display" });
+
+const caveat = Caveat({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-go-hand" });
 
 const TITLE = "OneBizPro Go: AI Assistant for One-Person Business | Go Content";
 const DESC =
@@ -26,5 +28,5 @@ export const metadata: Metadata = {
 };
 
 export default function GoLayout({ children }: { children: React.ReactNode }) {
-  return <div className={`go-root ${inter.variable} ${poppins.variable}`}>{children}</div>;
+  return <div className={`go-root ${inter.variable} ${poppins.variable} ${caveat.variable}`}>{children}</div>;
 }

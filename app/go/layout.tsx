@@ -5,9 +5,9 @@ import "./go.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-go-body" });
 const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700", "800"], variable: "--font-go-display" });
 
-const TITLE = "OneBizPro Go: Go Content, AI Content Studio untuk bisnis kecil";
+const TITLE = "OneBizPro Go: AI Assistant for One-Person Business | Go Content";
 const DESC =
-  "Bikin Post, Carousel, Story, Reels, dan Highlight Cover dengan bantuan AI, dari HP. Bisnis sendiri, nggak harus ribet sendiri. Rp69.000/bulan.";
+  "One Person. One Business. One AI Team. Asisten pertama: Go Content, bikin Post, Carousel, Story, Reels, dan Highlight Cover dengan bantuan AI, dari HP. Rp69.000/bulan.";
 
 export const metadata: Metadata = {
   title: TITLE,

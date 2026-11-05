@@ -40,13 +40,14 @@ export function GoHero() {
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
         <div>
           <p className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-[#2563eb] shadow-sm">
-            <span className="go-grad h-2 w-2 rounded-full" /> Digital Business Assistant
+            <span className="go-grad h-2 w-2 rounded-full" /> AI Assistant for One-Person Business
           </p>
           <h1 className="mt-4 text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-[3.4rem]">
-            Bisnis Sendiri, <span className="go-grad-text">Nggak Harus Ribet Sendiri.</span>
+            One Person. One Business. <span className="go-grad-text">One AI Team.</span>
           </h1>
-          <p className="mt-5 max-w-xl text-lg text-[#54667f]">
-            Kenalan dengan OneBizPro Go, teman kerja digital untuk membantu seller, creator, freelancer, dan pemilik usaha mengelola bisnis lebih praktis.
+          <p className="mt-4 text-xl font-semibold text-[#172d48]">Bisnis sendiri, nggak harus ribet sendiri.</p>
+          <p className="mt-3 max-w-xl text-lg text-[#54667f]">
+            OneBizPro Go membantu seller, creator, freelancer, dan pemilik usaha menjalankan bisnisnya dengan bantuan asisten AI, tanpa harus selalu merekrut orang untuk pekerjaan rutin. Asisten pertamanya: Go Content.
           </p>
           <div className="mt-6 rounded-2xl border border-[#dfe6f5] bg-white p-4 sm:max-w-md">
             <p className="text-sm font-bold">Go Content</p>

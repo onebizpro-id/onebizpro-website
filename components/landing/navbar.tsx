@@ -12,6 +12,12 @@ export function Navbar() {
         </Link>
         <div className="flex items-center gap-4">
           <Link
+            href="/go"
+            className="hidden text-sm font-medium text-muted-foreground hover:text-foreground sm:inline"
+          >
+            OneBizPro Go
+          </Link>
+          <Link
             href="/harga"
             className="text-sm font-medium text-muted-foreground hover:text-foreground"
           >

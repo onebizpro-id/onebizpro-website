@@ -38,7 +38,20 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-foreground">Kontak</p>
+            <p className="text-sm font-semibold text-foreground">Produk</p>
+            <ul className="mt-4 space-y-2.5">
+              <li>
+                <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">
+                  OneBizPro Team: untuk bisnis dengan karyawan
+                </Link>
+              </li>
+              <li>
+                <Link href="/go" className="text-sm text-muted-foreground hover:text-foreground">
+                  OneBizPro Go: untuk usaha kecil dan one-person business
+                </Link>
+              </li>
+            </ul>
+            <p className="mt-8 text-sm font-semibold text-foreground">Kontak</p>
             <ul className="mt-4 space-y-2.5">
               <li>
                 <a

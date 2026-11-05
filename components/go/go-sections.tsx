@@ -266,7 +266,7 @@ export function GoFooter() {
         </div>
         <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-[#54667f]">
           <li><a className="hover:text-[#172d48]" href={GO.instagramUrl} target="_blank" rel="noopener noreferrer">Instagram {GO.instagramHandle}</a></li>
-          <li><Link className="hover:text-[#172d48]" href="/">OneBizPro.id</Link></li>
+          <li><Link className="hover:text-[#172d48]" href="/">OneBizPro Team: untuk bisnis dengan karyawan</Link></li>
           <li><Link className="hover:text-[#172d48]" href="/terms">Syarat</Link></li>
           <li><Link className="hover:text-[#172d48]" href="/privacy">Privasi</Link></li>
         </ul>

@@ -1,5 +1,5 @@
 ﻿// OneBizPro Go: satu sumber untuk semua angka, tautan, dan teks yang bisa berubah.
-// Tautan Lynk.id, aplikasi, Instagram, dan jumlah kredit diisi lewat environment variable (lihat docs/onebizpro-go-landingpage.md).
+// Harga, tautan Lynk.id, aplikasi, Instagram, dan jumlah kredit diisi lewat environment variable (lihat docs/onebizpro-go-landingpage.md).
 // Jangan menulis tautan atau angka karangan di sini: kalau belum diisi, halaman menampilkan keadaan "segera hadir", bukan tautan rusak.
 
 export const GO = {
@@ -7,6 +7,9 @@ export const GO = {
   product: "Go Content",
   tagline: "Bisnis Sendiri, Nggak Harus Ribet Sendiri.",
   siteUrl: "https://onebizpro.id/go",
+  // Harga disembunyikan sampai pemilik mengisinya (mis. "Rp69.000"). Kosong = tidak ada angka harga di halaman.
+  price: process.env.NEXT_PUBLIC_GO_PRICE ?? "",
+  period: "/bulan",
   lynkUrl: process.env.NEXT_PUBLIC_LYNK_GO_CONTENT_URL ?? "",
   appUrl: process.env.NEXT_PUBLIC_GO_APP_URL ?? "",
   instagramUrl: process.env.NEXT_PUBLIC_GO_INSTAGRAM_URL ?? "https://www.instagram.com/onebizpro.go/",
@@ -28,14 +31,24 @@ export const PRICING_FEATURES = [
   "Akses lewat HP maupun komputer",
 ] as const;
 
+const creditsText = GO.credits
+  ? `Akunmu mendapat ${GO.credits} kredit AI per bulan.`
+  : "Jumlah kredit per bulan diinformasikan saat berlangganan.";
+
+const priceText = GO.price
+  ? `Go Content ${GO.price}${GO.period} untuk akses satu bulan.`
+  : "Harga Go Content akan diumumkan bersama pembukaan akses di Lynk.id dan Instagram @onebizpro.go. Belum ada harga resmi yang berlaku sebelum itu.";
+
 export const FAQ = [
-  { q: "Apa itu OneBizPro Go?", a: "OneBizPro Go adalah teman kerja digital dari OneBizPro untuk individu dan usaha kecil. Produk pertamanya adalah Go Content. Modul lain belum tersedia." },
-  { q: "Apa itu Go Content?", a: "Go Content adalah AI Content Studio: alat untuk membuat konten promosi (Post, Carousel, Story, Reels, Highlight Cover) lebih praktis, tanpa harus mulai dari nol." },
-  { q: "Siapa yang cocok memakai Go Content?", a: "Online seller, creatorpreneur, freelancer, penyedia jasa, dan pemilik usaha kecil yang mengelola akun Instagram sendiri." },
-  { q: "Apakah bisa membuat Carousel?", a: "Bisa. Kamu memilih topik, AI menyusun slide-nya, lalu kamu menyunting teks dan memilih template." },
-  { q: "Apakah bisa membuat Reels?", a: "Bisa, dalam bentuk video teks bergerak yang diunduh sebagai MP4. Ini bukan video dari klip kamu sendiri. Video direkam di browser selama durasinya, jadi biarkan halaman tetap terbuka." },
-  { q: "Bagaimana cara berlangganan?", a: "Lewat produk Go Content di Lynk.id. Akses yang dibeli berlaku satu bulan, dan perpanjangan dilakukan dengan membeli lagi." },
-  { q: "Bagaimana mendapatkan akun dan kode aktivasi?", a: "Setelah pembayaran diverifikasi, kode aktivasi dikirim lewat WhatsApp atau email yang kamu pakai saat membeli. Kode itu dipakai sekali untuk membuat kata sandimu sendiri." },
-  { q: "Apakah bisa dipakai lewat HP?", a: "Bisa, aplikasinya dirancang untuk HP. Di komputer juga bisa. Fitur kirim lewat lembar bagikan bergantung pada HP dan versi Instagram kamu." },
-  { q: "Bagaimana sistem kredit AI?", a: "Satu naskah AI atau satu kali \"Buat ulang\" memakai 1 kredit. Kredit direset tiap bulan. Kalau kredit habis, contoh siap pakai tetap bisa dipakai gratis." },
+  { q: "Apa itu OneBizPro Go?", a: "OneBizPro Go adalah AI Assistant untuk one-person business: satu orang yang menjalankan bisnisnya sendiri. Go Content adalah asisten pertamanya. Kemampuan lain akan hadir bertahap dan belum tersedia sekarang." },
+  { q: "Apa itu Go Content?", a: "Go Content adalah AI Content Studio untuk membuat konten promosi Instagram: Post, Carousel, Story, Reels, dan Highlight Cover, dengan bantuan AI untuk naskah dan caption." },
+  { q: "Apakah Go Content sudah AI Agent yang bekerja otomatis?", a: "Belum. Go Content membantu menyusun naskah dan tampilan konten saat kamu memintanya. Kamu yang memutuskan, menyunting, dan mengunggah. Tidak ada posting otomatis ke Instagram." },
+  { q: "Siapa yang cocok memakainya?", a: "Online seller, creatorpreneur, freelancer, penyedia jasa, dan pemilik usaha kecil yang mengelola akun Instagram sendiri. Tim kecil juga boleh memakainya." },
+  { q: "Berapa harganya?", a: priceText },
+  { q: "Berapa lama masa akses?", a: "Akses berlaku satu bulan sejak pembelianmu diverifikasi. Perpanjangan dilakukan dengan membeli lagi. Belum ada perpanjangan otomatis." },
+  { q: "Bagaimana sistem kredit AI?", a: `Satu naskah AI atau satu kali "Buat ulang" memakai 1 kredit. Kredit dihitung per bulan. ${creditsText} Kalau kredit habis, contoh siap pakai tetap bisa dipakai tanpa kredit.` },
+  { q: "Bagaimana mendapatkan akun dan kode aktivasi?", a: "Beli lewat Lynk.id. Setelah pembayaran diverifikasi, kode aktivasi dikirim lewat WhatsApp atau email yang kamu pakai saat membeli. Di aplikasi, pilih Aktivasi akun, isi email dan kode itu, lalu buat kata sandimu sendiri. Kode hanya bisa dipakai sekali. Pengiriman kode dilakukan manual, jadi bisa butuh waktu." },
+  { q: "Bagaimana cara menggunakannya?", a: "Buka aplikasi di browser HP atau komputer, isi gaya akunmu sekali (nama, warna, nada bicara), pilih jenis konten, tulis topik, tekan Buat dengan AI, pilih template, periksa hasilnya, lalu unduh atau kirim lewat lembar bagikan HP." },
+  { q: "Apakah bisa membuat Reels?", a: "Bisa, dalam bentuk video teks bergerak yang diunduh sebagai MP4. Ini bukan video dari klip kamu sendiri. Video direkam di browser selama durasinya, jadi biarkan halaman tetap terbuka. Pengujian kami baru di Chrome desktop, jadi hasil di HP tertentu bisa berbeda." },
+  { q: "Apakah bisa dipakai lewat HP?", a: "Bisa, aplikasinya dirancang untuk HP dan juga jalan di komputer. Fitur kirim lewat lembar bagikan bergantung pada HP dan versi Instagram kamu." },
 ] as const;

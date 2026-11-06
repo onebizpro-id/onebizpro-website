@@ -19,7 +19,7 @@ export const GO = {
 } as const;
 
 export const STEPS = [
-  { n: 1, title: "Tulis topik atau produkmu", desc: "Pilih Post, Carousel, Story, Reels, atau Highlight Cover. Mau lebih tajam? Tambah masalah pembaca dan kata kunci DM." },
+  { n: 1, title: "Pilih ide atau tulis topikmu", desc: "Pilih Post, Carousel, Story, Reels, atau Highlight Cover, lalu pilih ide dari bank idemu atau ketik topik sendiri." },
   { n: 2, title: "AI menyusun, kamu yang menentukan", desc: "Naskah dan caption dibuat sesuai gaya akunmu. Pilih template, ubah teks, foto, atau urutan." },
   { n: 3, title: "Unduh, lalu kamu yang posting", desc: "Unduh PNG, ZIP, atau MP4, atau kirim lewat lembar bagikan HP. Kamu yang menekan unggah di Instagram." },
 ] as const;
@@ -27,7 +27,9 @@ export const STEPS = [
 export const PRICING_FEATURES = [
   "Instagram Post, Carousel, Story, Reels (MP4), dan Highlight Cover",
   "AI Script untuk naskah dan caption",
-  "Belasan template dan pengaturan gaya akun",
+  "Bank ide dan kalender rencana 7 hari",
+  "20 template berbeda, plus pilihan warna dan font",
+  "Pengaturan gaya akun supaya hasil AI sesuai gayamu",
   "Akses lewat HP maupun komputer",
 ] as const;
 
@@ -46,7 +48,7 @@ export const FAQ = [
   { q: "Siapa yang cocok memakainya?", a: "Online seller, creatorpreneur, freelancer, penyedia jasa, dan pemilik usaha kecil yang mengelola akun Instagram sendiri. Tim kecil juga boleh memakainya." },
   { q: "Berapa harganya?", a: priceText },
   { q: "Berapa lama masa akses?", a: "Akses berlaku satu bulan sejak pembelianmu diverifikasi. Perpanjangan dilakukan dengan membeli lagi. Belum ada perpanjangan otomatis." },
-  { q: "Bagaimana sistem kredit AI?", a: `Satu naskah AI atau satu kali "Buat ulang" memakai 1 kredit. Kredit dihitung per bulan. ${creditsText} Kalau kredit habis, contoh siap pakai tetap bisa dipakai tanpa kredit.` },
+  { q: "Bagaimana sistem kredit AI?", a: `Satu naskah AI atau satu kali "Buat ulang" memakai 1 kredit. Kredit dihitung per bulan. ${creditsText} Kalau kredit habis, kamu tetap bisa menulis sendiri dengan kerangka sesuai gaya yang dipilih, dan memakai ide yang sudah tersimpan di bank idemu.` },
   { q: "Bagaimana mendapatkan akun dan kode aktivasi?", a: "Beli lewat Lynk.id. Setelah pembayaran diverifikasi, kode aktivasi dikirim lewat WhatsApp atau email yang kamu pakai saat membeli. Di aplikasi, pilih Aktivasi akun, isi email dan kode itu, lalu buat kata sandimu sendiri. Kode hanya bisa dipakai sekali. Pengiriman kode dilakukan manual, jadi bisa butuh waktu." },
   { q: "Bagaimana cara menggunakannya?", a: "Buka aplikasi di browser HP atau komputer, isi gaya akunmu sekali (nama, warna, nada bicara), pilih jenis konten, tulis topik, tekan Buat dengan AI, pilih template, periksa hasilnya, lalu unduh atau kirim lewat lembar bagikan HP." },
   { q: "Apakah bisa membuat Reels?", a: "Bisa, dalam bentuk video teks bergerak yang diunduh sebagai MP4. Ini bukan video dari klip kamu sendiri. Video direkam di browser selama durasinya, jadi biarkan halaman tetap terbuka. Pengujian kami baru di Chrome desktop, jadi hasil di HP tertentu bisa berbeda." },

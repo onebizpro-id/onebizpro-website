@@ -178,7 +178,13 @@ export function GoPricing() {
     <section id="akses" className="go-section mx-auto max-w-6xl px-5 py-14">
       <SectionHead hand="mau coba?" title="Yang kamu dapat di Go Content." />
       <div className="go-card mx-auto mt-10 max-w-md bg-white p-7">
-        <p className="go-hand text-2xl text-[#2563eb]">Go Content</p>
+        <p className="go-hand text-2xl text-[#2563eb]">Go Content &middot; {GO.plan}</p>
+        {GO.price && GO.normalPrice && (
+          <p className="mt-2 flex items-center gap-2 text-[#4f607a]">
+            <span>Harga normal <s className="font-semibold">{GO.normalPrice}</s></span>
+            <span className="rounded-full bg-[#fff1a8] px-2.5 py-0.5 text-sm font-extrabold text-[#172d48]">Hemat 50%</span>
+          </p>
+        )}
         {GO.price && (
           <p className="mt-1 flex items-end gap-1">
             <span className="go-display text-5xl font-extrabold">{GO.price}</span>
@@ -195,7 +201,7 @@ export function GoPricing() {
           </li>
         </ul>
         <p className="mt-4 text-[15px] text-[#4f607a]">
-          {GO.price ? "Akses berlaku satu bulan sejak pembelian diverifikasi. Perpanjangan dengan membeli lagi." : "Harga dan tanggal pembukaan akan diumumkan di Instagram dan di halaman ini."}
+          {GO.price ? "Akses berlaku 30 hari sejak pembelian diverifikasi. Perpanjangan dengan membeli lagi." : "Harga dan tanggal pembukaan akan diumumkan di Instagram dan di halaman ini."}
         </p>
         {GO.lynkUrl ? (
           <PrimaryButton href={GO.lynkUrl} location="pricing" className="mt-6 w-full !h-14 !text-lg">Langganan Go Content</PrimaryButton>

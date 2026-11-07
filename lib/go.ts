@@ -7,15 +7,18 @@ export const GO = {
   product: "Go Content",
   tagline: "Bisnis Sendiri, Nggak Harus Ribet Sendiri.",
   siteUrl: "https://onebizpro.id/go",
-  // Harga disembunyikan sampai pemilik mengisinya (mis. "Rp69.000"). Kosong = tidak ada angka harga di halaman.
-  price: process.env.NEXT_PUBLIC_GO_PRICE ?? "",
-  period: "/bulan",
-  lynkUrl: process.env.NEXT_PUBLIC_LYNK_GO_CONTENT_URL ?? "",
+  // Paket Starter: harga spesial dan harga normal (dicoret). Harus sama dengan produk di Lynk.id. Env boleh menimpa.
+  price: process.env.NEXT_PUBLIC_GO_PRICE || "Rp59.000",
+  normalPrice: process.env.NEXT_PUBLIC_GO_NORMAL_PRICE ?? "Rp119.000",
+  period: "/30 hari",
+  plan: "Paket Starter",
+  // Alamat produk di Lynk.id; env boleh menimpa (mis. untuk uji).
+  lynkUrl: process.env.NEXT_PUBLIC_LYNK_GO_CONTENT_URL || "https://lynk.id/onebizprogo",
   appUrl: process.env.NEXT_PUBLIC_GO_APP_URL ?? "",
   instagramUrl: process.env.NEXT_PUBLIC_GO_INSTAGRAM_URL ?? "https://www.instagram.com/onebizpro.go/",
   instagramHandle: "@onebizpro.go",
   // Jumlah kredit AI per bulan sesuai yang ditetapkan administrator. Kosong = teks umum tanpa angka.
-  credits: process.env.NEXT_PUBLIC_GO_CREDITS ?? "",
+  credits: process.env.NEXT_PUBLIC_GO_CREDITS || "100",
 } as const;
 
 export const STEPS = [
@@ -38,7 +41,7 @@ const creditsText = GO.credits
   : "Jumlah kredit per bulan diinformasikan saat berlangganan.";
 
 const priceText = GO.price
-  ? `Go Content ${GO.price}${GO.period} untuk akses satu bulan.`
+  ? `Paket Starter Go Content ${GO.price}${GO.period}${GO.normalPrice ? ` (harga normal ${GO.normalPrice})` : ""}, untuk akses 30 hari.`
   : "Harga Go Content akan diumumkan bersama pembukaan akses di Lynk.id dan Instagram @onebizpro.go. Belum ada harga resmi yang berlaku sebelum itu.";
 
 export const FAQ = [
@@ -47,7 +50,7 @@ export const FAQ = [
   { q: "Apakah Go Content sudah AI Agent yang bekerja otomatis?", a: "Belum. Go Content membantu menyusun naskah dan tampilan konten saat kamu memintanya. Kamu yang memutuskan, menyunting, dan mengunggah. Tidak ada posting otomatis ke Instagram." },
   { q: "Siapa yang cocok memakainya?", a: "Online seller, creatorpreneur, freelancer, penyedia jasa, dan pemilik usaha kecil yang mengelola akun Instagram sendiri. Tim kecil juga boleh memakainya." },
   { q: "Berapa harganya?", a: priceText },
-  { q: "Berapa lama masa akses?", a: "Akses berlaku satu bulan sejak pembelianmu diverifikasi. Perpanjangan dilakukan dengan membeli lagi. Belum ada perpanjangan otomatis." },
+  { q: "Berapa lama masa akses?", a: "Akses berlaku 30 hari sejak pembelianmu diverifikasi. Perpanjangan dilakukan dengan membeli lagi. Belum ada perpanjangan otomatis." },
   { q: "Bagaimana sistem kredit AI?", a: `Satu naskah AI atau satu kali "Buat ulang" memakai 1 kredit. Kredit dihitung per bulan. ${creditsText} Kalau kredit habis, kamu tetap bisa menulis sendiri dengan kerangka sesuai gaya yang dipilih, dan memakai ide yang sudah tersimpan di bank idemu.` },
   { q: "Bagaimana mendapatkan akun dan kode aktivasi?", a: "Beli lewat Lynk.id. Setelah pembayaran diverifikasi, kode aktivasi dikirim lewat WhatsApp atau email yang kamu pakai saat membeli. Di aplikasi, pilih Aktivasi akun, isi email dan kode itu, lalu buat kata sandimu sendiri. Kode hanya bisa dipakai sekali. Pengiriman kode dilakukan manual, jadi bisa butuh waktu." },
   { q: "Bagaimana cara menggunakannya?", a: "Buka aplikasi di browser HP atau komputer, isi gaya akunmu sekali (nama, warna, nada bicara), pilih jenis konten, tulis topik, tekan Buat dengan AI, pilih template, periksa hasilnya, lalu unduh atau kirim lewat lembar bagikan HP." },

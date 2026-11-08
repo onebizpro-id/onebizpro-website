@@ -1,5 +1,5 @@
 ﻿import Link from "next/link";
-import { FAQ, GO, PRICING_FEATURES, STEPS } from "@/lib/go";
+import { FAQ, GO, GO_PAKET, MONEY_FEATURES, ORDER_FEATURES, PRICING_FEATURES, STEPS } from "@/lib/go";
 import { GoCta } from "./go-cta";
 import { GhostButton, LogoGo, Phone, Photo, PrimaryButton, SectionHead } from "./go-ui";
 
@@ -41,7 +41,7 @@ export function GoHero() {
           </h1>
           <p className="mt-5 text-xl font-bold">Bisnis sendiri, nggak harus ribet sendiri.</p>
           <p className="mt-3 max-w-lg text-lg text-[#4f607a]">
-            OneBizPro Go adalah AI Assistant untuk one-person business. Asisten pertamanya, <b className="text-[#172d48]">Go Content</b>, membantu kamu bikin konten jualan dari HP.
+            OneBizPro Go adalah AI Assistant untuk one-person business: <b className="text-[#172d48]">bikin konten, catat jualan, dan lihat cuan</b>, dari HP. Mulai dari <b className="text-[#172d48]">Go Content</b>, lalu naik ke <b className="text-[#172d48]">Go Order</b> dan <b className="text-[#172d48]">Go Money</b> saat bisnismu butuh.
           </p>
           <div className="mt-7 flex flex-wrap gap-4">
             <PrimaryButton href={buyHref} location="hero-primary" className="!h-14 !px-8 !text-lg">Coba Go Content</PrimaryButton>
@@ -64,15 +64,15 @@ export function GoHero() {
 
 const TOPI = [
   { t: "Bikin konten", c: "#fff1a8", r: -2, tag: "Tersedia sekarang", ada: true },
-  { t: "Balas chat pelanggan", c: "#d6e4ff", r: 1.5, tag: "Coming Soon", ada: false },
-  { t: "Catat keuangan", c: "#cfeee0", r: -1, tag: "Coming Soon", ada: false },
-  { t: "Follow-up calon pembeli", c: "#ffd9d2", r: 2, tag: "Coming Soon", ada: false },
+  { t: "Catat penjualan dan tagihan", c: "#d6e4ff", r: 1.5, tag: "Go Order · Segera", ada: false },
+  { t: "Catat pengeluaran, lihat cuan", c: "#cfeee0", r: -1, tag: "Go Money · Segera", ada: false },
+  { t: "Follow-up calon pembeli", c: "#ffd9d2", r: 2, tag: "Go Order · Segera", ada: false },
 ] as const;
 
 export function GoTopi() {
   return (
     <section id="topi" className="go-section mx-auto max-w-6xl px-5 py-14">
-      <SectionHead hand="mau punya bisnis sendiri?" title="Satu orang, banyak topi." sub="Pagi jadi admin, siang jadi desainer, malam jadi tukang posting. Go Content mengambil satu topi dulu." />
+      <SectionHead hand="mau punya bisnis sendiri?" title="Satu orang, banyak topi." sub="Pagi jadi admin, siang jadi desainer, malam jadi tukang posting. Go Content mengambil topi pertama, lalu Go Order dan Go Money menyusul." />
       <ul className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-4">
         {TOPI.map((n) => (
           <li
@@ -86,7 +86,7 @@ export function GoTopi() {
         ))}
       </ul>
       <p className="mx-auto mt-8 max-w-xl text-center text-base text-[#4f607a]">
-        <b className="text-[#172d48]">Go Content adalah asisten pertama OneBizPro Go.</b> Kemampuan lainnya direncanakan dan akan hadir bertahap. Kami kabari lewat Instagram {GO.instagramHandle}.
+        <b className="text-[#172d48]">Go Content adalah asisten pertama OneBizPro Go dan sudah bisa dipakai.</b> Go Order dan Go Money masih dalam pengujian dan akan dijual bertahap. Kami kabari lewat Instagram {GO.instagramHandle}.
       </p>
       <div className="go-card mx-auto mt-8 max-w-2xl bg-[#fff1a8] p-6">
         <p className="go-hand text-2xl text-[#2563eb]">Langkah pertama menuju Personal AI Business Assistant</p>
@@ -173,6 +173,59 @@ export function GoSteps() {
   );
 }
 
+export function GoModul() {
+  return (
+    <section id="modul" className="go-section mx-auto max-w-6xl px-5 py-14">
+      <SectionHead hand="setelah konten, lanjut jualan" title="Dari konten, ke jualan, ke cuan." sub="Dua asisten berikutnya terhubung dengan Go Content. Keduanya masih dalam pengujian dan belum dijual." />
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="go-card bg-[#d6e4ff] p-7">
+          <p className="go-hand text-2xl text-[#2563eb]">Go Order</p>
+          <p className="mt-1 text-lg font-bold">Catat jualan tanpa ribet.</p>
+          <ul className="mt-4 space-y-2.5 text-base">
+            {ORDER_FEATURES.map((f) => <li key={f} className="flex gap-2.5"><span className="font-extrabold text-[#2563eb]">&#10003;</span>{f}</li>)}
+          </ul>
+          <span className="go-stamp mt-5 inline-block text-[#4f607a]">Segera di Lynk.id</span>
+        </div>
+        <div className="go-card bg-[#cfeee0] p-7">
+          <p className="go-hand text-2xl text-[#0f8a6b]">Go Money</p>
+          <p className="mt-1 text-lg font-bold">Tahu untung atau rugi, dan kapan balik modal.</p>
+          <ul className="mt-4 space-y-2.5 text-base">
+            {MONEY_FEATURES.map((f) => <li key={f} className="flex gap-2.5"><span className="font-extrabold text-[#0f8a6b]">&#10003;</span>{f}</li>)}
+          </ul>
+          <p className="mt-4 text-[15px] text-[#4f607a]">Ini perkiraan dari catatanmu, bukan pembukuan resmi atau perhitungan pajak. Belum untuk stok barang atau banyak rekening.</p>
+          <span className="go-stamp mt-4 inline-block text-[#4f607a]">Segera di Lynk.id</span>
+        </div>
+      </div>
+      <p className="mx-auto mt-8 max-w-2xl text-center text-base text-[#4f607a]">
+        AI di Go Order dan Go Money hanya <b className="text-[#172d48]">membaca dan menjelaskan</b>. Chat, foto, dan struk baru dibaca setelah kamu setuju, hasilnya selalu kamu cek sebelum disimpan, dan uang baru dicatat masuk setelah kamu memastikan.
+      </p>
+    </section>
+  );
+}
+
+export function GoPaket() {
+  const tingkat = [
+    { n: "Go Content", d: "Bikin konten Instagram dengan AI", w: "#fff1a8", ada: true },
+    { n: GO_PAKET.order.name, d: "Plus catat prospek, penjualan, dan tagihan", w: "#d6e4ff", ada: false },
+    { n: GO_PAKET.money.name, d: "Plus catat pengeluaran dan lihat cuan", w: "#cfeee0", ada: false },
+  ];
+  return (
+    <section id="paket" className="go-section mx-auto max-w-5xl px-5 py-14">
+      <SectionHead hand="naik bertahap" title="Tiga paket, saling bertingkat." sub="Tiap tingkat sudah termasuk yang di bawahnya. Go Order dan Go Money tidak dijual terpisah." />
+      <ol className="mt-10 grid gap-5 md:grid-cols-3">
+        {tingkat.map((t, i) => (
+          <li key={t.n} className="go-card p-6" style={{ background: t.w }}>
+            <span className="go-hand flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#172d48] bg-white text-xl">{i + 1}</span>
+            <h3 className="mt-3 text-lg font-bold">{t.n}</h3>
+            <p className="mt-1 text-[#4f607a]">{t.d}</p>
+            <span className={`go-stamp mt-4 inline-block ${t.ada ? "text-[#2563eb]" : "text-[#4f607a]"}`}>{t.ada ? "Tersedia sekarang" : "Segera"}</span>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
 export function GoPricing() {
   return (
     <section id="akses" className="go-section mx-auto max-w-6xl px-5 py-14">
@@ -211,6 +264,18 @@ export function GoPricing() {
             <PrimaryButton href={GO.instagramUrl} location="pricing-ig" className="w-full !h-14 !text-lg">Tanya lewat DM Instagram</PrimaryButton>
           </div>
         )}
+      </div>
+      <div className="mx-auto mt-8 grid max-w-3xl gap-5 md:grid-cols-2">
+        {([[GO_PAKET.order, "#d6e4ff"], [GO_PAKET.money, "#cfeee0"]] as const).map(([p, warna]) => (
+          <div key={p.name} className="go-card p-6" style={{ background: warna }}>
+            <p className="go-hand text-xl">{p.name}</p>
+            {p.price && <p className="mt-2 go-display text-3xl font-extrabold">{p.price}<span className="pl-1 text-base font-normal text-[#4f607a]">{GO.period}</span></p>}
+            <p className="mt-2 text-[15px] text-[#4f607a]">Paket di atas Go Content, sudah termasuk Go Content. Masih dalam pengujian.</p>
+            {p.lynkUrl
+              ? <PrimaryButton href={p.lynkUrl} location={p.name === GO_PAKET.order.name ? "pricing-order" : "pricing-money"} className="mt-4 w-full !h-12">Langganan {p.name}</PrimaryButton>
+              : <span className="mt-4 flex h-12 w-full items-center justify-center rounded-xl border-2 border-dashed border-[#172d48] bg-white text-base font-bold">Segera di Lynk.id</span>}
+          </div>
+        ))}
       </div>
     </section>
   );

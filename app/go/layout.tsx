@@ -7,9 +7,9 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700", "800
 
 const caveat = Caveat({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-go-hand" });
 
-const TITLE = "OneBizPro Go: AI Assistant for One-Person Business | Go Content";
+const TITLE = "OneBizPro Go: AI Assistant for One-Person Business | Go Content, Go Order, Go Money";
 const DESC =
-  "One Person. One Business. One AI Team. Asisten pertama: Go Content, bikin Post, Carousel, Story, Reels, dan Highlight Cover dengan bantuan AI, dari HP.";
+  "One Person. One Business. One AI Team. Bikin konten dengan Go Content, lalu catat jualan (Go Order) dan lihat cuan (Go Money), semuanya dari HP.";
 
 export const metadata: Metadata = {
   title: TITLE,

@@ -177,13 +177,32 @@ export function GoModul() {
   return (
     <section id="modul" className="go-section mx-auto max-w-6xl px-5 py-14">
       <SectionHead hand="setelah konten, lanjut jualan" title="Dari konten, ke jualan, ke cuan." sub="Dua asisten berikutnya terhubung dengan Go Content. Keduanya masih dalam pengujian dan belum dijual." />
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
+      <ol className="mx-auto mt-10 grid max-w-3xl grid-cols-3 items-start gap-3 sm:gap-8">
+        {[
+          { n: "1", t: "Bikin konten", d: "Go Content", src: "/go/ui-tampil.jpg", w: 720, h: 1548, alt: "Layar Go Content: pratinjau Carousel dan pilihan template" },
+          { n: "2", t: "Catat jualan", d: "Go Order", src: "/go/app-order-beranda.jpg", w: 780, h: 1688, alt: "Layar Go Order: penjualan bulan ini dan menu catat penjualan, prospek, pelanggan, dan tagihan" },
+          { n: "3", t: "Lihat cuan", d: "Go Money", src: "/go/app-money-beranda.jpg", w: 780, h: 1688, alt: "Layar Go Money: cuan perkiraan bulan ini dan menu catat pengeluaran, foto struk, dan laporan" },
+        ].map((x) => (
+          <li key={x.n} className="text-center">
+            <Phone src={x.src} w={x.w} h={x.h} alt={x.alt} className="max-w-[220px]" />
+            <p className="go-hand mt-3 text-xl text-[#2563eb] sm:text-2xl">{x.n}. {x.t}</p>
+            <p className="text-sm font-bold sm:text-base">{x.d}</p>
+          </li>
+        ))}
+      </ol>
+      <p className="mx-auto mt-4 max-w-xl text-center text-sm text-[#4f607a]">Tangkapan layar asli aplikasi, memakai data contoh.</p>
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
         <div className="go-card bg-[#d6e4ff] p-7">
           <p className="go-hand text-2xl text-[#2563eb]">Go Order</p>
           <p className="mt-1 text-lg font-bold">Catat jualan tanpa ribet.</p>
           <ul className="mt-4 space-y-2.5 text-base">
             {ORDER_FEATURES.map((f) => <li key={f} className="flex gap-2.5"><span className="font-extrabold text-[#2563eb]">&#10003;</span>{f}</li>)}
           </ul>
+          <div className="mt-6 grid grid-cols-2 gap-4">
+            <Phone src="/go/app-order-penjualan.jpg" w={780} h={1688} alt="Daftar penjualan Go Order dengan status Lunas, Dibayar sebagian, dan Belum dibayar" />
+            <Phone src="/go/app-order-chat.jpg" w={780} h={1688} alt="Form prospek di Go Order yang terisi otomatis dari chat dan siap dicek" />
+          </div>
+          <p className="mt-3 text-[13px] text-[#4f607a]">Kiri: daftar penjualan dan tagihan. Kanan: data prospek diisi AI dari chat, kamu cek sebelum menyimpan.</p>
           <span className="go-stamp mt-5 inline-block text-[#4f607a]">Segera di Lynk.id</span>
         </div>
         <div className="go-card bg-[#cfeee0] p-7">
@@ -192,6 +211,11 @@ export function GoModul() {
           <ul className="mt-4 space-y-2.5 text-base">
             {MONEY_FEATURES.map((f) => <li key={f} className="flex gap-2.5"><span className="font-extrabold text-[#0f8a6b]">&#10003;</span>{f}</li>)}
           </ul>
+          <div className="mt-6 grid grid-cols-2 gap-4">
+            <Phone src="/go/app-money-laporan.jpg" w={780} h={1688} alt="Laporan Go Money: penjualan, HPP, biaya, dan cuan perkiraan bulan ini" />
+            <Phone src="/go/app-money-insight.jpg" w={780} h={1688} alt="Insight Go Money: ringkasan dan temuan AI dari laporan bulan ini" />
+          </div>
+          <p className="mt-3 text-[13px] text-[#4f607a]">Kiri: laporan cuan dan balik modal. Kanan: Insight AI menjelaskan laporanmu dengan bahasa sehari-hari.</p>
           <p className="mt-4 text-[15px] text-[#4f607a]">Ini perkiraan dari catatanmu, bukan pembukuan resmi atau perhitungan pajak. Belum untuk stok barang atau banyak rekening.</p>
           <span className="go-stamp mt-4 inline-block text-[#4f607a]">Segera di Lynk.id</span>
         </div>

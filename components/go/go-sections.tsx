@@ -63,16 +63,16 @@ export function GoHero() {
 }
 
 const TOPI = [
-  { t: "Bikin konten", c: "#fff1a8", r: -2, tag: "Tersedia sekarang", ada: true },
-  { t: "Catat penjualan dan tagihan", c: "#d6e4ff", r: 1.5, tag: "Go Order · Segera", ada: false },
-  { t: "Catat pengeluaran, lihat cuan", c: "#cfeee0", r: -1, tag: "Go Money · Segera", ada: false },
-  { t: "Follow-up calon pembeli", c: "#ffd9d2", r: 2, tag: "Go Order · Segera", ada: false },
+  { t: "Bikin konten", c: "#fff1a8", r: -2, tag: "Go Content", ada: true },
+  { t: "Catat penjualan dan tagihan", c: "#d6e4ff", r: 1.5, tag: "Go Order", ada: true },
+  { t: "Catat pengeluaran, lihat cuan", c: "#cfeee0", r: -1, tag: "Go Money", ada: true },
+  { t: "Follow-up calon pembeli", c: "#ffd9d2", r: 2, tag: "Go Order", ada: true },
 ] as const;
 
 export function GoTopi() {
   return (
     <section id="topi" className="go-section mx-auto max-w-6xl px-5 py-14">
-      <SectionHead hand="mau punya bisnis sendiri?" title="Satu orang, banyak topi." sub="Pagi jadi admin, siang jadi desainer, malam jadi tukang posting. Go Content mengambil topi pertama, lalu Go Order dan Go Money menyusul." />
+      <SectionHead hand="mau punya bisnis sendiri?" title="Satu orang, banyak topi." sub="Pagi jadi admin, siang jadi desainer, malam jadi tukang posting. Go Content, Go Order, dan Go Money mengambil topi-topi itu satu per satu." />
       <ul className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-4">
         {TOPI.map((n) => (
           <li
@@ -86,12 +86,12 @@ export function GoTopi() {
         ))}
       </ul>
       <p className="mx-auto mt-8 max-w-xl text-center text-base text-[#4f607a]">
-        <b className="text-[#172d48]">Go Content adalah asisten pertama OneBizPro Go dan sudah bisa dipakai.</b> Go Order dan Go Money masih dalam pengujian dan akan dijual bertahap. Kami kabari lewat Instagram {GO.instagramHandle}.
+        <b className="text-[#172d48]">Go Content, Go Order, dan Go Money sudah bisa dipakai.</b> Pilih paket yang sesuai: Go Content, Go Starter (plus Go Order), atau Go Complete (plus Go Money). Kabar terbaru ada di Instagram {GO.instagramHandle}.
       </p>
       <div className="go-card mx-auto mt-8 max-w-2xl bg-[#fff1a8] p-6">
         <p className="go-hand text-2xl text-[#2563eb]">Langkah pertama menuju Personal AI Business Assistant</p>
         <p className="mt-2 text-base">
-          Tujuan kami: asisten AI pribadi yang membantu satu orang menjalankan bisnisnya. Hari ini, Go Content membantu menyusun naskah dan membuat konten saat kamu memintanya. Kamu yang menentukan dan memposting. Belum ada AI Agent atau otomatisasi yang jalan sendiri.
+          Tujuan kami: asisten AI pribadi yang membantu satu orang menjalankan bisnisnya. Hari ini, OneBizPro Go membantu menyusun naskah, membuat konten, dan mencatat jualan serta pengeluaran saat kamu memintanya. Kamu yang menentukan dan memposting. Belum ada AI Agent atau otomatisasi yang jalan sendiri.
         </p>
       </div>
     </section>
@@ -176,7 +176,7 @@ export function GoSteps() {
 export function GoModul() {
   return (
     <section id="modul" className="go-section mx-auto max-w-6xl px-5 py-14">
-      <SectionHead hand="setelah konten, lanjut jualan" title="Dari konten, ke jualan, ke cuan." sub="Dua asisten berikutnya terhubung dengan Go Content. Keduanya masih dalam pengujian dan belum dijual." />
+      <SectionHead hand="setelah konten, lanjut jualan" title="Dari konten, ke jualan, ke cuan." sub="Go Order dan Go Money terhubung dengan Go Content, dan sudah ada di paket Go Starter dan Go Complete." />
       <ol className="mx-auto mt-10 grid max-w-3xl grid-cols-3 items-start gap-3 sm:gap-8">
         {[
           { n: "1", t: "Bikin konten", d: "Go Content", src: "/go/ui-tampil.jpg", w: 720, h: 1548, alt: "Layar Go Content: pratinjau Carousel dan pilihan template" },
@@ -203,7 +203,7 @@ export function GoModul() {
             <Phone src="/go/app-order-chat.jpg" w={780} h={1688} alt="Form prospek di Go Order yang terisi otomatis dari chat dan siap dicek" />
           </div>
           <p className="mt-3 text-[13px] text-[#4f607a]">Kiri: daftar penjualan dan tagihan. Kanan: data prospek diisi AI dari chat, kamu cek sebelum menyimpan.</p>
-          <span className="go-stamp mt-5 inline-block text-[#4f607a]">Segera di Lynk.id</span>
+          <span className="go-stamp mt-5 inline-block text-[#2563eb]">Ada di Go Starter dan Go Complete</span>
         </div>
         <div className="go-card bg-[#cfeee0] p-7">
           <p className="go-hand text-2xl text-[#0f8a6b]">Go Money</p>
@@ -217,7 +217,7 @@ export function GoModul() {
           </div>
           <p className="mt-3 text-[13px] text-[#4f607a]">Kiri: laporan cuan dan balik modal. Kanan: Insight AI menjelaskan laporanmu dengan bahasa sehari-hari.</p>
           <p className="mt-4 text-[15px] text-[#4f607a]">Ini perkiraan dari catatanmu, bukan pembukuan resmi atau perhitungan pajak. Belum untuk stok barang atau banyak rekening.</p>
-          <span className="go-stamp mt-4 inline-block text-[#4f607a]">Segera di Lynk.id</span>
+          <span className="go-stamp mt-4 inline-block text-[#0f8a6b]">Ada di Go Complete</span>
         </div>
       </div>
       <p className="mx-auto mt-8 max-w-2xl text-center text-base text-[#4f607a]">
@@ -229,20 +229,21 @@ export function GoModul() {
 
 export function GoPaket() {
   const tingkat = [
-    { n: "Go Content", d: "Bikin konten Instagram dengan AI", w: "#fff1a8", ada: true },
-    { n: GO_PAKET.order.name, d: "Plus catat prospek, penjualan, dan tagihan", w: "#d6e4ff", ada: false },
-    { n: GO_PAKET.money.name, d: "Plus catat pengeluaran dan lihat cuan", w: "#cfeee0", ada: false },
+    { p: GO_PAKET.content, d: "Bikin konten Instagram dengan AI", w: "#fff1a8" },
+    { p: GO_PAKET.starter, d: "Plus catat prospek, penjualan, dan tagihan", w: "#d6e4ff" },
+    { p: GO_PAKET.complete, d: "Plus catat pengeluaran dan lihat cuan", w: "#cfeee0" },
   ];
   return (
     <section id="paket" className="go-section mx-auto max-w-5xl px-5 py-14">
       <SectionHead hand="naik bertahap" title="Tiga paket, saling bertingkat." sub="Tiap tingkat sudah termasuk yang di bawahnya. Go Order dan Go Money tidak dijual terpisah." />
       <ol className="mt-10 grid gap-5 md:grid-cols-3">
         {tingkat.map((t, i) => (
-          <li key={t.n} className="go-card p-6" style={{ background: t.w }}>
+          <li key={t.p.name} className="go-card p-6" style={{ background: t.w }}>
             <span className="go-hand flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#172d48] bg-white text-xl">{i + 1}</span>
-            <h3 className="mt-3 text-lg font-bold">{t.n}</h3>
+            <h3 className="mt-3 text-lg font-bold">{t.p.name}</h3>
+            <p className="text-sm font-semibold text-[#4f607a]">{t.p.isi}</p>
             <p className="mt-1 text-[#4f607a]">{t.d}</p>
-            <span className={`go-stamp mt-4 inline-block ${t.ada ? "text-[#2563eb]" : "text-[#4f607a]"}`}>{t.ada ? "Tersedia sekarang" : "Segera"}</span>
+            <p className="mt-3 go-display text-2xl font-extrabold">{t.p.price}<span className="pl-1 text-sm font-normal text-[#4f607a]">{GO.period}</span></p>
           </li>
         ))}
       </ol>
@@ -251,56 +252,38 @@ export function GoPaket() {
 }
 
 export function GoPricing() {
+  const kartu = [
+    { p: GO_PAKET.content, w: "#ffffff", aksen: "#2563eb", fitur: [...PRICING_FEATURES], loc: "pricing-content" },
+    { p: GO_PAKET.starter, w: "#d6e4ff", aksen: "#2563eb", fitur: ["Semua isi Go Content", ...ORDER_FEATURES.slice(0, 4)], loc: "pricing-starter" },
+    { p: GO_PAKET.complete, w: "#cfeee0", aksen: "#0f8a6b", fitur: ["Semua isi Go Starter", ...MONEY_FEATURES.slice(0, 4)], loc: "pricing-complete" },
+  ];
   return (
     <section id="akses" className="go-section mx-auto max-w-6xl px-5 py-14">
-      <SectionHead hand="mau coba?" title="Yang kamu dapat di Go Content." />
-      <div className="go-card mx-auto mt-10 max-w-md bg-white p-7">
-        <p className="go-hand text-2xl text-[#2563eb]">Go Content &middot; {GO.plan}</p>
-        {GO.price && GO.normalPrice && (
-          <p className="mt-2 flex items-center gap-2 text-[#4f607a]">
-            <span>Harga normal <s className="font-semibold">{GO.normalPrice}</s></span>
-            <span className="rounded-full bg-[#fff1a8] px-2.5 py-0.5 text-sm font-extrabold text-[#172d48]">Hemat 50%</span>
-          </p>
-        )}
-        {GO.price && (
-          <p className="mt-1 flex items-end gap-1">
-            <span className="go-display text-5xl font-extrabold">{GO.price}</span>
-            <span className="pb-1.5 text-[#4f607a]">{GO.period}</span>
-          </p>
-        )}
-        <ul className="mt-5 space-y-3 text-base">
-          {PRICING_FEATURES.map((f) => (
-            <li key={f} className="flex gap-2.5"><span className="font-extrabold text-[#2563eb]">&#10003;</span>{f}</li>
-          ))}
-          <li className="flex gap-2.5">
-            <span className="font-extrabold text-[#2563eb]">&#10003;</span>
-            {GO.credits ? `${GO.credits} kredit AI per bulan` : "Kredit AI bulanan untuk naskah. Jumlahnya diinformasikan saat berlangganan."}
-          </li>
-        </ul>
-        <p className="mt-4 text-[15px] text-[#4f607a]">
-          {GO.price ? "Akses berlaku 30 hari sejak pembelian diverifikasi. Perpanjangan dengan membeli lagi." : "Harga dan tanggal pembukaan akan diumumkan di Instagram dan di halaman ini."}
-        </p>
-        {GO.lynkUrl ? (
-          <PrimaryButton href={GO.lynkUrl} location="pricing" className="mt-6 w-full !h-14 !text-lg">Langganan Go Content</PrimaryButton>
-        ) : (
-          <div className="mt-6 space-y-4">
-            <span className="flex h-12 w-full items-center justify-center rounded-xl border-2 border-dashed border-[#172d48] bg-[#fff1a8] text-base font-bold">Segera hadir di Lynk.id</span>
-            <PrimaryButton href={GO.instagramUrl} location="pricing-ig" className="w-full !h-14 !text-lg">Tanya lewat DM Instagram</PrimaryButton>
-          </div>
-        )}
-      </div>
-      <div className="mx-auto mt-8 grid max-w-3xl gap-5 md:grid-cols-2">
-        {([[GO_PAKET.order, "#d6e4ff"], [GO_PAKET.money, "#cfeee0"]] as const).map(([p, warna]) => (
-          <div key={p.name} className="go-card p-6" style={{ background: warna }}>
-            <p className="go-hand text-xl">{p.name}</p>
-            {p.price && <p className="mt-2 go-display text-3xl font-extrabold">{p.price}<span className="pl-1 text-base font-normal text-[#4f607a]">{GO.period}</span></p>}
-            <p className="mt-2 text-[15px] text-[#4f607a]">Paket di atas Go Content, sudah termasuk Go Content. Masih dalam pengujian.</p>
-            {p.lynkUrl
-              ? <PrimaryButton href={p.lynkUrl} location={p.name === GO_PAKET.order.name ? "pricing-order" : "pricing-money"} className="mt-4 w-full !h-12">Langganan {p.name}</PrimaryButton>
-              : <span className="mt-4 flex h-12 w-full items-center justify-center rounded-xl border-2 border-dashed border-[#172d48] bg-white text-base font-bold">Segera di Lynk.id</span>}
+      <SectionHead hand="mau coba?" title="Pilih paket yang pas untukmu." sub="Akses 30 hari. Tiap tingkat sudah termasuk yang di bawahnya." />
+      <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        {kartu.map((k) => (
+          <div key={k.p.name} className="go-card flex flex-col p-7" style={{ background: k.w }}>
+            <p className="go-hand text-2xl" style={{ color: k.aksen }}>{k.p.name}</p>
+            <p className="text-sm font-semibold text-[#4f607a]">{k.p.isi}</p>
+            <p className="mt-2 flex items-end gap-1">
+              <span className="go-display text-5xl font-extrabold">{k.p.price}</span>
+              <span className="whitespace-nowrap pb-1.5 text-[#4f607a]">{GO.period}</span>
+            </p>
+            <ul className="mt-5 space-y-3 text-base">
+              {k.fitur.map((f) => (
+                <li key={f} className="flex gap-2.5"><span className="font-extrabold" style={{ color: k.aksen }}>&#10003;</span>{f}</li>
+              ))}
+              <li className="flex gap-2.5"><span className="font-extrabold" style={{ color: k.aksen }}>&#10003;</span>{k.p.kredit}</li>
+            </ul>
+            <div className="mt-auto pt-6">
+              <PrimaryButton href={GO.lynkUrl} location={k.loc} className="w-full !h-14 !text-lg">Langganan {k.p.name}</PrimaryButton>
+            </div>
           </div>
         ))}
       </div>
+      <p className="mx-auto mt-6 max-w-2xl text-center text-[15px] text-[#4f607a]">
+        Akses berlaku 30 hari sejak pembelian diverifikasi. Perpanjangan dengan membeli lagi. Kode aktivasi dikirim setelah pembayaran diverifikasi.
+      </p>
     </section>
   );
 }

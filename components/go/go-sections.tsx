@@ -354,7 +354,7 @@ export function GoStickyCta() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-[#172d48] bg-[#fbf6ea]/95 p-3 backdrop-blur md:hidden">
       <GoCta href="#akses" location="sticky" className="go-btn flex h-12 w-full items-center justify-center !text-base">
-        Mulai {GO_PAKET.content.price}{" 00b7 "}Lihat paket
+        Mulai {GO_PAKET.content.price}{" · "}Lihat paket
       </GoCta>
     </div>
   );

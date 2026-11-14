@@ -19,9 +19,9 @@ export function GoNav() {
           <a href="#akses" className="hover:text-[#172d48]">Akses</a>
           <a href="#faq" className="hover:text-[#172d48]">FAQ</a>
         </nav>
-        <GoCta href={buyHref} location="nav" className="go-btn go-btn-sm shrink-0 whitespace-nowrap">
-          <span className="sm:hidden">Coba</span>
-          <span className="hidden sm:inline">Coba Go Content</span>
+        <GoCta href="#akses" location="nav" className="go-btn go-btn-sm shrink-0 whitespace-nowrap">
+          <span className="sm:hidden">Harga</span>
+          <span className="hidden sm:inline">Lihat paket dan harga</span>
         </GoCta>
       </div>
     </header>
@@ -39,15 +39,15 @@ export function GoHero() {
             One Business.<br />
             <span className="go-mark">One AI Team.</span>
           </h1>
-          <p className="mt-5 text-xl font-bold">Bisnis sendiri, nggak harus ribet sendiri.</p>
+          <p className="mt-5 text-xl font-bold">Bikin konten, catat jualan, lihat cuan. Semua dari HP.</p>
           <p className="mt-3 max-w-lg text-lg text-[#4f607a]">
-            OneBizPro Go adalah AI Assistant untuk one-person business: <b className="text-[#172d48]">bikin konten, catat jualan, dan lihat cuan</b>, dari HP. Mulai dari <b className="text-[#172d48]">Go Content</b>, lalu naik ke <b className="text-[#172d48]">Go Order</b> dan <b className="text-[#172d48]">Go Money</b> saat bisnismu butuh.
+            AI membantu menyusun, <b className="text-[#172d48]">kamu yang menentukan</b>. Mulai dari <b className="text-[#172d48]">{GO_PAKET.content.price}</b> untuk akses 30 hari.
           </p>
           <div className="mt-7 flex flex-wrap gap-4">
-            <PrimaryButton href={buyHref} location="hero-primary" className="!h-14 !px-8 !text-lg">Coba Go Content</PrimaryButton>
+            <PrimaryButton href="#akses" location="hero-primary" className="!h-14 !px-8 !text-lg">Lihat paket dan harga</PrimaryButton>
             <GhostButton href="#demo" location="hero-secondary" className="!h-14 !text-lg">Lihat hasilnya</GhostButton>
           </div>
-          <p className="mt-4 text-[15px] text-[#4f607a]">Dipakai langsung dari browser HP. Kode aktivasi dikirim setelah pembayaran diverifikasi.</p>
+          <p className="mt-4 text-[15px] text-[#4f607a]">Dipakai dari browser HP. Kode aktivasi dikirim setelah pembayaran diverifikasi.</p>
         </div>
 
         <div className="relative mx-auto h-[440px] w-full max-w-[420px] sm:h-[500px]">
@@ -293,12 +293,23 @@ export function GoFaq() {
     <section id="faq" className="go-section mx-auto max-w-3xl px-5 py-14">
       <SectionHead title="Pertanyaan yang sering muncul" />
       <div className="go-faq mt-8">
-        {FAQ.map((f) => (
+        {FAQ.slice(0, 6).map((f) => (
           <details key={f.q}>
             <summary>{f.q}</summary>
             <p>{f.a}</p>
           </details>
         ))}
+        <details>
+          <summary>Pertanyaan lainnya ({FAQ.length - 6})</summary>
+          <div className="mt-2 space-y-3">
+            {FAQ.slice(6).map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </details>
       </div>
     </section>
   );
@@ -321,7 +332,7 @@ export function GoFinalCta() {
 
 export function GoFooter() {
   return (
-    <footer className="border-t-2 border-[#172d48] bg-[#fbf6ea]">
+    <footer className="border-t-2 border-[#172d48] bg-[#fbf6ea] pb-20 md:pb-0">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-10 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <LogoGo />
@@ -335,5 +346,16 @@ export function GoFooter() {
         </ul>
       </div>
     </footer>
+  );
+}
+
+/** Bilah ajakan beli yang menempel di bawah layar HP. Hilang di layar lebar. */
+export function GoStickyCta() {
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-[#172d48] bg-[#fbf6ea]/95 p-3 backdrop-blur md:hidden">
+      <GoCta href="#akses" location="sticky" className="go-btn flex h-12 w-full items-center justify-center !text-base">
+        Mulai {GO_PAKET.content.price}{" 00b7 "}Lihat paket
+      </GoCta>
+    </div>
   );
 }

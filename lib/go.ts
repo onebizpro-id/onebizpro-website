@@ -7,25 +7,27 @@ export const GO = {
   product: "Go Content",
   tagline: "Bisnis Sendiri, Nggak Harus Ribet Sendiri.",
   siteUrl: "https://onebizpro.id/go",
-  // Paket Starter: harga spesial dan harga normal (dicoret). Harus sama dengan produk di Lynk.id. Env boleh menimpa.
-  price: process.env.NEXT_PUBLIC_GO_PRICE || "Rp59.000",
-  normalPrice: process.env.NEXT_PUBLIC_GO_NORMAL_PRICE ?? "Rp119.000",
+  // Harga dan nama paket HARUS sama dengan produk di Lynk.id (lynk.id/onebizprogo). Diisi langsung di sini supaya tidak tertimpa variabel lama.
+  price: "Rp59.000",
+  normalPrice: "",
   period: "/30 hari",
-  plan: "Paket Starter",
-  // Alamat produk di Lynk.id; env boleh menimpa (mis. untuk uji).
-  lynkUrl: process.env.NEXT_PUBLIC_LYNK_GO_CONTENT_URL || "https://lynk.id/onebizprogo",
+  plan: "Go Content",
+  // Alamat toko di Lynk.id (memuat ketiga produk).
+  lynkUrl: "https://lynk.id/onebizprogo",
   appUrl: process.env.NEXT_PUBLIC_GO_APP_URL ?? "",
   instagramUrl: process.env.NEXT_PUBLIC_GO_INSTAGRAM_URL ?? "https://www.instagram.com/onebizpro.go/",
   instagramHandle: "@onebizpro.go",
-  // Jumlah kredit AI per bulan sesuai yang ditetapkan administrator. Kosong = teks umum tanpa angka.
-  credits: process.env.NEXT_PUBLIC_GO_CREDITS || "100",
+  // Jumlah kredit AI Go Content per bulan; harus sama dengan kuota bawaan di aplikasi.
+  credits: "120",
 } as const;
 
-// Paket di atas Go Content. Saling bertingkat dan tidak dijual terpisah: Go Order butuh Go Content, Go Money butuh Go Order.
-// Tautan Lynk.id dan harga diisi lewat environment variable setelah produknya siap; kosong = kartu menampilkan "Segera di Lynk.id", tanpa tautan atau angka karangan.
+// Tiga paket di Lynk.id, saling bertingkat dan tidak dijual terpisah: Go Order butuh Go Content, Go Money butuh Go Order.
+// Nama dan harga harus sama dengan produk di lynk.id/onebizprogo.
+export const KREDIT = { content: 120, order: 50, money: 30 } as const;
 export const GO_PAKET = {
-  order: { name: "Go Content + Go Order", lynkUrl: process.env.NEXT_PUBLIC_LYNK_GO_ORDER_URL ?? "", price: process.env.NEXT_PUBLIC_GO_ORDER_PRICE ?? "" },
-  money: { name: "Go Content + Go Order + Go Money", lynkUrl: process.env.NEXT_PUBLIC_LYNK_GO_MONEY_URL ?? "", price: process.env.NEXT_PUBLIC_GO_MONEY_PRICE ?? "" },
+  content: { name: "Go Content", isi: "Go Content", price: "Rp59.000", kredit: `${KREDIT.content} kredit AI Go Content per bulan` },
+  starter: { name: "Go Starter", isi: "Go Content + Go Order", price: "Rp79.000", kredit: `${KREDIT.content} kredit Go Content dan ${KREDIT.order} kredit Go Order per bulan` },
+  complete: { name: "Go Complete", isi: "Go Content + Go Order + Go Money", price: "Rp89.000", kredit: `${KREDIT.content} kredit Go Content, ${KREDIT.order} Go Order, dan ${KREDIT.money} Go Money per bulan` },
 } as const;
 
 export const ORDER_FEATURES = [
@@ -41,7 +43,7 @@ export const MONEY_FEATURES = [
   "Catat pengeluaran rutin, operasional, dan sekali bayar, atau foto struknya",
   "Catat pemasukan di luar penjualan",
   "Cuan perkiraan bulan ini, balik modal, dan harga minimal supaya tidak rugi",
-  "HPP per produk dihitung otomatis dari biaya yang naik tiap ada yang beli",
+  "Isi modal per produk sekali, laporan menghitung HPP dan cuannya",
   "Insight AI yang menjelaskan laporanmu dengan bahasa sehari-hari",
   "Ekspor CSV untuk akuntan",
 ] as const;
@@ -61,22 +63,18 @@ export const PRICING_FEATURES = [
   "Akses lewat HP maupun komputer",
 ] as const;
 
-const creditsText = GO.credits
-  ? `Akunmu mendapat ${GO.credits} kredit AI per bulan.`
-  : "Jumlah kredit per bulan diinformasikan saat berlangganan.";
+const creditsText = `Go Content ${KREDIT.content} kredit per bulan, Go Order ${KREDIT.order}, dan Go Money ${KREDIT.money}, sesuai modul yang ada di paketmu.`;
 
-const priceText = GO.price
-  ? `Paket Starter Go Content ${GO.price}${GO.period}${GO.normalPrice ? ` (harga normal ${GO.normalPrice})` : ""}, untuk akses 30 hari.`
-  : "Harga Go Content akan diumumkan bersama pembukaan akses di Lynk.id dan Instagram @onebizpro.go. Belum ada harga resmi yang berlaku sebelum itu.";
+const priceText = `${GO_PAKET.content.name} ${GO_PAKET.content.price}, ${GO_PAKET.starter.name} (${GO_PAKET.starter.isi}) ${GO_PAKET.starter.price}, dan ${GO_PAKET.complete.name} (${GO_PAKET.complete.isi}) ${GO_PAKET.complete.price}. Masing-masing untuk akses 30 hari.`;
 
 export const FAQ = [
-  { q: "Apa itu OneBizPro Go?", a: "OneBizPro Go adalah AI Assistant untuk one-person business: satu orang yang menjalankan bisnisnya sendiri. Asisten pertamanya, Go Content, sudah bisa dipakai. Go Order (catat jualan) dan Go Money (catat pengeluaran dan lihat cuan) menyusul sebagai paket yang naik bertahap dan belum dijual sekarang." },
+  { q: "Apa itu OneBizPro Go?", a: "OneBizPro Go adalah AI Assistant untuk one-person business: satu orang yang menjalankan bisnisnya sendiri. Ada tiga modul: Go Content (bikin konten), Go Order (catat jualan), dan Go Money (catat pengeluaran dan lihat cuan). Semuanya sudah bisa dipakai lewat tiga paket: Go Content, Go Starter, dan Go Complete." },
   { q: "Apa itu Go Content?", a: "Go Content adalah AI Content Studio untuk membuat konten promosi Instagram: Post, Carousel, Story, Reels, dan Highlight Cover, dengan bantuan AI untuk naskah dan caption." },
   { q: "Apa itu Go Order dan Go Money?", a: "Go Order membantu mencatat prospek, pelanggan, penjualan, pembayaran, dan tagihan. Go Money membantu mencatat pengeluaran dan pemasukan, lalu menghitung cuan perkiraan, balik modal, dan harga minimal. Keduanya terhubung ke Go Content: kamu bisa melihat konten mana yang membawa penjualan." },
-  { q: "Apa bedanya ketiga paket?", a: "Paketnya bertingkat. Go Content: membuat konten. Go Content + Go Order: ditambah mencatat jualan. Go Content + Go Order + Go Money: ditambah mencatat pengeluaran dan melihat cuan. Tiap tingkat sudah termasuk yang di bawahnya." },
+  { q: "Apa bedanya ketiga paket?", a: "Paketnya bertingkat. Go Content (Rp59.000): membuat konten. Go Starter (Rp79.000): Go Content ditambah Go Order untuk mencatat jualan. Go Complete (Rp89.000): Go Starter ditambah Go Money untuk mencatat pengeluaran dan melihat cuan. Tiap tingkat sudah termasuk yang di bawahnya." },
   { q: "Bisakah membeli Go Order atau Go Money saja?", a: "Tidak. Paketnya saling bertingkat dan tidak berdiri sendiri: Go Order butuh Go Content, dan Go Money butuh Go Order. Penjualan di Go Order adalah dasar hitungan di Go Money, jadi keduanya tidak dijual terpisah." },
-  { q: "Kapan Go Order dan Go Money bisa dibeli?", a: "Keduanya masih dalam pengujian dan belum dijual. Kami sedang menyiapkan produknya di Lynk.id. Pengumumannya ada di halaman ini dan di Instagram " + GO.instagramHandle + "." },
-  { q: "Apakah kredit AI-nya terpisah?", a: "Ya. Tiap modul punya kredit AI sendiri per bulan, jadi memakai kredit Go Order atau Go Money tidak mengurangi kredit Go Content. Mengisi manual selalu gratis." },
+  { q: "Di mana membeli Go Order dan Go Money?", a: "Lewat Lynk.id: Go Starter sudah berisi Go Order, dan Go Complete berisi Go Order dan Go Money. Kabar terbaru ada di Instagram " + GO.instagramHandle + "." },
+  { q: "Apakah kredit AI-nya terpisah?", a: "Ya. Tiap modul punya kredit AI sendiri per bulan: Go Content 120, Go Order 50, dan Go Money 30. Memakai kredit Go Order atau Go Money tidak mengurangi kredit Go Content. Mengisi manual selalu gratis." },
   { q: "Apa yang dikirim ke AI, dan apakah disimpan?", a: "Hanya yang kamu minta dibaca: teks chat, foto bukti transfer atau struk, atau angka laporan untuk Insight. Kamu menyetujuinya sebelum dikirim. AI hanya membaca dan menjelaskan; ia tidak menyimpan atau mengirim apa pun, dan fotonya tidak disimpan oleh aplikasi. Hasilnya selalu kamu cek sebelum disimpan." },
   { q: "Apakah Go Money pembukuan resmi?", a: "Bukan. Go Money memberi perkiraan dari catatanmu: cuan, balik modal, dan harga minimal. Ia tidak untuk laporan pajak, stok barang, resep, utang ke pemasok, atau banyak rekening. Hasilnya bisa diekspor ke CSV untuk dikirim ke akuntan." },
   { q: "Apakah Go Content sudah AI Agent yang bekerja otomatis?", a: "Belum. Go Content membantu menyusun naskah dan tampilan konten saat kamu memintanya. Kamu yang memutuskan, menyunting, dan mengunggah. Tidak ada posting otomatis ke Instagram." },

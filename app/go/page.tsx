@@ -1,23 +1,22 @@
-import { GoDemo, GoFaq, GoFinalCta, GoFooter, GoHero, GoModul, GoNav, GoPaket, GoPricing, GoSteps, GoTopi } from "@/components/go/go-sections";
+import { GoDemo, GoFaq, GoFinalCta, GoFooter, GoHero, GoModul, GoNav, GoPricing, GoSteps, GoStickyCta } from "@/components/go/go-sections";
 
-// Landing page OneBizPro Go (Go Content dijual; Go Order dan Go Money berstatus "segera" sampai produk Lynk.id-nya siap). Konten dan tautan yang berubah ada di lib/go.ts.
-// Halaman website utama dan B2B tidak diubah. Dokumentasi: docs/onebizpro-go-landingpage.md (di repo Social).
+// Landing page OneBizPro Go versi ringkas: manfaat dan harga di layar pertama, detail di bawahnya.
+// Konten dan tautan yang berubah ada di lib/go.ts. Halaman website utama dan B2B tidak diubah.
 export default function GoPage() {
   return (
     <>
       <GoNav />
       <main>
         <GoHero />
-        <GoTopi />
-        <GoDemo />
-        <GoSteps />
-        <GoModul />
-        <GoPaket />
         <GoPricing />
+        <GoDemo />
+        <GoModul />
+        <GoSteps />
         <GoFaq />
         <GoFinalCta />
       </main>
       <GoFooter />
+      <GoStickyCta />
     </>
   );
 }

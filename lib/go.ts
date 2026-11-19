@@ -8,7 +8,7 @@ export const GO = {
   tagline: "Bisnis Sendiri, Nggak Harus Ribet Sendiri.",
   siteUrl: "https://onebizpro.id/go",
   // Harga dan nama paket HARUS sama dengan produk di Lynk.id (lynk.id/onebizprogo). Diisi langsung di sini supaya tidak tertimpa variabel lama.
-  price: "Rp59.000",
+  price: "Rp39.000",
   normalPrice: "",
   period: "/30 hari",
   plan: "Go Content",
@@ -25,9 +25,9 @@ export const GO = {
 // Nama dan harga harus sama dengan produk di lynk.id/onebizprogo.
 export const KREDIT = { content: 120, order: 50, money: 30 } as const;
 export const GO_PAKET = {
-  content: { name: "Go Content", isi: "Go Content", price: "Rp59.000", kredit: `${KREDIT.content} kredit AI Go Content per bulan` },
-  starter: { name: "Go Starter", isi: "Go Content + Go Order", price: "Rp79.000", kredit: `${KREDIT.content} kredit Go Content dan ${KREDIT.order} kredit Go Order per bulan` },
-  complete: { name: "Go Complete", isi: "Go Content + Go Order + Go Money", price: "Rp89.000", kredit: `${KREDIT.content} kredit Go Content, ${KREDIT.order} Go Order, dan ${KREDIT.money} Go Money per bulan` },
+  content: { name: "Go Content", isi: "Go Content", price: "Rp39.000", kredit: `${KREDIT.content} kredit AI Go Content per bulan` },
+  starter: { name: "Go Starter", isi: "Go Content + Go Order", price: "Rp49.000", kredit: `${KREDIT.content} kredit Go Content dan ${KREDIT.order} kredit Go Order per bulan` },
+  complete: { name: "Go Complete", isi: "Go Content + Go Order + Go Money", price: "Rp59.000", kredit: `${KREDIT.content} kredit Go Content, ${KREDIT.order} Go Order, dan ${KREDIT.money} Go Money per bulan` },
 } as const;
 
 export const ORDER_FEATURES = [
@@ -71,7 +71,7 @@ export const FAQ = [
   { q: "Apa itu OneBizPro Go?", a: "OneBizPro Go adalah AI Assistant untuk one-person business: satu orang yang menjalankan bisnisnya sendiri. Ada tiga modul: Go Content (bikin konten), Go Order (catat jualan), dan Go Money (catat pengeluaran dan lihat cuan). Semuanya sudah bisa dipakai lewat tiga paket: Go Content, Go Starter, dan Go Complete." },
   { q: "Apa itu Go Content?", a: "Go Content adalah AI Content Studio untuk membuat konten promosi Instagram: Post, Carousel, Story, Reels, dan Highlight Cover, dengan bantuan AI untuk naskah dan caption." },
   { q: "Apa itu Go Order dan Go Money?", a: "Go Order membantu mencatat prospek, pelanggan, penjualan, pembayaran, dan tagihan. Go Money membantu mencatat pengeluaran dan pemasukan, lalu menghitung cuan perkiraan, balik modal, dan harga minimal. Keduanya terhubung ke Go Content: kamu bisa melihat konten mana yang membawa penjualan." },
-  { q: "Apa bedanya ketiga paket?", a: "Paketnya bertingkat. Go Content (Rp59.000): membuat konten. Go Starter (Rp79.000): Go Content ditambah Go Order untuk mencatat jualan. Go Complete (Rp89.000): Go Starter ditambah Go Money untuk mencatat pengeluaran dan melihat cuan. Tiap tingkat sudah termasuk yang di bawahnya." },
+  { q: "Apa bedanya ketiga paket?", a: "Paketnya bertingkat. Go Content (Rp39.000): membuat konten. Go Starter (Rp49.000): Go Content ditambah Go Order untuk mencatat jualan. Go Complete (Rp59.000): Go Starter ditambah Go Money untuk mencatat pengeluaran dan melihat cuan. Tiap tingkat sudah termasuk yang di bawahnya." },
   { q: "Bisakah membeli Go Order atau Go Money saja?", a: "Tidak. Paketnya saling bertingkat dan tidak berdiri sendiri: Go Order butuh Go Content, dan Go Money butuh Go Order. Penjualan di Go Order adalah dasar hitungan di Go Money, jadi keduanya tidak dijual terpisah." },
   { q: "Di mana membeli Go Order dan Go Money?", a: "Lewat Lynk.id: Go Starter sudah berisi Go Order, dan Go Complete berisi Go Order dan Go Money. Kabar terbaru ada di Instagram " + GO.instagramHandle + "." },
   { q: "Apakah kredit AI-nya terpisah?", a: "Ya. Tiap modul punya kredit AI sendiri per bulan: Go Content 120, Go Order 50, dan Go Money 30. Memakai kredit Go Order atau Go Money tidak mengurangi kredit Go Content. Mengisi manual selalu gratis." },

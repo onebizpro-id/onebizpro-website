@@ -18,16 +18,17 @@ export const GO = {
   instagramUrl: process.env.NEXT_PUBLIC_GO_INSTAGRAM_URL ?? "https://www.instagram.com/onebizpro.go/",
   instagramHandle: "@onebizpro.go",
   // Jumlah kredit AI Go Content per bulan; harus sama dengan kuota bawaan di aplikasi.
-  credits: "120",
+  credits: "300",
 } as const;
 
 // Tiga paket di Lynk.id, saling bertingkat dan tidak dijual terpisah: Go Order butuh Go Content, Go Money butuh Go Order.
 // Nama dan harga harus sama dengan produk di lynk.id/onebizprogo.
-export const KREDIT = { content: 120, order: 50, money: 30 } as const;
+// Kredit AI per bulan = satu saldo gabungan sesuai paket (di aplikasi: jumlah kuota modul aktif, 300 + 100 + 100).
+export const KREDIT = { content: 300, starter: 400, complete: 500 } as const;
 export const GO_PAKET = {
-  content: { name: "Go Content", isi: "Go Content", price: "Rp39.000", kredit: `${KREDIT.content} kredit AI Go Content per bulan` },
-  starter: { name: "Go Starter", isi: "Go Content + Go Order", price: "Rp49.000", kredit: `${KREDIT.content} kredit Go Content dan ${KREDIT.order} kredit Go Order per bulan` },
-  complete: { name: "Go Complete", isi: "Go Content + Go Order + Go Money", price: "Rp59.000", kredit: `${KREDIT.content} kredit Go Content, ${KREDIT.order} Go Order, dan ${KREDIT.money} Go Money per bulan` },
+  content: { name: "Go Content", isi: "Go Content", price: "Rp39.000", kredit: `${KREDIT.content} kredit AI per bulan` },
+  starter: { name: "Go Starter", isi: "Go Content + Go Order", price: "Rp49.000", kredit: `${KREDIT.starter} kredit AI per bulan, dipakai bersama Go Content dan Go Order` },
+  complete: { name: "Go Complete", isi: "Go Content + Go Order + Go Money", price: "Rp59.000", kredit: `${KREDIT.complete} kredit AI per bulan, dipakai bersama Go Content, Go Order, dan Go Money` },
 } as const;
 
 export const ORDER_FEATURES = [
@@ -63,7 +64,7 @@ export const PRICING_FEATURES = [
   "Akses lewat HP maupun komputer",
 ] as const;
 
-const creditsText = `Go Content ${KREDIT.content} kredit per bulan, Go Order ${KREDIT.order}, dan Go Money ${KREDIT.money}, sesuai modul yang ada di paketmu.`;
+const creditsText = `${GO_PAKET.content.name} ${KREDIT.content} kredit per bulan, ${GO_PAKET.starter.name} ${KREDIT.starter}, dan ${GO_PAKET.complete.name} ${KREDIT.complete}. Di Go Starter dan Go Complete, satu saldo itu dipakai bersama semua modul di paketmu.`;
 
 const priceText = `${GO_PAKET.content.name} ${GO_PAKET.content.price}, ${GO_PAKET.starter.name} (${GO_PAKET.starter.isi}) ${GO_PAKET.starter.price}, dan ${GO_PAKET.complete.name} (${GO_PAKET.complete.isi}) ${GO_PAKET.complete.price}. Masing-masing untuk akses 30 hari.`;
 
@@ -74,7 +75,7 @@ export const FAQ = [
   { q: "Apa bedanya ketiga paket?", a: "Paketnya bertingkat. Go Content (Rp39.000): membuat konten. Go Starter (Rp49.000): Go Content ditambah Go Order untuk mencatat jualan. Go Complete (Rp59.000): Go Starter ditambah Go Money untuk mencatat pengeluaran dan melihat cuan. Tiap tingkat sudah termasuk yang di bawahnya." },
   { q: "Bisakah membeli Go Order atau Go Money saja?", a: "Tidak. Paketnya saling bertingkat dan tidak berdiri sendiri: Go Order butuh Go Content, dan Go Money butuh Go Order. Penjualan di Go Order adalah dasar hitungan di Go Money, jadi keduanya tidak dijual terpisah." },
   { q: "Di mana membeli Go Order dan Go Money?", a: "Lewat Lynk.id: Go Starter sudah berisi Go Order, dan Go Complete berisi Go Order dan Go Money. Kabar terbaru ada di Instagram " + GO.instagramHandle + "." },
-  { q: "Apakah kredit AI-nya terpisah?", a: "Ya. Tiap modul punya kredit AI sendiri per bulan: Go Content 120, Go Order 50, dan Go Money 30. Memakai kredit Go Order atau Go Money tidak mengurangi kredit Go Content. Mengisi manual selalu gratis." },
+  { q: "Apakah kredit AI-nya terpisah?", a: `Tidak. Kredit AI berupa satu saldo per bulan yang dipakai bersama semua modul di paketmu: ${GO_PAKET.content.name} ${KREDIT.content}, ${GO_PAKET.starter.name} ${KREDIT.starter}, dan ${GO_PAKET.complete.name} ${KREDIT.complete}. Mengisi manual selalu gratis.` },
   { q: "Apa yang dikirim ke AI, dan apakah disimpan?", a: "Hanya yang kamu minta dibaca: teks chat, foto bukti transfer atau struk, atau angka laporan untuk Insight. Kamu menyetujuinya sebelum dikirim. AI hanya membaca dan menjelaskan; ia tidak menyimpan atau mengirim apa pun, dan fotonya tidak disimpan oleh aplikasi. Hasilnya selalu kamu cek sebelum disimpan." },
   { q: "Apakah Go Money pembukuan resmi?", a: "Bukan. Go Money memberi perkiraan dari catatanmu: cuan, balik modal, dan harga minimal. Ia tidak untuk laporan pajak, stok barang, resep, utang ke pemasok, atau banyak rekening. Hasilnya bisa diekspor ke CSV untuk dikirim ke akuntan." },
   { q: "Apakah Go Content sudah AI Agent yang bekerja otomatis?", a: "Belum. Go Content membantu menyusun naskah dan tampilan konten saat kamu memintanya. Kamu yang memutuskan, menyunting, dan mengunggah. Tidak ada posting otomatis ke Instagram." },

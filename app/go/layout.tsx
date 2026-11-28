@@ -9,7 +9,7 @@ const caveat = Caveat({ subsets: ["latin"], weight: ["600", "700"], variable: "-
 
 const TITLE = "OneBizPro Go: AI Assistant for One-Person Business | Go Content, Go Order, Go Money";
 const DESC =
-  "One Person. One Business. One AI Team. Bikin konten dengan Go Content, lalu catat jualan (Go Order) dan lihat cuan (Go Money), semuanya dari HP.";
+  "One Person. One Business. One AI Team. Bikin konten untuk Instagram, TikTok, Status WA, Facebook, dan YouTube Shorts dengan Go Content, lalu catat jualan (Go Order) dan lihat cuan (Go Money), semuanya dari HP.";
 
 export const metadata: Metadata = {
   title: TITLE,

@@ -1,10 +1,10 @@
 ﻿import Link from "next/link";
-import { FAQ, GO, GO_PAKET, MONEY_FEATURES, ORDER_FEATURES, PRICING_FEATURES, STEPS } from "@/lib/go";
+import { FAQ, FORMATS, GO, GO_PAKET, MONEY_FEATURES, ORDER_FEATURES, PLATFORMS, PRICING_FEATURES, STEPS } from "@/lib/go";
 import { GoCta } from "./go-cta";
 import { GhostButton, LogoGo, Phone, Photo, PrimaryButton, SectionHead } from "./go-ui";
 
-/** Tujuan tombol beli: Lynk.id bila URL sudah diisi, selain itu menuju bagian akses. Harga sengaja tidak ditampilkan dulu. */
-const buyHref = GO.lynkUrl || "#akses";
+/** Tujuan tombol "Coba / Mulai Go Content": langsung ke halaman produk Go Content di Lynk.id. */
+const buyHref = GO_PAKET.content.url;
 
 export function GoNav() {
   return (
@@ -43,6 +43,10 @@ export function GoHero() {
           <p className="mt-3 max-w-lg text-lg text-[#4f607a]">
             AI membantu menyusun, <b className="text-[#172d48]">kamu yang menentukan</b>. Mulai dari <b className="text-[#172d48]">{GO_PAKET.content.price}</b> untuk akses 30 hari.
           </p>
+          <p className="mt-5 text-[15px] font-semibold">Kontenmu bisa dipakai di:</p>
+          <ul className="mt-2 flex max-w-lg flex-wrap gap-2">
+            {PLATFORMS.map((p) => <li key={p} className="rounded-full border-2 border-[#172d48] bg-white px-3 py-1 text-sm font-semibold">{p}</li>)}
+          </ul>
           <div className="mt-7 flex flex-wrap gap-4">
             <PrimaryButton href="#akses" location="hero-primary" className="!h-14 !px-8 !text-lg">Lihat paket dan harga</PrimaryButton>
             <GhostButton href="#demo" location="hero-secondary" className="!h-14 !text-lg">Lihat hasilnya</GhostButton>
@@ -101,15 +105,23 @@ export function GoTopi() {
 export function GoDemo() {
   return (
     <section id="demo" className="go-section mx-auto max-w-6xl px-5 py-14">
-      <SectionHead hand="hasil nyata, bukan mockup" title="Dibuat langsung dengan Go Content." sub="Post, Carousel, Story, Reels (MP4), dan Highlight Cover. Semua gambar di sini keluar dari aplikasinya." />
+      <SectionHead hand="hasil nyata, bukan mockup" title="Dibuat langsung dengan Go Content." sub="Bikin sekali, pakai di Instagram, TikTok, Status WA, Facebook, dan YouTube Shorts. Semua gambar di sini keluar dari aplikasinya." />
+      <ul className="mx-auto mt-8 grid max-w-4xl gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {FORMATS.map((f) => (
+          <li key={f.nama} className="go-card bg-white p-4">
+            <p className="font-bold">{f.nama}</p>
+            <p className="mt-1 text-[15px] text-[#4f607a]">{f.tujuan}</p>
+          </li>
+        ))}
+      </ul>
       <div className="mt-12 flex flex-wrap items-start justify-center gap-x-6 gap-y-10">
         <div className="w-[46%] max-w-[205px]" style={{ transform: "rotate(-2deg)" }}>
           <div className="go-phone">
             <div>
-              <video className="block h-auto w-full" src="/go/reels-demo.mp4" poster="/go/reels-poster.jpg" controls playsInline preload="none" aria-label="Demo Reels buatan Go Content" />
+              <video className="block h-auto w-full" src="/go/reels-demo.mp4" poster="/go/reels-poster.jpg" controls playsInline preload="none" aria-label="Demo video 9:16 buatan Go Content" />
             </div>
           </div>
-          <p className="go-hand mt-2 text-center text-2xl">Reels (MP4)</p>
+          <p className="go-hand mt-2 text-center text-2xl">Video 9:16 (MP4)</p>
         </div>
         <div className="w-[46%] max-w-[205px]">
           <Photo src="/go/post-1.jpg" w={1080} h={1350} alt="Contoh Instagram Post buatan Go Content" rotate={2} />
@@ -229,7 +241,7 @@ export function GoModul() {
 
 export function GoPaket() {
   const tingkat = [
-    { p: GO_PAKET.content, d: "Bikin konten Instagram dengan AI", w: "#fff1a8" },
+    { p: GO_PAKET.content, d: "Bikin konten media sosial dengan AI", w: "#fff1a8" },
     { p: GO_PAKET.starter, d: "Plus catat prospek, penjualan, dan tagihan", w: "#d6e4ff" },
     { p: GO_PAKET.complete, d: "Plus catat pengeluaran dan lihat cuan", w: "#cfeee0" },
   ];
@@ -276,7 +288,7 @@ export function GoPricing() {
               <li className="flex gap-2.5"><span className="font-extrabold" style={{ color: k.aksen }}>&#10003;</span>{k.p.kredit}</li>
             </ul>
             <div className="mt-auto pt-6">
-              <PrimaryButton href={GO.lynkUrl} location={k.loc} className="w-full !h-14 !text-lg">Langganan {k.p.name}</PrimaryButton>
+              <PrimaryButton href={k.p.url} location={k.loc} className="w-full !h-14 !text-lg">Langganan {k.p.name}</PrimaryButton>
             </div>
           </div>
         ))}

@@ -56,7 +56,7 @@ export function GoHero() {
 
         <div className="relative mx-auto h-[440px] w-full max-w-[420px] sm:h-[500px]">
           <Photo src="/go/carousel-2.jpg" w={1080} h={1350} alt="Contoh slide Carousel buatan Go Content" rotate={-5} className="absolute left-0 top-4 w-[56%]" />
-          <Photo src="/go/post-1.jpg" w={1080} h={1350} alt="Contoh Instagram Post buatan Go Content" rotate={4} className="absolute right-0 top-24 w-[54%]" />
+          <Photo src="/go/post-1.jpg" w={1080} h={1350} alt="Contoh gambar buatan Go Content" rotate={4} className="absolute right-0 top-24 w-[54%]" />
           <div className="go-note absolute bottom-2 left-3 w-[58%] bg-[#fff1a8]" style={{ transform: "rotate(-2deg)" }}>
             <p className="go-note-text">semua ini dibuat dari HP, sama satu orang.</p>
           </div>
@@ -110,6 +110,7 @@ export function GoDemo() {
         {FORMATS.map((f) => (
           <li key={f.nama} className="go-card bg-white p-4">
             <p className="font-bold">{f.nama}</p>
+            {"label" in f && <p className="mt-1 inline-block rounded-full bg-[#fdf2dc] px-2.5 py-0.5 text-xs font-extrabold text-[#7a4a00]">{f.label}</p>}
             <p className="mt-1 text-[15px] text-[#4f607a]">{f.tujuan}</p>
           </li>
         ))}
@@ -124,8 +125,8 @@ export function GoDemo() {
           <p className="go-hand mt-2 text-center text-2xl">Video 9:16 (MP4)</p>
         </div>
         <div className="w-[46%] max-w-[205px]">
-          <Photo src="/go/post-1.jpg" w={1080} h={1350} alt="Contoh Instagram Post buatan Go Content" rotate={2} />
-          <p className="go-hand mt-3 text-center text-2xl">Post</p>
+          <Photo src="/go/post-1.jpg" w={1080} h={1350} alt="Contoh gambar buatan Go Content" rotate={2} />
+          <p className="go-hand mt-3 text-center text-2xl">Gambar</p>
         </div>
         <div className="w-[46%] max-w-[205px]">
           <Photo src="/go/carousel-3.jpg" w={1080} h={1350} alt="Contoh slide Carousel buatan Go Content" rotate={-3} />

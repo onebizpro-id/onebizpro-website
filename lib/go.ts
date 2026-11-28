@@ -51,7 +51,7 @@ export const MONEY_FEATURES = [
 // Tujuan konten Go Content; harus sama dengan pilihan "Mau bikin apa?" di aplikasi. Unggahnya manual oleh pengguna.
 export const PLATFORMS = ["Instagram", "TikTok", "Status WA", "Facebook", "YouTube Shorts"] as const;
 export const FORMATS = [
-  { nama: "Video 9:16", tujuan: "Instagram Reels, TikTok, Status WA, Facebook, YouTube Shorts" },
+  { nama: "Video 9:16", tujuan: "Instagram Reels, TikTok, Status WA, Facebook, YouTube Shorts", label: "Paling serbaguna" },
   { nama: "Carousel", tujuan: "Instagram, TikTok (mode foto), Facebook" },
   { nama: "Gambar", tujuan: "Instagram, Status WA, Facebook" },
   { nama: "Story", tujuan: "Instagram, Status WA, Facebook" },
